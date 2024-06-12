@@ -1,0 +1,102 @@
+import { NgModule } from '@angular/core';
+import { ClientRateComponent } from './Components/client-rate/client-rate.component';
+import { DownloadAppComponent } from './Components/download-app/download-app.component';
+import { LabsDemoComponent } from './Components/labs-demo/labs-demo.component';
+import { LandingComponent } from './Components/landing/landing.component';
+import { ServicesComponent } from './Components/services/services.component';
+import { WorkComponent } from './Components/work/work.component';
+import { CartComponent } from './Views/cart/cart.component';
+import { ChangePasswordComponent } from './Views/change-password/change-password.component';
+import { ContactComponent } from './Views/contact/contact.component';
+import { AdminDashComponent } from './Views/Dashboards/admin-dash/admin-dash.component';
+import { DoctorDashComponent } from './Views/Dashboards/doctor-dash/doctor-dash.component';
+import { AppointmentsComponent } from './Views/Dashboards/lab-dash/appointments/appointments.component';
+import { FeedbackComponent } from './Views/Dashboards/lab-dash/feedback/feedback.component';
+import { LabDashComponent } from './Views/Dashboards/lab-dash/lab-dash.component';
+import { TestDialogComponent } from './Views/Dashboards/lab-dash/lab-tests/test-dialog/test-dialog.component';
+import { LabTestsComponent } from './Views/Dashboards/lab-dash/lab-tests/tests.component';
+import { NurseDialogComponent } from './Views/Dashboards/lab-dash/nurses/nurse-dialog/nurse-dialog.component';
+import { NursesComponent } from './Views/Dashboards/lab-dash/nurses/nurses.component';
+import { NurseDashComponent } from './Views/Dashboards/nurse-dash/nurse-dash.component';
+import { DoctorsComponent } from './Views/doctors/doctors.component';
+import { HomeComponent } from './Views/home/home.component';
+import { LabsComponent } from './Views/labs/labs.component';
+import { NotFoundComponent } from './Views/not-found/not-found.component';
+import { PharmacyComponent } from './Views/pharmacies/pharmacies.component';
+import { ProfileSittingComponent } from './Views/profile-sitting/profile-sitting.component';
+import { TestsComponent } from './Views/tests/tests.component';
+import { VerifyEmailComponent } from './Views/verify-email/verify-email.component';
+import { SignupComponent } from './Views/signup/signup.component';
+import { LoginComponent } from './Views/login/login.component';
+import { ResetPasswordComponent } from './Views/reset-password/reset-password.component';
+import { ForgetPasswordComponent } from './Views/forget-password/forget-password.component';
+import { SharedModule } from '../Shared/shared.module';
+import { TestDemoComponent } from './Components/test-demo/test-demo.component';
+import { CheckoutComponent } from './Views/checkout/checkout.component';
+import { TestDetailsComponent } from './Views/test-details/test-details.component';
+import { ManageDoctorsComponent } from './Views/Dashboards/admin-dash/manage-doctors/manage-doctors.component';
+import { ManageLabsComponent } from './Views/Dashboards/admin-dash/manage-labs/manage-labs.component';
+import { AddDoctorDialogComponent } from './Views/Dashboards/admin-dash/manage-doctors/add-doctor-dialog/add-doctor-dialog.component';
+import { EditDoctorDialogComponent } from './Views/Dashboards/admin-dash/manage-doctors/edit-doctor-dialog/edit-doctor-dialog.component';
+import { EditLabDialogComponent } from './Views/Dashboards/admin-dash/manage-labs/edit-lab-dialog/edit-lab-dialog.component';
+import { AddLabDialogComponent } from './Views/Dashboards/admin-dash/manage-labs/add-lab-dialog/add-lab-dialog.component';
+import { ManageMedicineComponent } from './Views/Dashboards/admin-dash/manage-medicine/manage-medicine.component';
+import { AddMedicineDialogComponent } from './Views/Dashboards/admin-dash/manage-medicine/add-medicine-dialog/add-medicine-dialog.component';
+import { EditMedicineDialogComponent } from './Views/Dashboards/admin-dash/manage-medicine/edit-medicine-dialog/edit-medicine-dialog.component';
+
+
+@NgModule({
+  declarations: [
+    ForgetPasswordComponent,
+    ResetPasswordComponent,
+    ClientRateComponent,
+    DownloadAppComponent,
+    LabsDemoComponent,
+    LandingComponent,
+    ServicesComponent,
+    WorkComponent,
+    HomeComponent,
+    LabsComponent,
+    PharmacyComponent,
+    ContactComponent,
+    CartComponent,
+    NotFoundComponent,
+    NurseDashComponent,
+    DoctorDashComponent,
+    LabDashComponent,
+    DoctorsComponent,
+    TestsComponent,
+    ChangePasswordComponent,
+    ProfileSittingComponent,
+    FeedbackComponent,
+    AppointmentsComponent,
+
+    NursesComponent,
+    NurseDialogComponent,
+
+    TestDialogComponent,
+    AdminDashComponent,
+    LabTestsComponent,
+    VerifyEmailComponent,
+    SignupComponent,
+    LoginComponent,
+    TestDemoComponent,
+    CheckoutComponent,
+    TestDetailsComponent,
+    ManageDoctorsComponent,
+    ManageLabsComponent,
+    AddDoctorDialogComponent,
+    EditDoctorDialogComponent,
+    EditLabDialogComponent,
+    AddLabDialogComponent,
+    ManageMedicineComponent,
+    AddMedicineDialogComponent,
+    EditMedicineDialogComponent
+  ],
+  imports: [SharedModule],
+  exports: [
+
+
+  ]
+})
+export class FeaturesModule { }

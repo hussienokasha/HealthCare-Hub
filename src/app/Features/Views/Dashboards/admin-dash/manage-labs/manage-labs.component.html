@@ -1,0 +1,46 @@
+<button class="btn btn-outline-primary  m-2 d-block ms-auto rounded-3" (click)="openAddLabDialog()"><i
+    class="bi bi-plus-lg"></i> Add Lab</button>
+<div class="container">
+  <div class="row g-2">
+    <h1 class="mb-4">Labs</h1>
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let lab of labs">
+      <div class="card curser-pointer">
+        <div class="card-body text-center">
+          <div class="d-flex align-items-center justify-content-between">
+            <img src="{{lab.pictureUrl}}" class=" img-fluid object-fit-cover rounded-pill" alt=""
+              style="width: 80px; height: 80px; ">
+            <div class="text-start">
+              <h2 class="card-title  m-0 text-start">{{lab.name}}</h2>
+              <p class="card-text m-0">{{lab.location}}</p>
+            </div>
+          </div>
+          <div class="d-flex align-items-center mt-3 gap-2">
+            <button class="btn btn-outline-success btn-sm d-block ms-auto" (click)="openEditLabDialog()"><i
+                class="bi bi-pencil-square"></i> Edit
+            </button>
+            <button class="btn btn-outline-danger btn-sm d-block " data-bs-toggle="modal"
+              data-bs-target="#deleteModal"><i class="bi bi-trash"></i> Remove
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Delete Modal -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <div class="modal-body text-center">
+              <p class="fs-4">Are you sure you want to delete this Doctor?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                (click)="removeLab(lab.id)">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

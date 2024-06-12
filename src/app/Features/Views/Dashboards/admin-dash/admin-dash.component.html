@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div class="container-fluid vh-100 bg-body-secondary">
+  <div class="row gx-4 vh-100">
+    <div class="side-bar col-2 bg-white p-2 vh-100">
+      <div class="d-flex flex-column justify-content-between vh-100 gap-3 align-items-center align-items-lg-start">
+        <a href="" class="d-flex align-items-center text-decoration-none text-dark">
+          <img src="assets/logo/logo.png" alt="" class="logo">
+          <p class="m-0 ps-2 fw-bolder fs-6 d-none d-lg-block">HealthCare</p>
+        </a>
+        <div class="controls flex-fill">
+          <div class=" d-flex flex-column gap-4 m-2">
+            <button type="button" class="btn  text-start" routerLink="manage-doctors"
+              routerLinkActive="btn-outline-primary rounded-pill">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-capsule fs-5"></i>
+                <p class="d-none d-lg-block m-0 ps-2">Manage Doctors</p>
+              </div>
+            </button>
+            <button type="button" class="btn  text-start" routerLink="manage-labs"
+              routerLinkActive="btn-outline-primary rounded-pill">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-heart-pulse fs-5"></i>
+                <p class="d-none d-lg-block m-0 ps-2 text-nowrap">Manage Labs</p>
+              </div>
+            </button>
+            <button type="button" class="btn  text-start" routerLink="manage-medicine"
+              routerLinkActive="btn-outline-primary rounded-pill">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-prescription fs-5"></i>
+                <p class="d-none d-lg-block m-0 ps-2 text-nowrap">Manage Medicine</p>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="profile d-flex justify-content-start align-items-center gap-2 border-top p-2">
+          <img src="assets/client/Ellipse 37.png" alt="" class="profile">
+          <div class="d-none d-lg-block">
+            <p class="text-black-50 m-0">Lab Admin</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

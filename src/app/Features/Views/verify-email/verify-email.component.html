@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row justify-content-center vh-100">
+    <div class="col-12 col-md-6 ps-0 img">
+    </div>
+    <div class="col-12 col-md-6 m-auto">
+      <form (ngSubmit)="onSubmitForm()" [formGroup]="verifyForfmGroup" class="mt-5 px-5">
+        <h1 class="text-center display-1">Verify your Email</h1>
+        <mat-form-field class="w-100">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="john@mark.com" formControlName="Email">
+        </mat-form-field>
+        <mat-form-field class="w-100 mt-3">
+          <mat-label>Enter the Verification Code</mat-label>
+          <input matInput formControlName="VerificationCode" required>
+          <mat-error *ngIf="verifyForfmGroup.controls['VerificationCode'].invalid">Enter the Verification Code</mat-error>
+        </mat-form-field>
+        <button type="submit" class="btn btn-primary rounded-pill px-5 py-2" [disabled]="verifyForfmGroup.invalid">Continue</button>
+      </form>
+    </div>
+  </div>
+</div>

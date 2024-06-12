@@ -1,0 +1,115 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row align-items-center g-2 bg-info-subtle rounded-4 p-2">
+    <div class="col-12 col-md-6">
+
+
+  <img [src]="(userObj?.pictureUrl?.endsWith('.jpg') || undefined ? userObj?.pictureUrl : 'assets/profile-picture.png')" alt="" class="rounded-circle img-fluid object-fit-cover" style="width: 200px; height:200px">
+
+
+    </div>
+    <div class="col-12 col-md-6">
+      <p class="display-5">{{ userObj?.displayName ?? 'Unknown User' }}</p>
+
+      <p><span class="fw-semibold">Height</span>: {{ userObj?.height || '0' }} CM</p>
+      <p><span class="fw-semibold">Weight</span>: {{ userObj?.weight || '0' }} KG</p>
+      <p><span class="fw-semibold">Blood Type</span>: {{ userObj?.bloodType ? userObj?.bloodType : 'not set' }}</p>
+      <p><span class="fw-semibold">Age</span>: 25</p>
+      <p><span class="fw-semibold">Gender</span>: {{ userObj?.gender || '' }}</p>
+      <p><span class="fw-semibold">Phone</span>: 01258497548</p>
+    </div>
+  </div>
+  <hr>
+  <h1 class="pt-4">Edit Your Info</h1>
+  <form (ngSubmit)="onSubmitProfile()" [formGroup]="profileForm">
+    <div class="row">
+      <div class="col-12 col-md-6 mb-3">
+        <mat-form-field class="w-100">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="john smith" formControlName="DisplayName">
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6 mb-3">
+        <mat-form-field class="w-100">
+          <mat-label>Blood Type</mat-label>
+          <mat-select formControlName="BloodType">
+            <mat-option></mat-option>
+            <mat-option value="A+">A+</mat-option>
+            <mat-option value="A-">A-</mat-option>
+            <mat-option value="AB+">AB+</mat-option>
+            <mat-option value="AB-">AB-</mat-option>
+            <mat-option value="O+">O+</mat-option>
+            <mat-option value="O-">O-</mat-option>
+            <mat-option value="B+">B+</mat-option>
+            <mat-option value="B-">B-</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6 mb-3">
+        <mat-form-field class="w-100">
+          <mat-label>Weight</mat-label>
+          <input matInput placeholder="80 Kgm" formControlName="Weight" type="number">
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6 mb-3">
+        <mat-form-field class="w-100">
+          <mat-label>Height</mat-label>
+          <input matInput placeholder="179 cm" formControlName="Height" type="number">
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6 mb-3">
+        <label for="img" class="bg-primary px-3 py-1 rounded-pill text-white cursor-pointer">
+          Upload image
+          <mat-icon class="pt-1">add_photo_alternate</mat-icon>
+          <input type="file" (change)="onFileChange($event)" id="img" hidden>
+        </label>
+      </div>
+      <div class="col-12 mb-3">
+        <img [src]="previewUrl" alt="" class="img-thumbnail w-25">
+      </div>
+      <div class="col-12 text-end">
+        <button class="btn btn-dark rounded-pill px-3" type="submit">Update</button>
+      </div>
+    </div>
+  </form>
+
+  <hr>
+  <h1 class="pt-4">Change Password</h1>
+  <form (ngSubmit)="changePassword()" [formGroup]="changePassForm" class="pb-5 mb-5">
+    <mat-form-field class="w-100 mt-3">
+      <mat-label>Current Password</mat-label>
+      <input matInput [type]="curhide ? 'password' : 'text'" formControlName="currentPassword">
+      <button mat-icon-button matSuffix (click)="curhide = !curhide" type="button">
+        <mat-icon>{{ curhide ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-error *ngIf="changePassForm.controls['currentPassword'].invalid">at least 8 character</mat-error>
+    </mat-form-field>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <mat-form-field class="w-100 mt-3">
+          <mat-label>New Password</mat-label>
+          <input matInput [type]="nhide ? 'password' : 'text'" formControlName="newPassword">
+          <button mat-icon-button matSuffix (click)="nhide = !nhide" type="button">
+            <mat-icon>{{ nhide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="changePassForm.controls['newPassword'].invalid">at least 8 character</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6">
+        <mat-form-field class="w-100 mt-3">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput [type]="conhide ? 'password' : 'text'" formControlName="confirmPassword">
+          <button mat-icon-button matSuffix (click)="conhide = !conhide" type="button">
+            <mat-icon>{{ conhide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="changePassForm.controls['confirmPassword'].invalid">at least 8 character</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="text-danger text-center"
+      *ngIf="changePassForm.errors?.['passwordMismatch'] && changePassForm.controls['confirmPassword'].dirty">
+      Passwords do not match.
+    </div>
+    <button class="d-block ms-auto rounded-pill px-3 btn btn-dark mb-5" type="submit">Change Password</button>
+  </form>
+</div>

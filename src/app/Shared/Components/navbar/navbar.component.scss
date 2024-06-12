@@ -1,0 +1,32 @@
+.logo {
+  width: 60px;
+}
+.nav-link {
+  font-size: 20px;
+  color: white;
+}
+.navbar-toggler {
+  border: none;
+  box-shadow: none;
+}
+.badge
+{
+  font-size: small;
+}
+.navbar
+{
+  top: 6px;
+}
+.navbar-nav li a{
+
+  margin: 1px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  
+}
+.navbar-nav li a:hover{
+  background-color: rgb(240, 57, 57);
+}

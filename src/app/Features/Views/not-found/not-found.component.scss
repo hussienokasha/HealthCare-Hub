@@ -1,0 +1,132 @@
+@mixin mobile {
+  $mobile-max-width: 320px;
+
+  @media (max-width: #{$mobile-max-width}) {
+    @content;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin-top: 17.22vh; //164px;
+
+  @include mobile {
+    margin-top: 64px;
+    text-align: center;
+  }
+
+  > .image-404 {
+    width: 318px;
+    margin-left: -20px;
+
+
+    @include mobile {
+      width: 216px;
+    }
+
+    .cls-1 {
+      fill: #3ba6cc;
+    }
+    .cls-2 {
+      fill: #3eb8eb;
+    }
+    .cls-3 {
+      fill: #c3d4d8;
+    }
+    .cls-4 {
+      fill: #e1ebef;
+    }
+    .cls-5 {
+      fill: #37b7ea;
+    }
+    .cls-6 {
+      fill: #a2b7bc;
+    }
+    .cls-7 {
+      fill: #a9a9a9;
+    }
+    .cls-8 {
+      fill: #9c9b9b;
+    }
+    .cls-9 {
+      fill: #f197be;
+    }
+    .cls-10 {
+      fill: #565656;
+    }
+    .cls-11 {
+      fill: #fff;
+    }
+    .cls-12 {
+      fill: #e9eff2;
+    }
+  }
+
+  > .not-found {
+    margin-top: 62px;
+    text-transform: uppercase;
+    color: #3eb8ea;
+    font-size: 66px;
+    font-family: HelveticaNeueW10-35Thin;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    // border: solid 1px red;
+
+    @include mobile {
+      font-size: 31px;
+    }
+  }
+
+  > .description {
+    margin-top: 19px;
+    font-family: HelveticaNeueW10-35Thin;
+    letter-spacing: 1px;
+    font-size: 20px;
+    line-height: 39px;
+    color: #184a56;
+
+    @include mobile {
+      text-align: left;
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+
+  > .button {
+    margin-top: 37px;
+    outline: none;
+    width: 198px;
+    height: 56px;
+    border: 0;
+    letter-spacing: 0.8px;
+    line-height: 53px;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 28px;
+    font-family: HelveticaNeueW10-35Thin;
+    cursor: pointer;
+    border: solid 2px #3eb8ea;
+    background-color: #fff;
+    color: #3eb8ea;
+    box-sizing: border-box;
+    transition-property: color, background-color;
+    transition-duration: .2s;
+
+    @include mobile {
+      width: 167px;
+      height: 44px;
+      border-radius: 22px;
+      line-height: 40px;
+      font-size: 16px;
+    }
+
+    &:hover {
+      background-color: #3eb8ea;
+      color: #fff;
+    }
+  }
+}

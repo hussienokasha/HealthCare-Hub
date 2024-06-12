@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div class="contact py-5">
+  <div class="container m-auto py-5 ">
+    <h1 class="text-center fs-1 text-white">Contact Us</h1>
+    <div class="p-5 bg-white contact-form m-auto position-relative rounded-3">
+      <div class="info bg-dark rounded-3 text-white p-3 position-absolute top-50 translate-middle start-0 z">
+        <h1>Contact Informatiom</h1>
+        <p><i class="bi bi-mailbox text-danger fs-5"></i> info&#64;health-hub.eg</p>
+        <p><i class="bi bi-map-fill text-danger fs-5"></i> BFCAI</p>
+        <p><i class="bi bi-phone text-danger fs-5"></i> 01258497548</p>
+        <div class="social d-flex gap-2 align-items-center">
+          <i class="bi bi-facebook text-danger"></i>
+          <i class="bi bi-instagram text-danger"></i>
+          <i class="bi bi-twitter-x text-danger"></i>
+        </div>
+      </div>
+      <h2 class="py-3">Send a Message</h2>
+      <div class="ms-auto w-100 d-flex justify-content-end">
+
+        <form class="row w-75" [formGroup]="formGroup" (ngSubmit)="submitForm()">
+          <mat-form-field class="col-12 col-lg-6">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="Ex. Ahmed" formControlName="fname">
+          </mat-form-field>
+          <mat-form-field class="col-12 col-lg-6">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Ex. Fahmy" formControlName="lname">
+          </mat-form-field>
+          <mat-form-field class="col-12 col-lg-6">
+            <mat-label>Subject</mat-label>
+            <input matInput placeholder="Enter Your Subject" formControlName="subject">
+          </mat-form-field>
+          <mat-form-field class="col-12 col-lg-6">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Ex. user@user.com" formControlName="email">
+          </mat-form-field>
+          <mat-form-field class="col-12">
+            <mat-label>Write Your Message Here</mat-label>
+            <textarea matInput placeholder="Message" formControlName="message"></textarea>
+          </mat-form-field>
+          <button mat-raised-button color="accent" class="col-3" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

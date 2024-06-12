@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row justify-content-center g-3">
+    <div *ngFor="let test of tests" class="col-12 col-md-4 col-lg-3">
+      <div class="d-flex align-items-center gap-4 bg-light p-4 rounded-3 flex-wrap shadow crd curser-pointer" [routerLink]="['/test',test.id]">
+        <img [src]="test.imageUrl" alt="" class="img-fluid rounded-3 object-fit-cover" style="height: 150px; width:100%">
+        <div class="content">
+          <p class="name fs-4">{{test.name}}</p>
+          <div class="contact-info flex-wrap d-flex gap-3">
+            <p class="phone text-black-50 text-nowrap"> <i class="bi bi-cash text-danger "></i> {{test.price}} EGP
+            </p>
+
+          </div>
+          <p class="location text-black-50">
+            <i class="bi bi-geo-alt-fill text-danger"></i>
+            {{test.lab?.name}}
+          </p>
+          <button (click)="addToCart(test); $event.stopPropagation()" class="btn btn-outline-primary mt-3 me-auto d-block rounded-pill"><i class="bi bi-cart"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

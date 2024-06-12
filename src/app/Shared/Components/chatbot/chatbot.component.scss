@@ -1,0 +1,30 @@
+.chat-icon {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.chat-icon:hover {
+  filter: brightness(50%);
+  -webkit-filter: brightness(50%);
+}
+.chat-box {
+  width: 340px;
+  height: 540px;
+  bottom: 80px;
+}
+input {
+  outline: none;
+}
+.send {
+  width: 50px;
+  height: 50px;
+}
+.modal-header img {
+  width: 55px;
+}
+#modalBody p {
+  width: fit-content;
+}

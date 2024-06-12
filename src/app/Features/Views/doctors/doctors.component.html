@@ -1,0 +1,313 @@
+<app-navbar></app-navbar>
+
+<!-- doctor header -->
+<section class="hero">
+  <div class="container">
+    <div class="content">
+      <div class="text">
+        <h1>Professional doctors to take care of your health</h1>
+        <p>What are you waiting for ? try it now</p>
+        <div class="buttons">
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#appointmentModal"
+          >
+            <i class="bi bi-journal-check"></i>
+            Take an appointment
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-secondary dropdown-toggle"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-camera-video-fill"></i>
+            Call with doctor
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Cardiologist</a></li>
+            <li><a class="dropdown-item" href="#">Dermatologist</a></li>
+            <li><a class="dropdown-item" href="#">Pediatrician</a></li>
+            <li><a class="dropdown-item" href="#">Dentistry (Teeth)</a></li>
+            <li><a class="dropdown-item" href="#">Brain & nerves</a></li>
+            <li><a class="dropdown-item" href="#">Bones</a></li>
+            <!-- <li><a class="dropdown-item" href="#">Pediatrician</a></li> -->
+            <!-- <li><a class="dropdown-item" href="#">Pediatrician</a></li>
+            <li><a class="dropdown-item" href="#">Pediatrician</a></li>
+            <li><a class="dropdown-item" href="#">Pediatrician</a></li> -->
+          </ul>
+        </div>
+      </div>
+      <div class="avatar">
+        <img src="../../../assets/images/doctor-avatar.png" alt="Avatar" />
+      </div>
+    </div>
+  </div>
+</section>
+<br />
+<br />
+<br />
+
+<!--Appointment Modal -->
+<div
+  class="modal fade"
+  id="appointmentModal"
+  tabindex="-1"
+  aria-labelledby="appointmentModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="appointmentModalLabel">Appointment Form</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <!-- speciality -->
+          <div class="mb-3">
+            <label for="speciality" class="form-label">Select Speciality</label>
+            <select class="form-select" id="speciality">
+              <option value="1">Cardiologist</option>
+              <option value="2">Dermatologist</option>
+              <option value="3">Pediatrician</option>
+              <option value="4">Dentistry (Teeth)</option>
+              <option value="5">Brain & nerves</option>
+              <option value="5">Bones</option>
+            </select>
+          </div>
+          <!-- city -->
+          <div class="mb-3">
+            <label for="city" class="form-label">Select City</label>
+            <select
+              class="form-select"
+              id="city"
+              data-bs-toggle="collapse"
+              data-bs-target="#areasContainer"
+            >
+              <option value="1">cairo</option>
+              <option value="2">Giza</option>
+              <option value="3">Alexandria</option>
+              <!-- <option value="4">Gharbia</option>
+              <option value="5">Menoufia</option>
+              <option value="6">Fayoum</option>
+              <option value="7">El-Sharqia</option>
+              <option value="8">El-Dakahlia</option>
+              <option value="9">El-Beheira</option>
+              <option value="10">El-Ismailia</option>
+              <option value="11">Assiut</option>
+              <option value="12">Sharm El Sheikh</option> -->
+            </select>
+          </div>
+          <!-- area -->
+          <div class="mb-3">
+            <label for="area" class="form-label">Select Area</label>
+            <select class="form-select" id="area">
+              <option value="1">Manhattan</option>
+              <option value="2">Brooklyn</option>
+              <option value="3">Queens</option>
+            </select>
+          </div>
+
+          <!-- submit -->
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal end -->
+<!--cards sec  -->
+<section class="container mt-5">
+  <h2 class="mb-4">Book an appointment according to the specialization..</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100">
+        <img
+          src="../../../assets/images/cardiologist.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h3 class="card-title">Cardiologist</h3>
+        </div>
+      </div>
+    </div>
+    <!-- card2 -->
+    <div class="col">
+      <div class="card h-100">
+        <img
+          src="../../../assets/images/pediatricians-950x556.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h3 class="card-title">Pediatrician</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- card3 -->
+    <div class="col">
+      <div class="card h-100">
+        <img
+          src="../../../assets/images/Dentist.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h3 class="card-title">Dentist</h3>
+        </div>
+      </div>
+    </div>
+    <!--card 4  -->
+
+    <div class="col">
+      <div class="card h-100">
+        <img
+          src="../../../assets/images/Dermatologist.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h3 class="card-title">Dermatologist</h3>
+        </div>
+      </div>
+    </div>
+    <!-- card 5 -->
+    <div class="col">
+      <div class="card h-100">
+        <img
+          src="../../../assets/images/Brain&nerves.jpeg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h3 class="card-title">Brain & Nerves</h3>
+        </div>
+      </div>
+    </div>
+    <!-- card 6 -->
+    <div class="col">
+      <div class="card h-100">
+        <img
+          src="../../../assets/images/bones.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h3 class="card-title">Bones</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br />
+<br />
+<br />
+
+<!-- ask -->
+
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header" style="background-color: #24242c; color: #fff">
+      Have a Medical Question?
+    </div>
+    <div class="card-body" style="background-color: #cedae0">
+      <p class="card-text">
+        Submit your medical question and receive the answer from an expert and
+        specialist doctor
+      </p>
+      <button
+        class="btn btn-danger"
+        id="askButton"
+        data-bs-toggle="modal"
+        data-bs-target="#questionModal"
+      >
+        Ask Now
+      </button>
+    </div>
+  </div>
+</div>
+
+<!--ask Modal -->
+<div
+  class="modal fade"
+  id="questionModal"
+  tabindex="-1"
+  aria-labelledby="questionModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="questionModalLabel">Ask a Question</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="speciality" class="form-label">Choose Speciality</label>
+            <select class="form-select" id="speciality">
+              <option selected>Choose...</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Dermatology">Dermatology</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="Brain & nerves">Brain & nerves</option>
+              <option value="Bones">Bones</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="gender" class="form-label">Select Your Gender</label>
+            <select class="form-select" id="gender">
+              <option selected>Choose...</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Enter Your Age</label>
+            <input
+              type="number"
+              class="form-control"
+              id="age"
+              placeholder="Enter your age"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="question" class="form-label">Your Question</label>
+            <textarea
+              class="form-control"
+              id="question"
+              rows="5"
+              placeholder="Enter your question"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Question</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+<br />
+<!--  -->
+
+<!-- footer -->
+<hr />
+<app-footer></app-footer>

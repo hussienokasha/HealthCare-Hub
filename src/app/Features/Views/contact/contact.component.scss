@@ -1,0 +1,15 @@
+.contact {
+  position: relative;
+  background-image: url("../../../../assets/contact-back.png"); /* Define multiple background images */
+  background-size: cover; /* Ensure both background images cover the entire element */
+  background-repeat: no-repeat; /* Prevent background images from repeating */
+  background-position: center, center; /* Center both background images */
+
+}
+
+
+.contact-form {
+
+  max-width: 650px;
+
+}

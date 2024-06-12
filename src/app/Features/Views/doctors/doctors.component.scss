@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+// header {
+//   background-color: #333; /* Change this to match your navbar background */
+//   color: #fff; /* Change this to match your navbar text color */
+//   padding: 10px 0;
+// }
+
+.hero {
+  background-color: #24242c;
+  color: #fff;
+  padding: 80px 0;
+  height: 500px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  flex: 1;
+  // margin-left: 100px;
+}
+
+.text h1 {
+  font-size: 2.5em;
+}
+
+.text p {
+  font-size: 1.2em;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.buttons button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  // background-color: #fff; /* Button background color */
+  // color: #333; /* Button text color */
+  // border: none;
+  // cursor: pointer;
+}
+
+.avatar img {
+  width: 300px; /* Adjust the size of the avatar as needed */
+  border-radius: 50%;
+}
+.avatar {
+  flex: 0.5; /* Take up remaining space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}

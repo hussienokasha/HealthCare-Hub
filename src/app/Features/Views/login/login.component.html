@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row justify-content-center vh-100">
+    <div class="col-12 col-md-6 ps-0 img">
+    </div>
+    <div class="col-12 col-md-6 m-auto">
+      <form (ngSubmit)="onSubmitForm()" [formGroup]="loginFormGroup" class="mt-5 px-5">
+        <h1 class="text-center ">Welcome To HealthCare Hub</h1>
+        <mat-form-field class="w-100">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="john@mark.com" formControlName="email" autofocus>
+          <mat-error *ngIf="loginFormGroup.controls['email'].invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 mt-3">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required >
+          <button mat-icon-button matSuffix (click)="hide = !hide" type="button">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginFormGroup.controls['password'].invalid">at least 8 character</mat-error>
+        </mat-form-field>
+        <p class="text-black-50">Did not have an account?<a routerLink="/signup">Register</a></p>
+        <p class="text-black-50">Forget Password?<a routerLink="/ForgetPassword">forget password</a></p>
+        <p class="text-black-50">Accout not active?<a routerLink="/verify">Verify</a></p>
+        <div class="d-flex justify-content-center align-items-center gap-4">
+
+          <button type="submit" class="btn btn-primary rounded-pill px-5 py-2" [disabled]="loginFormGroup.invalid">Login</button>
+          <button type="button" class="btn btn-outline-dark rounded-pill">
+            <img src="assets/icons8-google-48.png" alt="" style="width: 30px;">
+            Login with Google</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

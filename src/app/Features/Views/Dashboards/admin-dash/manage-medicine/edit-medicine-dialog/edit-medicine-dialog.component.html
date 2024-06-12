@@ -1,0 +1,56 @@
+<h1 mat-dialog-title>Add Medicine</h1>
+<div mat-dialog-content>
+  <form [formGroup]="editMedicineformGroup">
+    <div class="row p-2 align-items-center">
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Medicine Name</mat-label>
+          <input matInput placeholder="Insulin" formControlName="name">
+        </mat-form-field>
+      </div>
+
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Price</mat-label>
+          <input matInput placeholder="120" formControlName="price" type="number">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Expiry Date</mat-label>
+          <input matInput formControlName="expiryDate" [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Side Effects</mat-label>
+          <input matInput placeholder="user@gg.com" formControlName="sideEffects">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Ingredients</mat-label>
+          <input matInput placeholder="user@gg.com" formControlName="ingredients">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-sm btn-outline-primary d-block" (click)="img.click()"><i
+            class="bi bi-upload me-2"></i>Add Image</button>
+        <input type="file" (change)="onFileChange($event)" hidden formControlName="image" #img>
+        <img [src]="previewUrl" alt="" class="img-thumbnail w-50 m-2">
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions class="justify-content-end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onSubmitForm()" mat-dialog-close>Add</button>
+</div>

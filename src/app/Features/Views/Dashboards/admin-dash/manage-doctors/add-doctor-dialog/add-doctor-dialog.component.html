@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>Add Test</h1>
+<div mat-dialog-content>
+  <form [formGroup]="addDoctorformGroup">
+    <div class="row p-2 align-items-center">
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Doctor Name</mat-label>
+          <input matInput placeholder="Ahmed" formControlName="name">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>About</mat-label>
+          <input matInput placeholder="Description......" formControlName="about">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Fees</mat-label>
+          <input matInput placeholder="120" formControlName="fees" type="number">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="20" formControlName="phone" type="number">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Specialty</mat-label>
+          <input matInput placeholder="Ramedy" formControlName="specialty" >
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-sm btn-outline-primary d-block" (click)="img.click()"><i class="bi bi-upload me-2"></i>Add Image</button>
+        <input type="file" (change)="onFileChange($event)" hidden formControlName="image" #img>
+        <img [src]="previewUrl" alt="" class="img-thumbnail w-50 m-2">
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions class="justify-content-end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onSubmitForm()" [disabled]="addDoctorformGroup.invalid"
+    mat-dialog-close>Add</button>
+</div>

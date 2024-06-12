@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg bg-opacity-75 bg-dark fixed-top rounded-pill mx-1 p-0 z-2">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/home">
+      <img src="../../../assets/logo/logo.png" class="logo" alt="">
+
+    </a>
+    <button class="navbar-toggler order-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+      aria-controls="navbarNav=" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="offcanvas offcanvas-start w-100 bg-dark" id="offcanvas"  data-bs-backdrop="static">
+      <div class="offcanvas-header text-bg-info rounded-3">
+
+        <div class="d-flex flex-row align-items-center gap-3">
+          <img src="../../../assets/logo/logo.png" alt="" class="logo d-block ms-3">
+          <p class="fs-2 fw-bold m-0 text-wrap lh-base">Health-Care Hub</p>
+        </div>
+
+
+        <button type="button" class="btn-close ms-3 bg-light p-3 rounded-pill ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+      </div>
+
+      <div class="offcanvas-body m-auto">
+        <ul class="navbar-nav d-flex align-items-center">
+          <li class="nav-item">
+            <a class="nav-link rounded-pill px-3" routerLink="/home" routerLinkActive="  border-bottom border-danger">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded-pill px-3" routerLink='/labs' routerLinkActive=" border-bottom border-danger">Labs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded-pill px-3" routerLink="/pharmacy" routerLinkActive=" border-bottom border-danger">Pharmacy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded-pill px-3" routerLink="/doctors" routerLinkActive=" border-bottom border-danger">Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded-pill px-3" routerLink="/tests" routerLinkActive=" border-bottom border-danger">Tests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded-pill px-3 text-nowrap" routerLink="/contact" routerLinkActive=" border-bottom border-danger text-nowrap">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded-pill px-3" routerLink="/cart" routerLinkActive=" border-bottom border-danger">
+              <i class="bi bi-bag fs-2 fw-bold position-relative">
+                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" *ngIf="geCartItemsLength() != 0">{{geCartItemsLength()}}</span>
+              </i>
+            </a>
+          </li>
+          <div class="dropdown mx-4">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dashboard
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/dashboard/nurse">Nurse Dashboard</a></li>
+              <li><a class="dropdown-item" routerLink="/dashboard/admin-lab/appointment">Lab Admin Dashboard</a></li>
+              <li><a class="dropdown-item" routerLink="/dashboard/doctor">Doctor Dashboard</a></li>
+              <li><a class="dropdown-item" routerLink="/dashboard/admin/manage-doctors">Admin Dashboard</a></li>
+            </ul>
+          </div>
+
+        </ul>
+      </div>
+
+    </div>
+
+
+    <a class="nav-link ms-auto p-2">
+      <app-profile-avatar *ngIf="isRegister"></app-profile-avatar>
+    </a>
+    <a class="nav-link ms-auto p-2" routerLink="/login" routerLinkActive=" border-bottom border-danger" *ngIf="!isRegister">
+      Login
+      <i class="bi bi-box-arrow-in-right text-success"></i>
+    </a>
+  </div>
+</nav>

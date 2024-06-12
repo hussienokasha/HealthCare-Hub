@@ -1,0 +1,31 @@
+<div class="position-fixed end-0 bottom-0 m-4 bg bg-danger rounded-pill p-3 chat-icon" data-bs-toggle="modal"
+  data-bs-target="#Modal">
+  <i class="bi bi-chat-square-text fs-1 text-light d-block"></i>
+</div>
+
+<div class="modal fade" id="Modal" tabindex="-1" data-bs-backdrop="false">
+  <div class="modal-dialog position-fixed end-0 chat-box m-4">
+    <div class="modal-content h-100">
+      <div class="modal-header d-flex gap-3 p-2">
+        <img src="assets/chat-bot_12220455.png" alt="">
+        <h1 class="modal-title fs-3 m-0">AI Chat</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body overflow-y-scroll position-relative" id="modalBody">
+
+        <p class="rounded-3 text-bg-secondary px-2 py-1 ms-auto ">Hello in RASA Chat feel free to ask it</p>
+      </div>
+      <div class="modal-footer p-1 d-flex justify-content-between align-items-center">
+        <input type="text" class="rounded-pill border border-dark-subtle px-3 py-2 w-75" id="chatInput"
+          (keydown.enter)="sendMessage()">
+        <button type="button" (click)="sendMessage()" *ngIf="!isLoad"
+          class="btn btn-primary rounded-circle send d-flex justify-content-center align-items-center">
+          <i class="bi bi-send fs-3 pt-1"></i>
+        </button>
+        <div class="spinner-border ms-1 text-danger" role="status" *ngIf="isLoad">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
