@@ -20,7 +20,7 @@ export class EditLabDialogComponent {
       location: ['', [Validators.required]],
       phone: ['', [Validators.required,Validators.minLength(11)]],
       email: ['', [Validators.required,Validators.email]],
-      image: ['', [Validators.required]],
+      image: ['',],
     })
   }
   onFileChange(event: any) {

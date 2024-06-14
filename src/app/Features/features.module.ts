@@ -13,7 +13,7 @@ import { DoctorDashComponent } from './Views/Dashboards/doctor-dash/doctor-dash.
 import { AppointmentsComponent } from './Views/Dashboards/lab-dash/appointments/appointments.component';
 import { FeedbackComponent } from './Views/Dashboards/lab-dash/feedback/feedback.component';
 import { LabDashComponent } from './Views/Dashboards/lab-dash/lab-dash.component';
-import { TestDialogComponent } from './Views/Dashboards/lab-dash/lab-tests/test-dialog/test-dialog.component';
+import { TestDialogComponent } from './Views/Dashboards/lab-dash/lab-tests/add-test-dialog/test-dialog.component';
 import { LabTestsComponent } from './Views/Dashboards/lab-dash/lab-tests/tests.component';
 import { NurseDialogComponent } from './Views/Dashboards/lab-dash/nurses/nurse-dialog/nurse-dialog.component';
 import { NursesComponent } from './Views/Dashboards/lab-dash/nurses/nurses.component';
@@ -43,6 +43,7 @@ import { AddLabDialogComponent } from './Views/Dashboards/admin-dash/manage-labs
 import { ManageMedicineComponent } from './Views/Dashboards/admin-dash/manage-medicine/manage-medicine.component';
 import { AddMedicineDialogComponent } from './Views/Dashboards/admin-dash/manage-medicine/add-medicine-dialog/add-medicine-dialog.component';
 import { EditMedicineDialogComponent } from './Views/Dashboards/admin-dash/manage-medicine/edit-medicine-dialog/edit-medicine-dialog.component';
+import { EditTestDialogComponent } from './Views/Dashboards/lab-dash/lab-tests/edit-test-dialog/edit-test-dialog.component';
 
 
 @NgModule({
@@ -91,7 +92,8 @@ import { EditMedicineDialogComponent } from './Views/Dashboards/admin-dash/manag
     AddLabDialogComponent,
     ManageMedicineComponent,
     AddMedicineDialogComponent,
-    EditMedicineDialogComponent
+    EditMedicineDialogComponent,
+    EditTestDialogComponent
   ],
   imports: [SharedModule],
   exports: [

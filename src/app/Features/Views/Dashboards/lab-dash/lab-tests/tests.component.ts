@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { TestDialogComponent } from './test-dialog/test-dialog.component';
+import { TestDialogComponent } from './add-test-dialog/test-dialog.component';
 import { Test } from 'src/app/Core/Models/test';
 import { TestService } from 'src/app/Core/Services/test.service';
 

@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Add Test</h1>
+<div mat-dialog-content>
+  <form [formGroup]="testformGroup" >
+    <div class="row p-2">
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Test Name</mat-label>
+          <input matInput placeholder="CPC" formControlName="Name">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Description</mat-label>
+          <input matInput placeholder="Description......" formControlName="Description">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Price</mat-label>
+          <input matInput placeholder="20" formControlName="Price" type="number">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>id</mat-label>
+          <input matInput placeholder="20" formControlName="LabId" type="number">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <label for="img" class="bg-primary px-3 py-1 mt-2 rounded-pill text-white">
+          Upload image
+          <mat-icon class="pt-1">add_photo_alternate</mat-icon>
+          <input type="file" (change)="onFileChange($event)"  id="img" hidden>
+        </label>
+        <img [src]="previewUrl" alt="" class="img-thumbnail w-50 m-2">
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions class="justify-content-end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button cdkFocusInitial (click)="onSubmitForm()" [disabled]="testformGroup.invalid" mat-dialog-close>Add</button>
+</div>
