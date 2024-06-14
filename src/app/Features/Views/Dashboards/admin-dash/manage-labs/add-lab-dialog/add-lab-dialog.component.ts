@@ -12,7 +12,7 @@ export class AddLabDialogComponent {
   addLabformGroup!: FormGroup;
   selectedFile!: File;
   previewUrl: string | ArrayBuffer | null = null;
-  @Output() labUpdated = new EventEmitter<void>();
+  @Output() labAdded = new EventEmitter<void>();
   constructor(private fb: FormBuilder, private lab: LabService, private toast:ToastrService) { }
   ngOnInit() {
     this.addLabformGroup = this.fb.group({
@@ -46,7 +46,7 @@ export class AddLabDialogComponent {
     this.lab.addLab(formData).subscribe({
       next:(d)=>{
         this.toast.success('Lab Added Successfully');
-        this.labUpdated.emit();
+        this.labAdded.emit();
         console.log(d)
       },error:(e)=>{
         console.log(e)

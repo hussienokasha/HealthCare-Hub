@@ -38,6 +38,7 @@ export class ManageDoctorsComponent {
     this.doctor.deleteDoctor(doctorId).subscribe({
       next: (e) => {
         this.getAllDoctors();
+        
       }
     })
   }

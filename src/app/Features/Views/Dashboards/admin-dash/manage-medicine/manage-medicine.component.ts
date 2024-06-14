@@ -32,6 +32,7 @@ ngOnInit(){
         dialogRef.close();
       }
     })
+    
 
   }
   removeMedicine(medicineID: number) {

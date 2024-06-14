@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Lab } from 'src/app/Core/Models/lab';
 import { LabService } from 'src/app/Core/Services/lab.service';
 import { AddLabDialogComponent } from './add-lab-dialog/add-lab-dialog.component';
+import { EditLabDialogComponent } from './edit-lab-dialog/edit-lab-dialog.component';
 
 @Component({
   selector: 'app-manage-labs',
@@ -13,7 +14,7 @@ import { AddLabDialogComponent } from './add-lab-dialog/add-lab-dialog.component
 export class ManageLabsComponent {
 
   labs!:Lab[];
-  constructor(private lab:LabService,private toast:ToastrService,private addLabDialog:MatDialog){}
+  constructor(private lab:LabService,private toast:ToastrService,private addLabDialog:MatDialog,private editLabDialog:MatDialog){}
   ngOnInit(){
     this.getAllLabs();
   }
@@ -33,9 +34,24 @@ export class ManageLabsComponent {
     })
   }
   openEditLabDialog() {
+    const dialogRef=  this.editLabDialog.open(EditLabDialogComponent);
+    dialogRef.componentInstance.labUpdated.subscribe({
+      next:()=>{
+        this.getAllLabs();
+        dialogRef.close();
+      }
+    })
+
 
   }
   openAddLabDialog() {
-    const dialogRef = this.addLabDialog.open(AddLabDialogComponent)
+    const dialogRef = this.addLabDialog.open(AddLabDialogComponent);
+    dialogRef.componentInstance.labAdded.subscribe({
+      next:()=>{
+        this.getAllLabs();
+        this.toast.success('Lab added succesfully')
+        dialogRef.close();
+      }
+    })
   }
 }

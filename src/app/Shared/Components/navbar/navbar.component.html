@@ -25,25 +25,25 @@
       <div class="offcanvas-body m-auto">
         <ul class="navbar-nav d-flex align-items-center">
           <li class="nav-item">
-            <a class="nav-link rounded-pill px-3" routerLink="/home" routerLinkActive="  border-bottom border-danger">Home</a>
+            <a class="nav-link rounded-pill px-3" routerLink="/home" routerLinkActive="bg-white text-dark">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link rounded-pill px-3" routerLink='/labs' routerLinkActive=" border-bottom border-danger">Labs</a>
+            <a class="nav-link rounded-pill px-3" routerLink='/labs' routerLinkActive=" bg-white text-dark">Labs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link rounded-pill px-3" routerLink="/pharmacy" routerLinkActive=" border-bottom border-danger">Pharmacy</a>
+            <a class="nav-link rounded-pill px-3" routerLink="/pharmacy" routerLinkActive=" bg-white text-dark">Pharmacy</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link rounded-pill px-3" routerLink="/doctors" routerLinkActive=" border-bottom border-danger">Doctors</a>
+            <a class="nav-link rounded-pill px-3" routerLink="/doctors" routerLinkActive=" bg-white text-dark">Doctors</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link rounded-pill px-3" routerLink="/tests" routerLinkActive=" border-bottom border-danger">Tests</a>
+            <a class="nav-link rounded-pill px-3" routerLink="/tests" routerLinkActive=" bg-white text-dark">Tests</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link rounded-pill px-3 text-nowrap" routerLink="/contact" routerLinkActive=" border-bottom border-danger text-nowrap">Contact Us</a>
+            <a class="nav-link rounded-pill px-3 text-nowrap" routerLink="/contact" routerLinkActive=" bg-white text-dark text-nowrap">Contact Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link rounded-pill px-3" routerLink="/cart" routerLinkActive=" border-bottom border-danger">
+            <a class="nav-link rounded-pill px-3" routerLink="/cart" routerLinkActive=" bg-white text-dark">
               <i class="bi bi-bag fs-2 fw-bold position-relative">
                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" *ngIf="geCartItemsLength() != 0">{{geCartItemsLength()}}</span>
               </i>
@@ -70,7 +70,7 @@
     <a class="nav-link ms-auto p-2">
       <app-profile-avatar *ngIf="isRegister"></app-profile-avatar>
     </a>
-    <a class="nav-link ms-auto p-2" routerLink="/login" routerLinkActive=" border-bottom border-danger" *ngIf="!isRegister">
+    <a class="nav-link ms-auto p-2" routerLink="/login" routerLinkActive=" bg-white text-dark" *ngIf="!isRegister">
       Login
       <i class="bi bi-box-arrow-in-right text-success"></i>
     </a>

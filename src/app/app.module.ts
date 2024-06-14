@@ -4,7 +4,6 @@ import { CoreModule } from './Core/core.module';
 import { ChatbotComponent } from './Shared/Components/chatbot/chatbot.component';
 import { LoaderComponent } from './Shared/Components/loader/loader.component';
 import { SharedModule } from './Shared/shared.module';
-
 import { FeaturesModule } from './Features/features.module';
 
 @NgModule({
