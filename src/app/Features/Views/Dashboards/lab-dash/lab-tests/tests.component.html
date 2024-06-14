@@ -1,22 +1,74 @@
 <div class="container-fluid p-4">
-  <button class="btn btn-success rounded-pill ms-auto d-block mb-3" (click)="openDialog()">Add Test</button>
+  <button
+    class="btn btn-outline-primary rounded-3 ms-auto d-block mb-3"
+    (click)="openAddTestDialog()"
+  >
+    Add Test
+  </button>
   <div class="row mt-3 g-3">
     <div class="col-lg-4 col-md-6 col-12" *ngFor="let tst of tests">
-      <div class=" bg-light p-3 rounded-3 shadow-sm  cursor-pointer crd" (click)="openDetailsDialog()">
+      <div
+        class="bg-light p-3 rounded-3 shadow-sm cursor-pointer"
+        (click)="openDetailsDialog()"
+      >
         <div class="d-flex align-items-center gap-3">
-          <img src="{{tst.imageUrl}}" alt="" class="img-fluid rounded-3" style="width: 120px; height: 120px; object-fit: cover;">
+          <img
+            src="{{ tst.imageUrl }}"
+            alt=""
+            class="img-fluid rounded-3"
+            style="width: 120px; height: 120px; object-fit: cover"
+          />
           <div>
-            <p class="name fs-5 mb-1">{{tst.name}}</p>
-            <p class="phone text-muted mb-0">{{tst.price}} EGP</p>
+            <p class="name fs-5 mb-1">{{ tst.name }}</p>
+            <p class="phone text-muted mb-0">{{ tst.price }} EGP</p>
           </div>
         </div>
         <div class="d-flex gap-2 mt-2 align-items-center justify-content-end">
-          <button class="btn btn-outline-info rounded-pill d-flex align-items-center" (click)="editDialog()">
-            <i class="bi bi-pencil-square"></i>
+          <button
+            class="btn btn-sm btn-outline-info rounded-3 d-flex align-items-center"
+            (click)="editTestDialog()"
+          >
+            Edit <i class="bi bi-pencil-square"></i>
           </button>
-          <button class="btn btn-outline-danger rounded-pill d-flex align-items-center" (click)="deleteDialog()">
-            <i class="bi bi-trash"></i>
+          <button
+            class="btn btn-sm btn-outline-danger rounded-3 d-flex align-items-center"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteModal"
+          >
+            Delete <i class="bi bi-trash"></i>
           </button>
+        </div>
+      </div>
+      <div
+        class="modal fade"
+        id="deleteModal"
+        tabindex="-1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              <p class="fs-4">Are you sure you want to delete this Test?</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                No
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+                (click)="removeTest(tst.id)"
+              >
+                Yes
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

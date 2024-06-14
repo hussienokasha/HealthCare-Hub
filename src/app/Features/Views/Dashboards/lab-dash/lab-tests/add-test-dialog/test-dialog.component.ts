@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { TestService } from 'src/app/Core/Services/test.service';
@@ -13,7 +13,7 @@ export class TestDialogComponent {
   previewUrl: string | ArrayBuffer | null = null;
 
   constructor(private test: TestService, private toast: ToastrService) { }
-
+@Output() testAdded  = new EventEmitter<void>();
   testformGroup: FormGroup = new FormGroup({
     Name: new FormControl('', [Validators.required]),
     Description: new FormControl('', [Validators.required]),
@@ -36,6 +36,7 @@ export class TestDialogComponent {
     this.test.addTest(formData).subscribe({
       next: (data) => {
         this.toast.success('Test Added Successfully');
+        this.testAdded.emit();
 
       },
       error: (error) => {
