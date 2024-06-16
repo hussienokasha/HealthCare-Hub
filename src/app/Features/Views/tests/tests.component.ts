@@ -24,12 +24,12 @@ export class TestsComponent {
     })
   }
   addToCart(tst: Test) {
-    let cart: Test[] = JSON.parse(localStorage.getItem('cart') || '[]');
+    let cart: Test[] = JSON.parse(localStorage.getItem('testCart') || '[]');
     let exists:boolean = cart.some((t: any) => t.id === tst.id);
     if (!exists) {
       this.toast.success('Successfuly added to card')
       cart.push(tst);
-      localStorage.setItem('cart', JSON.stringify(cart));
+      localStorage.setItem('testCart', JSON.stringify(cart));
     } else {
       this.toast.info('Test already exists in the cart');
     }

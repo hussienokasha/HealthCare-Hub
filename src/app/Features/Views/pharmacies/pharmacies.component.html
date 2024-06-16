@@ -1,82 +1,45 @@
 <!-- nav -->
 <app-navbar></app-navbar>
 
-<!-- section 1 -->
-<section class="hero">
-  <div class="search-container">
-    <form class="search-form">
-      <input type="text" placeholder="Search for drugs in our store" />
-      <button type="submit">
-        <!-- Using a font-awesome icon for search -->
-        <i class="fa fa-search"></i>
-        find drug
-      </button>
-    </form>
-  </div>
-  <!-- part2 -->
-  <div class="hero-content">
-    <div>
-      <h1>We can get your Drug</h1>
-      <h1>prescriptions to you</h1>
-    </div>
-    <p>
-      We have all the drugs your doctor prescribed for your <br />health and
-      what's more, we can get it to you
-    </p>
-    <!-- <a routerLink="/learn-more" class="btn">Learn More</a> -->
-  </div>
-</section>
-<!-- secction 2 -->
-<!-- Centered Title -->
-<div id="centered-title">
-  <h1>Key Benefits</h1>
-</div>
-
-<!-- Two Column and Two Row  -->
 <div class="container">
-  <div class="column">
-    <div class="row">
-      <div>
-        <h2>All your medicine <br />needs in one place</h2>
-        <ul>
-          <li>Search and find all kinds of drugs</li>
-          <li>We have drugs for special case treatments</li>
-          <li>Get notified when your drug is available</li>
-        </ul>
-        <div class="cta-button">
-          <a href="#">Get Prescription</a>
-          <i class="bi bi-chevron-double-right"></i>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <img
-        class="img2"
-        src="../../../assets/images/body-avatar2.png"
-        alt="Image 2"
+  <div class="display-3 text-center mb-4">Search in Health Care Drugs</div>
+  <div class="m-auto col-12 col-md-6 mb-4">
+    <div class="d-flex">
+      <input
+        type="text"
+        class="w-100 p-3 border-1 rounded-start-pill"
+        placeholder="Search for a medicine..."
+        [(ngModel)]="searchTerm"
       />
+      <button class="btn btn-success opacity-75 rounded-end-pill px-5">
+        Find
+      </button>
     </div>
   </div>
-  <div class="column">
-    <div class="row">
-      <img
-        class="img1"
-        src="../../../assets/images/body-avatar1.png"
-        alt="Image 1"
-      />
-    </div>
-    <div class="row">
-      <div class="sec-ul">
-        <h2>Get your drugs at your doorstep</h2>
-        <ul>
-          <li>Get straigh delivery to your doorstep</li>
-          <li>We deliver within 24 hrs of request</li>
-          <li>We guarantee speedily response</li>
-        </ul>
-        <div class="cta-button">
-          <a href="#">Get Prescription</a>
-          <i class="bi bi-chevron-double-right"></i>
+  <div class="row g-3">
+    <div
+      class="col-12 col-md-6 col-lg-4"
+      *ngFor="let medicine of filteredMedicines"
+    >
+      <div class="p-3 border rounded-3 curser-pointer" [routerLink]="['/medicine',medicine.id]">
+        <div class="d-flex justify-content-between align-items-center">
+          <img
+            src="{{ medicine.picturUrl }}"
+            class="rounded-circle me-3"
+            alt="{{ medicine.name }}"
+            style="width: 80px; height: 80px; object-fit: cover"
+          />
+          <h2 class="h5 mb-0 text-truncate">
+            {{ medicine.name }}
+          </h2>
         </div>
+        <p class="text-end fw-bold fs-5 mb-3">{{ medicine.price }} EGP</p>
+        <button
+          class="btn btn-sm btn-outline-primary rounded-pill d-block ms-auto"
+          (click)="addToCart(medicine); $event.stopPropagation()"
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   </div>

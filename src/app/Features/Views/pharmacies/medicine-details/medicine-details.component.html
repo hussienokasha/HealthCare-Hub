@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row align-items-center rounded-2 shadow m-3">
+    <div class="col-12 col-md-6">
+        <img
+          [src]="medicineDetails.picturUrl"
+          class="img-fluid object-fit-cover"
+          style="width: 300px"
+        />
+    </div>
+    <div class="col-12 col-md-6">
+        <div>
+          <h2 class="text-primary">{{ medicineDetails.name }}</h2>
+          <h2 class="m-0">Description</h2>
+          <p class="text-black-50">{{ medicineDetails.description }}</p>
+          <h1>Price: {{ medicineDetails.price }} EGP</h1>
+        </div>
+    </div>
+  </div>
+  <hr />
+  <h2 class="m-0">Expiry Date</h2>
+  <p>{{ medicineDetails.expiryDate | date }}</p>
+  <h2 class="m-0">Ingredients</h2>
+  <p>{{ medicineDetails.ingredients }}</p>
+  <h2 class="m-0">Side Effects</h2>
+  <p>{{ medicineDetails.sideEffects }}</p>
+</div>

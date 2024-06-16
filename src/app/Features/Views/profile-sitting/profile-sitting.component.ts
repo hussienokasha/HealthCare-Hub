@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/Core/Services/auth.service';
 @Component({
   selector: 'app-profile-sitting',
   templateUrl: './profile-sitting.component.html',
-  styleUrls: ['./profile-sitting.component.scss']
+  styleUrls: ['./profile-sitting.component.scss'],
 })
 export class ProfileSittingComponent implements OnInit {
   userObj!: User | undefined;
@@ -25,22 +25,30 @@ export class ProfileSittingComponent implements OnInit {
     BloodType: new FormControl(''),
   });
 
-  changePassForm: FormGroup = new FormGroup({
-    currentPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
-    newPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
-    confirmPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
-  }, { validators: this.PasswordMatchValidator });
+  changePassForm: FormGroup = new FormGroup(
+    {
+      currentPassword: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+      newPassword: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+      confirmPassword: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+    },
+    { validators: this.PasswordMatchValidator }
+  );
 
-  constructor(
-    private changePass: AuthService,
-    private toast: ToastrService,
-  ) { }
+  constructor(private changePass: AuthService, private toast: ToastrService) {}
 
   ngOnInit() {
-
     this.changePass.getUserData().subscribe({
       next: (data: any) => {
-        console.log(data)
+        console.log(data);
         this.userObj = data;
         this.profileForm.setValue({
           DisplayName: this.userObj!.displayName,
@@ -48,25 +56,24 @@ export class ProfileSittingComponent implements OnInit {
           Weight: this.userObj!.weight,
           Image: this.userObj!.pictureUrl,
           BloodType: this.userObj!.bloodType,
-        })
-
+        });
       },
       error: (e) => {
         console.log(e);
-      }
+      },
     });
-
   }
 
   onSubmitProfile() {
-    if (this.profileForm.dirty) {
+    if (this.profileForm.valid) {
       let formData = new FormData();
-      formData.append('DisplayName', this.profileForm.get('DisplayName')!.value);
+      formData.append(
+        'DisplayName',
+        this.profileForm.get('DisplayName')!.value
+      );
       formData.append('Height', this.profileForm.get('Height')!.value);
       formData.append('Weight', this.profileForm.get('Weight')!.value);
-      if (this.selectedFile) {
-        formData.append('Image', this.selectedFile, this.selectedFile.name);
-      }
+      formData.append('Image', this.selectedFile, this.selectedFile.name);
       formData.append('BloodType', this.profileForm.get('BloodType')!.value);
       this.changePass.updateUserinfo(formData).subscribe({
         next: (res: any) => {
@@ -76,9 +83,8 @@ export class ProfileSittingComponent implements OnInit {
         },
         error: (err) => {
           this.toast.error(err);
-        }
+        },
       });
-      
     }
   }
 
@@ -92,7 +98,7 @@ export class ProfileSittingComponent implements OnInit {
         error: (err) => {
           this.toast.error('An error has occurred');
           console.log(err);
-        }
+        },
       });
     }
   }

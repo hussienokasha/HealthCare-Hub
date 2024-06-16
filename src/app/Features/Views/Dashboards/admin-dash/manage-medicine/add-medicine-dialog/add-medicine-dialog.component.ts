@@ -20,7 +20,7 @@ export class AddMedicineDialogComponent {
     this.addMedicineformGroup = this.fb.group({
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      picturUrl: ['', [Validators.required]],
+      image: ['', [Validators.required]],
       price: ['', [Validators.required,Validators.min(1)]],
       sideEffects: ['', [Validators.required]],
       ingredients: ['', [Validators.required]],

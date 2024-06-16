@@ -1,6 +1,5 @@
 <app-navbar></app-navbar>
 
-<!-- doctor header -->
 <section class="hero">
   <div class="container">
     <div class="content">
@@ -48,11 +47,42 @@
     </div>
   </div>
 </section>
-<br />
-<br />
-<br />
 
-<!--Appointment Modal -->
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12 col-md-4 col-lg-3" *ngFor="let doctor of doctors">
+      <div class="rounded-3 border p-2 shadow curser-pointer">
+      
+        <div class="d-flex justify-content-between align-items-center">
+          <img
+            [src]="doctor.pictureUrl"
+            alt=""
+            class="img-fluid rounded-pill object-fit-cover"
+            style="width: 70px; height: 70px"
+          />
+          <div>
+            <p class="m-0 fs-5">{{ doctor.name }}</p>
+            <p class=" text-black-50 fs-6 text-end">
+              {{ doctor.specialty }}
+            </p>
+          </div>
+        </div>
+        <!-- <p class="text-end">Fee:{{ doctor.fees }} EGP</p> -->
+        <hr />
+        <div class="d-flex justify-content-between align-items-center">
+          <button class="btn btn-sm btn-outline-danger rounded-circle" style="width: 40px; height: 40px;">
+            <i class="bi bi-journal-check fs-5"></i>
+          </button>
+          <button class="btn btn-sm btn-outline-primary rounded-circle" style="width: 40px; height: 40px;">
+            <i class="bi bi-chat-left-dots-fill fs-5 "></i>
+          </button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div
   class="modal fade"
   id="appointmentModal"
@@ -125,97 +155,6 @@
     </div>
   </div>
 </div>
-<!-- modal end -->
-<!--cards sec  -->
-<section class="container mt-5">
-  <h2 class="mb-4">Book an appointment according to the specialization..</h2>
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="card h-100">
-        <img
-          src="../../../assets/images/cardiologist.jpg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h3 class="card-title">Cardiologist</h3>
-        </div>
-      </div>
-    </div>
-    <!-- card2 -->
-    <div class="col">
-      <div class="card h-100">
-        <img
-          src="../../../assets/images/pediatricians-950x556.jpg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h3 class="card-title">Pediatrician</h3>
-        </div>
-      </div>
-    </div>
-
-    <!-- card3 -->
-    <div class="col">
-      <div class="card h-100">
-        <img
-          src="../../../assets/images/Dentist.png"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h3 class="card-title">Dentist</h3>
-        </div>
-      </div>
-    </div>
-    <!--card 4  -->
-
-    <div class="col">
-      <div class="card h-100">
-        <img
-          src="../../../assets/images/Dermatologist.jpg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h3 class="card-title">Dermatologist</h3>
-        </div>
-      </div>
-    </div>
-    <!-- card 5 -->
-    <div class="col">
-      <div class="card h-100">
-        <img
-          src="../../../assets/images/Brain&nerves.jpeg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h3 class="card-title">Brain & Nerves</h3>
-        </div>
-      </div>
-    </div>
-    <!-- card 6 -->
-    <div class="col">
-      <div class="card h-100">
-        <img
-          src="../../../assets/images/bones.png"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h3 class="card-title">Bones</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<br />
-<br />
-<br />
-
-<!-- ask -->
 
 <div class="container mt-5">
   <div class="card">

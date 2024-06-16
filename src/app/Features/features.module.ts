@@ -33,7 +33,7 @@ import { ForgetPasswordComponent } from './Views/forget-password/forget-password
 import { SharedModule } from '../Shared/shared.module';
 import { TestDemoComponent } from './Components/test-demo/test-demo.component';
 import { CheckoutComponent } from './Views/checkout/checkout.component';
-import { TestDetailsComponent } from './Views/test-details/test-details.component';
+import { TestDetailsComponent } from './Views/tests/test-details/test-details.component';
 import { ManageDoctorsComponent } from './Views/Dashboards/admin-dash/manage-doctors/manage-doctors.component';
 import { ManageLabsComponent } from './Views/Dashboards/admin-dash/manage-labs/manage-labs.component';
 import { AddDoctorDialogComponent } from './Views/Dashboards/admin-dash/manage-doctors/add-doctor-dialog/add-doctor-dialog.component';
@@ -44,7 +44,7 @@ import { ManageMedicineComponent } from './Views/Dashboards/admin-dash/manage-me
 import { AddMedicineDialogComponent } from './Views/Dashboards/admin-dash/manage-medicine/add-medicine-dialog/add-medicine-dialog.component';
 import { EditMedicineDialogComponent } from './Views/Dashboards/admin-dash/manage-medicine/edit-medicine-dialog/edit-medicine-dialog.component';
 import { EditTestDialogComponent } from './Views/Dashboards/lab-dash/lab-tests/edit-test-dialog/edit-test-dialog.component';
-
+import { MedicineDetailsComponent } from './Views/pharmacies/medicine-details/medicine-details.component';
 
 @NgModule({
   declarations: [
@@ -93,12 +93,10 @@ import { EditTestDialogComponent } from './Views/Dashboards/lab-dash/lab-tests/e
     ManageMedicineComponent,
     AddMedicineDialogComponent,
     EditMedicineDialogComponent,
-    EditTestDialogComponent
+    EditTestDialogComponent,
+    MedicineDetailsComponent,
   ],
   imports: [SharedModule],
-  exports: [
-
-
-  ]
+  exports: [],
 })
-export class FeaturesModule { }
+export class FeaturesModule {}

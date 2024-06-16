@@ -37,5 +37,12 @@ export class MedicineService {
         return e;
       })));
   }
+  getMedicineById(id:number){
+    let param = new HttpParams().append('id', id);
+    return this.http.get<Medicine>(`${this.apiUrl}/Medicine/Get-Medicine-By-Id`, { params: param }).pipe(take(1),catchError(e =>
+      throwError(() => {
+        return e;
+      })));
+  }
 
 }

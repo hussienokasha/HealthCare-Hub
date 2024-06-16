@@ -17,9 +17,9 @@ export class NavbarComponent implements OnInit {
     }
   }
   geCartItemsLength(){
-    if (localStorage.getItem('cart')){
+    if (localStorage.getItem('testCart')){
 
-      return JSON.parse(localStorage.getItem('cart')!).length;
+      return JSON.parse(localStorage.getItem('testCart')!).length;
     }
     return 0;
   }
