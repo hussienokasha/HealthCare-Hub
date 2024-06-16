@@ -1,37 +1,60 @@
 import { Component } from '@angular/core';
+import { Medicine } from 'src/app/Core/Models/medicine';
 import { Test } from 'src/app/Core/Models/test';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
-
-  cart!: Test[];
+  testCart!: Test[];
+  medCart!: Medicine[];
   ngOnInit(): void {
     this.getTests();
+    this.getMedicines();
   }
   getTests() {
     let loc = localStorage.getItem('testCart');
     if (loc) {
-      this.cart = JSON.parse(loc);
+      this.testCart = JSON.parse(loc);
+    }
+  }
+  getMedicines() {
+    let loc = localStorage.getItem('medCart');
+    if (loc) {
+      this.medCart = JSON.parse(loc);
     }
   }
 
-  removeFromLocal(testId: number | undefined) {
-    let cart = JSON.parse(localStorage.getItem('testCart') || '');
-    cart = cart.filter((item: any) => item.id != testId)
-    localStorage.setItem('testCart',JSON.stringify(cart));
+  removeTest(testId: number | undefined) {
+    let cart: Test[] = JSON.parse(localStorage.getItem('testCart') || '[]');
+    cart = cart.filter((item: any) => item.id != testId);
+    localStorage.setItem('testCart', JSON.stringify(cart));
     this.getTests();
-    this.getTotalPrice()
+    this.getTotalPrice();
   }
-  getTotalPrice(){
-    let cart = JSON.parse(localStorage.getItem('testCart') || '');
-    let total = 0;
-    cart.forEach((item: any) => {
-      total += item.price;
+  removeMed(medId: number | undefined) {
+    let cart: Medicine[] = JSON.parse(localStorage.getItem('medCart') || '[]');
+    cart = cart.filter((item: any) => item.id != medId);
+    localStorage.setItem('medCart', JSON.stringify(cart));
+    this.getMedicines();
+    this.getTotalPrice();
+  }
+
+  getTotalPrice() {
+    let testCart: Test[] = JSON.parse(localStorage.getItem('testCart') || '[]');
+    let medCart: Medicine[] = JSON.parse(
+      localStorage.getItem('medCart') || '[]'
+    );
+    let testTotal = 0;
+    let medTotal = 0;
+    testCart.forEach((item: any) => {
+      testTotal += item.price;
     });
-    return total;
+    medCart.forEach((item: any) => {
+      medTotal += item.price;
+    });
+    return testTotal + medTotal;
   }
 }

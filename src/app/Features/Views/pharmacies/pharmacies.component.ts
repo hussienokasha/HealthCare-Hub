@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Medicine } from 'src/app/Core/Models/medicine';
 import { MedicineService } from 'src/app/Core/Services/medicine.service';
 
@@ -8,11 +9,10 @@ import { MedicineService } from 'src/app/Core/Services/medicine.service';
   styleUrls: ['./pharmacies.component.scss'],
 })
 export class PharmacyComponent implements OnInit {
-
   medicines: Medicine[] = [];
   searchTerm: string = '';
 
-  constructor(private medicineService: MedicineService) {}
+  constructor(private medicineService: MedicineService,private toast:ToastrService) {}
 
   ngOnInit() {
     this.getMedicine();
@@ -27,11 +27,21 @@ export class PharmacyComponent implements OnInit {
   }
 
   get filteredMedicines() {
-    return this.medicines.filter(medicine =>
+    return this.medicines.filter((medicine) =>
       medicine.name.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
   addToCart(med: Medicine) {
-    localStorage.setItem('medCart',JSON.stringify(''))
+    let cart: Medicine[] = JSON.parse(localStorage.getItem('medCart') || '[]');
+    let exists: boolean = cart.some(m=>m.id == med.id);
+    if(!exists){
+      this.toast.success('successfully added to cart')
+      cart.push(med);
+      localStorage.setItem('medCart', JSON.stringify(cart));
+    }
+    else{
+      this.toast.info('already exists in cart')
+    }
+
   }
 }
