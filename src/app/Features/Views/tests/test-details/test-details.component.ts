@@ -6,24 +6,27 @@ import { TestService } from 'src/app/Core/Services/test.service';
 @Component({
   selector: 'app-test-details',
   templateUrl: './test-details.component.html',
-  styleUrls: ['./test-details.component.scss']
+  styleUrls: ['./test-details.component.scss'],
 })
 export class TestDetailsComponent {
-  constructor(private test:TestService,private activatedRoute:ActivatedRoute){}
-  testDetails!:Test;
+  constructor(
+    private test: TestService,
+    private activatedRoute: ActivatedRoute
+  ) {}
+  testDetails!: Test;
   ngOnInit(): void {
-this.getLabDet()
-
+    this.getLabDet();
   }
-  getLabDet(){
+  getLabDet() {
     let labId = this.activatedRoute.snapshot.params['id'];
     this.test.getTestById(labId).subscribe({
-      next:(data:Test)=>{
-        console.log(data)
-        this.testDetails=data;
-      },error:(e)=>{
-        console.log(e)
-      }
-    })
+      next: (data: Test) => {
+        console.log(data);
+        this.testDetails = data;
+      },
+      error: (e) => {
+        console.log(e);
+      },
+    });
   }
 }

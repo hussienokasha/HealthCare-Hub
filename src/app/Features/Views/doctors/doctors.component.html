@@ -1,252 +1,44 @@
 <app-navbar></app-navbar>
-
-<section class="hero">
-  <div class="container">
-    <div class="content">
-      <div class="text">
-        <h1>Professional doctors to take care of your health</h1>
-        <p>What are you waiting for ? try it now</p>
-        <div class="buttons">
-          <button
-            type="button"
-            class="btn btn-danger"
-            data-bs-toggle="modal"
-            data-bs-target="#appointmentModal"
-          >
-            <i class="bi bi-journal-check"></i>
-            Take an appointment
-          </button>
-
-          <button
-            type="button"
-            class="btn btn-secondary dropdown-toggle"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <i class="bi bi-camera-video-fill"></i>
-            Call with doctor
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Cardiologist</a></li>
-            <li><a class="dropdown-item" href="#">Dermatologist</a></li>
-            <li><a class="dropdown-item" href="#">Pediatrician</a></li>
-            <li><a class="dropdown-item" href="#">Dentistry (Teeth)</a></li>
-            <li><a class="dropdown-item" href="#">Brain & nerves</a></li>
-            <li><a class="dropdown-item" href="#">Bones</a></li>
-            <!-- <li><a class="dropdown-item" href="#">Pediatrician</a></li> -->
-            <!-- <li><a class="dropdown-item" href="#">Pediatrician</a></li>
-            <li><a class="dropdown-item" href="#">Pediatrician</a></li>
-            <li><a class="dropdown-item" href="#">Pediatrician</a></li> -->
-          </ul>
-        </div>
-      </div>
-      <div class="avatar">
-        <img src="../../../assets/images/doctor-avatar.png" alt="Avatar" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-12 col-md-4 col-lg-3" *ngFor="let doctor of doctors">
-      <div class="rounded-3 border p-2 shadow curser-pointer">
-      
-        <div class="d-flex justify-content-between align-items-center">
-          <img
-            [src]="doctor.pictureUrl"
-            alt=""
-            class="img-fluid rounded-pill object-fit-cover"
-            style="width: 70px; height: 70px"
-          />
-          <div>
-            <p class="m-0 fs-5">{{ doctor.name }}</p>
-            <p class=" text-black-50 fs-6 text-end">
-              {{ doctor.specialty }}
-            </p>
-          </div>
-        </div>
-        <!-- <p class="text-end">Fee:{{ doctor.fees }} EGP</p> -->
-        <hr />
-        <div class="d-flex justify-content-between align-items-center">
-          <button class="btn btn-sm btn-outline-danger rounded-circle" style="width: 40px; height: 40px;">
-            <i class="bi bi-journal-check fs-5"></i>
-          </button>
-          <button class="btn btn-sm btn-outline-primary rounded-circle" style="width: 40px; height: 40px;">
-            <i class="bi bi-chat-left-dots-fill fs-5 "></i>
-          </button>
-        
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div
-  class="modal fade"
-  id="appointmentModal"
-  tabindex="-1"
-  aria-labelledby="appointmentModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="appointmentModalLabel">Appointment Form</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <!-- speciality -->
-          <div class="mb-3">
-            <label for="speciality" class="form-label">Select Speciality</label>
-            <select class="form-select" id="speciality">
-              <option value="1">Cardiologist</option>
-              <option value="2">Dermatologist</option>
-              <option value="3">Pediatrician</option>
-              <option value="4">Dentistry (Teeth)</option>
-              <option value="5">Brain & nerves</option>
-              <option value="5">Bones</option>
-            </select>
-          </div>
-          <!-- city -->
-          <div class="mb-3">
-            <label for="city" class="form-label">Select City</label>
-            <select
-              class="form-select"
-              id="city"
-              data-bs-toggle="collapse"
-              data-bs-target="#areasContainer"
-            >
-              <option value="1">cairo</option>
-              <option value="2">Giza</option>
-              <option value="3">Alexandria</option>
-              <!-- <option value="4">Gharbia</option>
-              <option value="5">Menoufia</option>
-              <option value="6">Fayoum</option>
-              <option value="7">El-Sharqia</option>
-              <option value="8">El-Dakahlia</option>
-              <option value="9">El-Beheira</option>
-              <option value="10">El-Ismailia</option>
-              <option value="11">Assiut</option>
-              <option value="12">Sharm El Sheikh</option> -->
-            </select>
-          </div>
-          <!-- area -->
-          <div class="mb-3">
-            <label for="area" class="form-label">Select Area</label>
-            <select class="form-select" id="area">
-              <option value="1">Manhattan</option>
-              <option value="2">Brooklyn</option>
-              <option value="3">Queens</option>
-            </select>
-          </div>
-
-          <!-- submit -->
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container mt-5">
-  <div class="card">
-    <div class="card-header" style="background-color: #24242c; color: #fff">
-      Have a Medical Question?
-    </div>
-    <div class="card-body" style="background-color: #cedae0">
-      <p class="card-text">
-        Submit your medical question and receive the answer from an expert and
-        specialist doctor
-      </p>
-      <button
-        class="btn btn-danger"
-        id="askButton"
-        data-bs-toggle="modal"
-        data-bs-target="#questionModal"
-      >
-        Ask Now
+<div class="container">
+  <div class="display-3 text-center mb-4">Search in Health Care Doctors</div>
+  <div class="m-auto col-12 col-md-6 mb-4">
+    <div class="d-flex">
+      <input
+        type="text"
+        class="w-100 p-3 border-1 rounded-start-pill"
+        placeholder="Search for a doctor..."
+        [(ngModel)]="searchTerm"
+      />
+      <button class="btn btn-success opacity-75 rounded-end-pill px-5">
+        Find
       </button>
     </div>
   </div>
-</div>
-
-<!--ask Modal -->
-<div
-  class="modal fade"
-  id="questionModal"
-  tabindex="-1"
-  aria-labelledby="questionModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="questionModalLabel">Ask a Question</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="speciality" class="form-label">Choose Speciality</label>
-            <select class="form-select" id="speciality">
-              <option selected>Choose...</option>
-              <option value="Cardiology">Cardiology</option>
-              <option value="Dermatology">Dermatology</option>
-              <option value="Pediatrics">Pediatrics</option>
-              <option value="Brain & nerves">Brain & nerves</option>
-              <option value="Bones">Bones</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="gender" class="form-label">Select Your Gender</label>
-            <select class="form-select" id="gender">
-              <option selected>Choose...</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="age" class="form-label">Enter Your Age</label>
-            <input
-              type="number"
-              class="form-control"
-              id="age"
-              placeholder="Enter your age"
+  <div class="row g-3 justify-content-center">
+    <div
+      class="col-12 col-md-6 col-lg-4"
+      *ngFor="let doctor of filteredDoctors"
+    >
+      <div class="card curser-pointer shadow border-0 border-start border-primary" [routerLink]="['/doctor',doctor.id]">
+        <div class="card-body text-center">
+          <div class="d-flex align-items-center justify-content-between">
+            <img
+              src="{{ doctor.pictureUrl }}"
+              class="img-fluid object-fit-cover rounded-pill"
+              alt=""
+              style="width: 80px; height: 80px"
             />
+            <div class="text-start">
+              <h2 class="card-title m-0 text-start">{{ doctor.name }}</h2>
+              <p class="card-text m-0">{{ doctor.specialty }}</p>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="question" class="form-label">Your Question</label>
-            <textarea
-              class="form-control"
-              id="question"
-              rows="5"
-              placeholder="Enter your question"
-            ></textarea>
+          <div class="d-flex mt-3 justify-content-between">
+            <button class="btn btn-sm btn-outline-danger" (click)="takeAppoint(doctor.id); $event.stopPropagation()">Take Appointment<i class="ms-2 bi bi-journal-medical"></i></button>
+            <button class="btn btn-sm btn-outline-primary" (click)="chat(doctor.id); $event.stopPropagation()">chat<i class="ms-2 bi bi-chat-dots"></i></button>
           </div>
-          <button type="submit" class="btn btn-primary">Submit Question</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<br />
-<br />
-<br />
-<!--  -->
-
-<!-- footer -->
-<hr />
-<app-footer></app-footer>

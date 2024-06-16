@@ -27,14 +27,14 @@ export class CartComponent {
     }
   }
 
-  removeTest(testId: number | undefined) {
+  removeTest(testId: number) {
     let cart: Test[] = JSON.parse(localStorage.getItem('testCart') || '[]');
     cart = cart.filter((item: any) => item.id != testId);
     localStorage.setItem('testCart', JSON.stringify(cart));
     this.getTests();
     this.getTotalPrice();
   }
-  removeMed(medId: number | undefined) {
+  removeMed(medId: number) {
     let cart: Medicine[] = JSON.parse(localStorage.getItem('medCart') || '[]');
     cart = cart.filter((item: any) => item.id != medId);
     localStorage.setItem('medCart', JSON.stringify(cart));

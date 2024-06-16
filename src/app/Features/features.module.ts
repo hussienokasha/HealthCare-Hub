@@ -45,6 +45,7 @@ import { AddMedicineDialogComponent } from './Views/Dashboards/admin-dash/manage
 import { EditMedicineDialogComponent } from './Views/Dashboards/admin-dash/manage-medicine/edit-medicine-dialog/edit-medicine-dialog.component';
 import { EditTestDialogComponent } from './Views/Dashboards/lab-dash/lab-tests/edit-test-dialog/edit-test-dialog.component';
 import { MedicineDetailsComponent } from './Views/pharmacies/medicine-details/medicine-details.component';
+import { DoctorDetalisComponent } from './Views/doctors/doctor-detalis/doctor-detalis.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { MedicineDetailsComponent } from './Views/pharmacies/medicine-details/me
     EditMedicineDialogComponent,
     EditTestDialogComponent,
     MedicineDetailsComponent,
+    DoctorDetalisComponent,
   ],
   imports: [SharedModule],
   exports: [],

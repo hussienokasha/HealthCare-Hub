@@ -29,6 +29,7 @@ import { ManageDoctorsComponent } from './Features/Views/Dashboards/admin-dash/m
 import { ManageLabsComponent } from './Features/Views/Dashboards/admin-dash/manage-labs/manage-labs.component';
 import { ManageMedicineComponent } from './Features/Views/Dashboards/admin-dash/manage-medicine/manage-medicine.component';
 import { MedicineDetailsComponent } from './Features/Views/pharmacies/medicine-details/medicine-details.component';
+import { DoctorDetalisComponent } from './Features/Views/doctors/doctor-detalis/doctor-detalis.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'tests', component: TestsComponent },
   { path: 'test/:id', component: TestDetailsComponent },
   { path: 'doctors', component: DoctorsComponent },
+  { path: 'doctor/:id', component: DoctorDetalisComponent },
   { path: 'pharmacy', component: PharmacyComponent },
   { path: 'medicine/:id', component: MedicineDetailsComponent },
   { path: 'contact', component: ContactComponent },
