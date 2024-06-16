@@ -40,8 +40,8 @@ export class LabTestsComponent {
     });
   }
   openDetailsDialog() {}
-  editTestDialog() {
-    const dialogRef = this.editDialog.open(EditTestDialogComponent);
+  editTestDialog(test:Test) {
+    const dialogRef = this.editDialog.open(EditTestDialogComponent,{data:test});
     dialogRef.componentInstance.testEdited.subscribe({
       next:()=>{
         this.getTests();

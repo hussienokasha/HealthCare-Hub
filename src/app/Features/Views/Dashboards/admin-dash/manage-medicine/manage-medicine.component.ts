@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Medicine } from 'src/app/Core/Models/medicine';
 import { MedicineService } from 'src/app/Core/Services/medicine.service';
@@ -9,20 +9,24 @@ import { EditMedicineDialogComponent } from './edit-medicine-dialog/edit-medicin
 @Component({
   selector: 'app-manage-medicine',
   templateUrl: './manage-medicine.component.html',
-  styleUrls: ['./manage-medicine.component.scss']
+  styleUrls: ['./manage-medicine.component.scss'],
 })
 export class ManageMedicineComponent {
   medicines!: Medicine[];
-  constructor(private medicine: MedicineService, private dialog: MatDialog, private toast:ToastrService) { }
-ngOnInit(){
-  this.getAllMedicines();
-}
+  constructor(
+    private medicine: MedicineService,
+    private dialog: MatDialog,
+    private toast: ToastrService
+  ) {}
+  ngOnInit() {
+    this.getAllMedicines();
+  }
   getAllMedicines() {
     this.medicine.getAllMedicines().subscribe({
       next: (medicines: Medicine[]) => {
         this.medicines = medicines;
-      }
-    })
+      },
+    });
   }
   openAddMedicineDialog() {
     const dialogRef = this.dialog.open(AddMedicineDialogComponent);
@@ -30,29 +34,27 @@ ngOnInit(){
       next: () => {
         this.getAllMedicines();
         dialogRef.close();
-      }
-    })
-    
-
+      },
+    });
   }
   removeMedicine(medicineID: number) {
     this.medicine.deleteMedicine(medicineID).subscribe({
       next: (d) => {
         this.getAllMedicines();
-        this.toast.success("Medicine deleted Successfully");
-      },error:()=>{
-        this.toast.error("Medicine not deleted Successfully");
-      }
-    })
+        this.toast.success('Medicine deleted Successfully');
+      },
+      error: () => {
+        this.toast.error('Medicine not deleted Successfully');
+      },
+    });
   }
-  openEditMedicineDialog() {
-    const dialogRef = this.dialog.open(EditMedicineDialogComponent);
+  openEditMedicineDialog(medicine:Medicine) {
+    const dialogRef = this.dialog.open(EditMedicineDialogComponent,{data:medicine});
     dialogRef.componentInstance.medicineUpdated.subscribe({
       next: () => {
         this.getAllMedicines();
         dialogRef.close();
-      }
-    })
+      },
+    });
   }
-
 }

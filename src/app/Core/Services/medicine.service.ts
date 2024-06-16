@@ -25,7 +25,7 @@ export class MedicineService {
       })));
   }
   editMedicine(formData: FormData) {
-    return this.http.post(`${this.apiUrl}/Medicine/edit-Medicine`, formData).pipe(catchError(e =>
+    return this.http.put(`${this.apiUrl}/Medicine/UpdateMedicine`, formData).pipe(catchError(e =>
       throwError(() => {
         return e;
       })));

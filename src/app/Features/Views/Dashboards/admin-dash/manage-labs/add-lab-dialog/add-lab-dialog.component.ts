@@ -18,6 +18,7 @@ export class AddLabDialogComponent {
     this.addLabformGroup = this.fb.group({
       name: ['', [Validators.required]],
       location: ['', [Validators.required]],
+      description: ['', [Validators.required]],
       phone: ['', [Validators.required,Validators.minLength(11)]],
       email: ['', [Validators.required,Validators.email]],
       image: ['', [Validators.required]],
@@ -40,6 +41,7 @@ export class AddLabDialogComponent {
     const formData = new FormData();
     formData.append('Name', this.addLabformGroup.value.name);
     formData.append('Location', this.addLabformGroup.value.location);
+    formData.append('Description', this.addLabformGroup.value.description);
     formData.append('Phone', this.addLabformGroup.value.phone);
     formData.append('Email', this.addLabformGroup.value.email);
     formData.append('Image', this.selectedFile, this.selectedFile.name);

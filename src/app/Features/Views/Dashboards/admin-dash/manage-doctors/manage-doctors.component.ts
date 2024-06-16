@@ -42,8 +42,13 @@ export class ManageDoctorsComponent {
       }
     })
   }
-  openEditDoctorDialog() {
-    const dialogRef = this.editDocrorDialog.open(EditDoctorDialogComponent,{});
+  openEditDoctorDialog(doctor:Doctor) {
+    const dialogRef = this.editDocrorDialog.open(EditDoctorDialogComponent,{data:doctor,});
+    dialogRef.componentInstance.doctorUpdated.subscribe({
+      next:()=>{
+        this.getAllDoctors();
+      }
+    })
   }
 
 }

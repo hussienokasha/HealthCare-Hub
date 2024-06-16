@@ -1,53 +1,56 @@
+<app-navbar></app-navbar>
 <div class="container p-2">
   <div class="row g-3 align-items-center">
     <div class="col-12 col-md-3">
-      <img [src]="testDetails.imageUrl" alt="" class="w-100 rounded-3">
+      <img [src]="testDetails.imageUrl" alt="" class="w-100 rounded-3" />
     </div>
     <div class="col-12 col-md-9">
       <div class="info">
-
         <p class="fw-bold m-0 pt-3">Test Name</p>
-        <p class="m-0">{{testDetails.name}}</p>
+        <p class="m-0">{{ testDetails.name }}</p>
         <p class="fw-bold m-0 pt-3">Describtion</p>
-        <p class="m-0">{{testDetails.description}}</p>
+        <p class="m-0">{{ testDetails.description }}</p>
         <p class="fw-bold m-0 pt-3">Price</p>
-        <p class="m-0">{{testDetails.price}} EGP</p>
+        <p class="m-0">{{ testDetails.price }} EGP</p>
       </div>
     </div>
   </div>
-  <hr>
-  <h1>Provider</h1>
+  
+  <h1 class="mt-3 fs-2">Provider</h1>
   <div class="row g-3">
     <div class="col-12 col-md-3">
-      <img [src]="testDetails.lab?.pictureUrl" alt="" class="img-fluid object-fit-cover rounded-3">
+      <img
+        [src]="testDetails.lab?.pictureUrl"
+        alt=""
+        class="img-fluid object-fit-cover rounded-3"
+      />
     </div>
     <div class="col-12 col-md-9">
-
-
       <div class="info">
         <h1 class="mt-3">Lab Info</h1>
         <div class="d-flex gap-4">
           <div>
             <p class="fw-bold m-0 pt-3">Lab Name</p>
-            <p class="m-0">{{testDetails.lab?.name}}</p>
+            <p class="m-0">{{ testDetails.lab?.name }}</p>
           </div>
           <div>
             <p class="fw-bold m-0 pt-3">Email</p>
-            <p class="m-0">{{testDetails.lab?.email}}</p>
+            <p class="m-0">{{ testDetails.lab?.email }}</p>
           </div>
         </div>
         <div class="d-flex gap-4">
           <div>
-
             <p class="fw-bold m-0 pt-3">Location</p>
-            <p class="m-0">{{testDetails.lab?.location}} </p>
+            <p class="m-0">{{ testDetails.lab?.location }}</p>
           </div>
           <div>
-
             <p class="fw-bold m-0 pt-3">Phone</p>
-            <p class="m-0">{{testDetails.lab?.phone}} </p>
+            <p class="m-0">{{ testDetails.lab?.phone }}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+<hr>
+<app-footer></app-footer>

@@ -1,11 +1,10 @@
-
 export interface Nurse {
-  nurseName: string;
-  age: string;
-  gender: string;
-  labName: string;
+  name: string;
+  specialty: string;
+  labId: number;
+  age: number;
   phone: string;
   email: string;
   address: string;
+  gender: string;
 }
-

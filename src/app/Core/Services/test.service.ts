@@ -22,7 +22,7 @@ export class TestService {
     }));
   }
   editTest(formData: FormData) {
-    return this.http.post(`${this.apiUrl}/Test/UpdateTest`, formData).pipe(catchError(e => {
+    return this.http.put(`${this.apiUrl}/Test/UpdateTest`, formData).pipe(catchError(e => {
       return throwError(() => e)
     }));
   }

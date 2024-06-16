@@ -5,5 +5,6 @@ export interface Lab {
   phone:string;
   location:string;
   email:string;
+  description:string;
 }
 

@@ -1,56 +1,67 @@
 <h1 mat-dialog-title>Add Nurse</h1>
 <div mat-dialog-content>
-  <form [formGroup]="formGroub">
+  <form [formGroup]="addNurseformGroub">
     <div class="row p-1">
       <div class="col-6">
         <mat-form-field class="w-100">
           <mat-label>Nurse Name</mat-label>
-          <input matInput placeholder="john smith" formControlName="nurseName">
+          <input
+            matInput
+            placeholder="john smith"
+            formControlName="nurseName"
+          />
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field class="w-100">
           <mat-label>Age</mat-label>
-          <input matInput placeholder="john smith" formControlName="age">
+          <input matInput placeholder="john smith" formControlName="age" />
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field class="w-100">
           <mat-label>Gender</mat-label>
-              <mat-select formControlName="gender">
-                <mat-option value="male">Male</mat-option>
-                <mat-option value="female">Female</mat-option>
-              </mat-select>
+          <mat-select formControlName="gender">
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field class="w-100">
           <mat-label>Lab Name</mat-label>
-          <input matInput placeholder="john smith" formControlName="labName">
+          <input matInput placeholder="john smith" formControlName="labName" />
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field class="w-100">
           <mat-label>Phone</mat-label>
-          <input matInput placeholder="john smith" formControlName="phone">
+          <input matInput placeholder="john smith" formControlName="phone" />
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field class="w-100">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="john smith" formControlName="email">
+          <input matInput placeholder="john smith" formControlName="email" />
         </mat-form-field>
       </div>
       <div class="col-12">
         <mat-form-field class="w-100">
           <mat-label>Address</mat-label>
-          <input matInput placeholder="john smith" formControlName="address">
+          <input matInput placeholder="john smith" formControlName="address" />
         </mat-form-field>
       </div>
     </div>
   </form>
 </div>
 <div mat-dialog-actions class="justify-content-end">
-  <button mat-button >Cancel</button>
-  <button mat-button cdkFocusInitial (submit)="onSubmitForm()">Add</button>
+  <button mat-button>Cancel</button>
+  <button
+    mat-button
+    cdkFocusInitial
+    (submit)="onSubmitForm()"
+    [disabled]="addNurseformGroub.invalid"
+  >
+    Add
+  </button>
 </div>

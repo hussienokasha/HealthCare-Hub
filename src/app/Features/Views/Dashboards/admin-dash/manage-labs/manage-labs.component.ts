@@ -9,49 +9,53 @@ import { EditLabDialogComponent } from './edit-lab-dialog/edit-lab-dialog.compon
 @Component({
   selector: 'app-manage-labs',
   templateUrl: './manage-labs.component.html',
-  styleUrls: ['./manage-labs.component.scss']
+  styleUrls: ['./manage-labs.component.scss'],
 })
 export class ManageLabsComponent {
-
-  labs!:Lab[];
-  constructor(private lab:LabService,private toast:ToastrService,private addLabDialog:MatDialog,private editLabDialog:MatDialog){}
-  ngOnInit(){
+  labs!: Lab[];
+  constructor(
+    private lab: LabService,
+    private toast: ToastrService,
+    private addLabDialog: MatDialog,
+    private editLabDialog: MatDialog
+  ) {}
+  ngOnInit() {
     this.getAllLabs();
   }
-  getAllLabs(){
+  getAllLabs() {
     this.lab.getAllLabs().subscribe({
-      next:(d:Lab[])=>{
-        this.labs=d;
-      }
-    })
+      next: (d: Lab[]) => {
+        this.labs = d;
+      },
+    });
   }
-  removeLab(labId: number ) {
+  removeLab(labId: number) {
     this.lab.deleteLab(labId).subscribe({
-      next:(d)=>{
+      next: (d) => {
         this.getAllLabs();
-        this.toast.success("Lab deleted Successfully");
-      }
-    })
+        this.toast.success('Lab deleted Successfully');
+      },
+    });
   }
-  openEditLabDialog() {
-    const dialogRef=  this.editLabDialog.open(EditLabDialogComponent);
+  openEditLabDialog(lab: Lab) {
+    const dialogRef = this.editLabDialog.open(EditLabDialogComponent, {
+      data: lab,
+    });
     dialogRef.componentInstance.labUpdated.subscribe({
-      next:()=>{
+      next: () => {
         this.getAllLabs();
         dialogRef.close();
-      }
-    })
-
-
+      },
+    });
   }
   openAddLabDialog() {
     const dialogRef = this.addLabDialog.open(AddLabDialogComponent);
     dialogRef.componentInstance.labAdded.subscribe({
-      next:()=>{
+      next: () => {
         this.getAllLabs();
-        this.toast.success('Lab added succesfully')
+        this.toast.success('Lab added succesfully');
         dialogRef.close();
-      }
-    })
+      },
+    });
   }
 }
