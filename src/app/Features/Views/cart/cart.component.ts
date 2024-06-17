@@ -8,8 +8,8 @@ import { Test } from 'src/app/Core/Models/test';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
-  testCart!: Test[];
-  medCart!: Medicine[];
+  testCart: Test[] = [];
+  medCart: Medicine[] = [];
   ngOnInit(): void {
     this.getTests();
     this.getMedicines();
