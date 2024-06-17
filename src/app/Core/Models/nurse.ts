@@ -1,4 +1,5 @@
 export interface Nurse {
+  id:number;
   name: string;
   specialty: string;
   labId: number;

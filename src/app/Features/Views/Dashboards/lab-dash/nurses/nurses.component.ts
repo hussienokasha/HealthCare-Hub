@@ -9,6 +9,7 @@ import { NurseDialogComponent } from './add-nurse-dialog/nurse-dialog.component'
 import { Nurse } from 'src/app/Core/Models/nurse';
 import { NurseService } from 'src/app/Core/Services/nurse.service';
 import { EditNurseDialogComponent } from './edit-nurse-dialog/edit-nurse-dialog.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nurses',
@@ -20,7 +21,8 @@ export class NursesComponent {
   constructor(
     public addDialog: MatDialog,
     private nurse: NurseService,
-    private editDialog: MatDialog
+    private editDialog: MatDialog,
+    private toast:ToastrService
   ) {}
   ngOnInit() {
     this.getNurses();
@@ -41,9 +43,19 @@ export class NursesComponent {
     });
   }
   editNurseDialog(nurse: Nurse) {
-    let dialogRef = this.editDialog.open(EditNurseDialogComponent,{data:nurse})
+    let dialogRef = this.editDialog.open(EditNurseDialogComponent, {
+      data: nurse,
+    });
     dialogRef.componentInstance.nurseUpdated.subscribe({
-      next:()=>{
+      next: () => {
+        this.getNurses();
+      },
+    });
+  }
+  removeNurse(nurseId: number) {
+    this.nurse.deleteNurse(nurseId).subscribe({
+      next: () => {
+        this.toast.info('Nurse Deleted Successfully');
         this.getNurses();
       }
     })

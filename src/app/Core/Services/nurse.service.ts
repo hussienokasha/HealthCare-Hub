@@ -28,12 +28,9 @@ export class NurseService {
         })
       );
   }
-  editNurse(nurseData: Nurse, nurseId: number) {
-    let param = new HttpParams().append('id', nurseId);
+  editNurse(nurseData: Nurse) {
     return this.http
-      .post<Nurse>(`${this.apiUrl}/Lab/Edit-Nurse`, nurseData, {
-        params: param,
-      })
+      .put<Nurse>(`${this.apiUrl}/Nurse/UpdateNurse`, nurseData)
       .pipe(
         catchError((e) => {
           return throwError(() => e);
@@ -41,9 +38,9 @@ export class NurseService {
       );
   }
   deleteNurse(nurseId: number) {
-    let param = new HttpParams().append('id', nurseId);
+    let param = new HttpParams().append('NurseId', nurseId);
     return this.http
-      .delete<Nurse>(`${this.apiUrl}/Lab/delete-Nurse`, { params: param })
+      .delete<Nurse>(`${this.apiUrl}/Nurse/Delete-Nurse`, { params: param })
       .pipe(
         catchError((e) => {
           return throwError(() => e);

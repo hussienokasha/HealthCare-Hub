@@ -4,10 +4,8 @@
     NO ITEMS IN CART
   </p>
 
-
-
-  <div class="row g-2 justify-content-center" *ngIf="getTotalPrice() != 0">
-    <h1 class="mb-2 mt-4" *ngIf="medCart.length >0">Medicines Cart</h1>
+  <div class="row g-2" *ngIf="getTotalPrice() != 0">
+    <h1 class="mb-2 mt-4" *ngIf="medCart.length > 0">Medicines Cart</h1>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let i of medCart">
       <div class="card">
         <div class="card-body text-center">
@@ -68,9 +66,9 @@
     </div>
   </div>
 
-  <hr>
-  <div class="row g-2 justify-content-center" *ngIf="getTotalPrice() != 0">
-    <h1 class="mb-2" *ngIf="testCart.length >0">Tests Cart</h1>
+  <hr />
+  <div class="row g-2" *ngIf="getTotalPrice() != 0">
+    <h1 class="mb-2 mt-5" *ngIf="testCart.length > 0">Tests Cart</h1>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let i of testCart">
       <div class="card">
         <div class="card-body text-center">
@@ -130,13 +128,30 @@
       </div>
     </div>
   </div>
-
+  <div class="text-center m-3 mt-5 d-flex gap-3 align-items-center ">
+    <div>
+      <mat-radio-group [(ngModel)]="selectedOption">
+        <mat-radio-button value="home" color="primary">Home</mat-radio-button>
+        <mat-radio-button value="lab" color="primary">Lab</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div *ngIf="selectedOption === 'home'">
+    <label for="" class="fs-5 me-3">Your Location:</label>
+        <input type="text" class="p-2 border rounded-3 border-danger border-1" style="outline: none;"/>
+     
+    </div>
+  </div>
   <hr />
-  <div class="d-flex align-items-center justify-content-between" *ngIf="getTotalPrice() > 0">
-    <p class="fs-3 my-4 text-end" >
-      Total: {{ getTotalPrice() }} EGP
-    </p>
-    <button class="btn btn-outline-primary" routerLink="/checkout">
+  <div
+    class="d-flex align-items-center justify-content-between m-3"
+    *ngIf="getTotalPrice() > 0"
+  >
+  <mat-radio-group [(ngModel)]="selectedMethod">
+    <mat-radio-button value="cash" color="primary">Cash</mat-radio-button>
+    <mat-radio-button value="visa" color="primary">Visa</mat-radio-button>
+  </mat-radio-group>
+    <p class="fs-3 my-4 text-end">Total: {{ getTotalPrice() }} EGP</p>
+    <button class="btn btn-outline-primary" routerLink="/checkout" *ngIf="selectedMethod ==='visa'">
       Checkout <i class="bi bi-credit-card-2-front"></i>
     </button>
   </div>

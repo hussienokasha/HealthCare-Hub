@@ -57,6 +57,7 @@ export class EditLabDialogComponent {
     formData.append('Description', this.editLabformGroup.value.description);
     formData.append('Location', this.editLabformGroup.value.location);
     formData.append('Phone', this.editLabformGroup.value.phone);
+    formData.append('PictureUrl',`${null}`)
     formData.append('Email', this.editLabformGroup.value.email);
     if (this.selectedFile) {
       formData.append('Image', this.selectedFile, this.selectedFile.name);
