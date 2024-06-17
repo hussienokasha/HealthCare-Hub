@@ -1,3 +1,27 @@
 <div class="container-fluid p-2">
-    <button class="btn btn-outline-primary rounded-3 ms-auto d-block" (click)="openDialog()">Add Nurse</button>
+  <button
+    class="btn btn-outline-primary rounded-2 ms-auto d-block py-1 px-3"
+    (click)="openAddNurseDialog()"
+  >
+    <i class="bi-plus fs-5"></i>Add Nurse
+  </button>
+</div>
+
+<div
+  *ngFor="let nurse of Nurses"
+  class="rounded-pill mb-2 p-2 bg-white d-flex justify-content-around align-items-center"
+>
+  <p class="m-0 fs-4 text-primary">{{ nurse.name }}</p>
+  <p class="m-0">{{ nurse.email }}</p>
+  <p class="m-0">{{ nurse.gender }}</p>
+  <p class="m-0">{{ nurse.phone }}</p>
+  <p class="m-0">{{ nurse.specialty }}</p>
+  <div class="d-flex gap-2">
+    <button class="btn btn-sm btn-outline-primary" (click)="editNurseDialog(nurse)">
+      <i class="bi-pencil"></i>
+    </button>
+    <button class="btn btn-sm btn-outline-danger">
+      <i class="bi-trash"></i>
+    </button>
+  </div>
 </div>

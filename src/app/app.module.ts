@@ -15,7 +15,7 @@ import { FeaturesModule } from './Features/features.module';
   imports: [
     SharedModule,
     CoreModule,
-    // FeaturesModule,
+    FeaturesModule,
   ],
   providers: [
 
