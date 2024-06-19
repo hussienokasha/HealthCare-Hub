@@ -47,7 +47,6 @@ import { EditTestDialogComponent } from './Views/Dashboards/lab-dash/lab-tests/e
 import { MedicineDetailsComponent } from './Views/pharmacies/medicine-details/medicine-details.component';
 import { DoctorDetalisComponent } from './Views/doctors/doctor-detalis/doctor-detalis.component';
 import { EditNurseDialogComponent } from './Views/Dashboards/lab-dash/nurses/edit-nurse-dialog/edit-nurse-dialog.component';
-import { NgxTypedJsModule } from 'ngx-typed-js';
 
 @NgModule({
   declarations: [
@@ -74,10 +73,8 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
     ProfileSittingComponent,
     FeedbackComponent,
     AppointmentsComponent,
-
     NursesComponent,
     NurseDialogComponent,
-
     TestDialogComponent,
     AdminDashComponent,
     LabTestsComponent,

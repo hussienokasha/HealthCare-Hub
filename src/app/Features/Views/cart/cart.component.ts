@@ -13,9 +13,14 @@ import { CommonModule } from '@angular/common';
 export class CartComponent implements OnInit {
   testCart: Test[] = [];
   medCart: Medicine[] = [];
+<<<<<<< HEAD
 
   constructor(private sharedService: SharedService) {}
 
+=======
+selectedOption: string = 'home';
+selectedMethod: string = 'visa';
+>>>>>>> 88d50ec05f0497f11f0a060fc9060089f75fca8f
   ngOnInit(): void {
     this.getTests();
     this.getMedicines();

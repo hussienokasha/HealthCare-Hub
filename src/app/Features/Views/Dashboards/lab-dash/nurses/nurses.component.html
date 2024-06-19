@@ -7,21 +7,51 @@
   </button>
 </div>
 
-<div
-  *ngFor="let nurse of Nurses"
-  class="rounded-pill mb-2 p-2 bg-white d-flex justify-content-around align-items-center"
+<div class="row">
+  <div *ngFor="let nurse of Nurses" class="col-md-4 mb-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h1 class="card-title text-primary">{{ nurse.name }}</h1>
+        <p class="card-text mb-1"><strong>Email:</strong> {{ nurse.email }}</p>
+        <p class="card-text mb-1"><strong>Gender:</strong> {{ nurse.gender }}</p>
+        <p class="card-text mb-1"><strong>Phone:</strong> {{ nurse.phone }}</p>
+        <p class="card-text mb-1"><strong>Specialty:</strong> {{ nurse.specialty }}</p>
+      </div>
+      <div class="card-footer bg-transparent border-top-0 d-flex justify-content-end gap-2">
+        <button class="btn btn-sm btn-outline-primary" (click)="editNurseDialog(nurse)">
+          <i class="bi-pencil"></i> Edit
+        </button>
+        <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" >
+          <i class="bi-trash"></i> Delete
+        </button>
+      </div>
+    </div>
+    <div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
 >
-  <p class="m-0 fs-4 text-primary">{{ nurse.name }}</p>
-  <p class="m-0">{{ nurse.email }}</p>
-  <p class="m-0">{{ nurse.gender }}</p>
-  <p class="m-0">{{ nurse.phone }}</p>
-  <p class="m-0">{{ nurse.specialty }}</p>
-  <div class="d-flex gap-2">
-    <button class="btn btn-sm btn-outline-primary" (click)="editNurseDialog(nurse)">
-      <i class="bi-pencil"></i>
-    </button>
-    <button class="btn btn-sm btn-outline-danger">
-      <i class="bi-trash"></i>
-    </button>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <p class="fs-4">Are you sure you want to delete this Nurse?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          No
+        </button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="removeNurse(nurse.id)">
+          Yes
+        </button>
+      </div>
+    </div>
   </div>
 </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+
+

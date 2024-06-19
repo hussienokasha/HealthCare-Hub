@@ -20,7 +20,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ProfileAvatarComponent } from '../Features/Components/profile-avatar/profile-avatar.component';
 import { AppRoutingModule } from '../app-routing.module';
-;
+import {MatRadioModule} from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [
@@ -48,9 +49,14 @@ import { AppRoutingModule } from '../app-routing.module';
     ToastrModule.forRoot(),
     MatDialogModule,
     MatCardModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatRadioModule,
+    
+    
+
   ],
   exports: [
+    
     FooterComponent,
     NavbarComponent,
     HttpClientModule,
@@ -70,7 +76,8 @@ import { AppRoutingModule } from '../app-routing.module';
     ReactiveFormsModule,
     AppRoutingModule,
     CommonModule,
-    ProfileAvatarComponent
+    ProfileAvatarComponent,
+    MatRadioModule
   ],
 
 })
