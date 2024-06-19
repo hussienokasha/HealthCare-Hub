@@ -1,12 +1,12 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <p class="display-1 text-center" *ngIf="getTotalPrice() == 0">
+  <p class="display-1 text-center" *ngIf="calculateTotalPrice() == 0">
     NO ITEMS IN CART
   </p>
 
 
 
-  <div class="row g-2 justify-content-center" *ngIf="getTotalPrice() != 0">
+  <div class="row g-2 justify-content-center" *ngIf="calculateTotalPrice() != 0">
     <h1 class="mb-2 mt-4" *ngIf="medCart.length >0">Medicines Cart</h1>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let i of medCart">
       <div class="card">
@@ -69,7 +69,7 @@
   </div>
 
   <hr>
-  <div class="row g-2 justify-content-center" *ngIf="getTotalPrice() != 0">
+  <div class="row g-2 justify-content-center" *ngIf="calculateTotalPrice() != 0">
     <h1 class="mb-2" *ngIf="testCart.length >0">Tests Cart</h1>
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let i of testCart">
       <div class="card">
@@ -132,9 +132,9 @@
   </div>
 
   <hr />
-  <div class="d-flex align-items-center justify-content-between" *ngIf="getTotalPrice() > 0">
+  <div class="d-flex align-items-center justify-content-between" *ngIf="calculateTotalPrice() > 0">
     <p class="fs-3 my-4 text-end" >
-      Total: {{ getTotalPrice() }} EGP
+      Total: {{ calculateTotalPrice() }} EGP
     </p>
     <button class="btn btn-outline-primary" routerLink="/checkout">
       Checkout <i class="bi bi-credit-card-2-front"></i>

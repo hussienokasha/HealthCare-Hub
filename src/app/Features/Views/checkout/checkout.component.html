@@ -1,1 +1,189 @@
-<p>checkout works!</p>
+<div class="d-flex justify-content-center align-items-center h-100">
+  <div class="container-fluid w-50">
+    <h1>Checkout</h1>
+    <p>
+      Total Price:
+      {{ totalPrice | currency : "EGP" : "symbol" : "1.2-2" : "en-US" }}
+    </p>
+
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Full name:</label>
+        <input id="name" formControlName="name" type="text" />
+        <div
+          *ngIf="
+            checkoutForm.get('name')?.touched &&
+            checkoutForm.get('name')?.invalid
+          "
+          @fadeInOut
+          class="error text-danger alert alert-danger"
+        >
+          <div *ngIf="checkoutForm.get('name')?.errors?.['required']">
+            Full name is required.
+          </div>
+          <div *ngIf="checkoutForm.get('name')?.errors?.['minlength']">
+            Full name must be at least 6 characters.
+          </div>
+          <div *ngIf="checkoutForm.get('name')?.errors?.['pattern']">
+            Full name can only contain letters and spaces.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <select class="form-select" id="country" formControlName="country">
+          <option value="United States">United States</option>
+          <option value="Canada">Canada</option>
+          <option value="Canada">Egypt</option>
+          <option value="United Kingdom">United Kingdom</option>
+
+        </select>
+        <div
+          *ngIf="
+            checkoutForm.get('country')?.touched &&
+            checkoutForm.get('country')?.invalid
+          "
+          @fadeInOut
+          class="error text-danger alert alert-danger"
+        >
+          Country is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input
+          class="form-control"
+          id="address"
+          formControlName="address"
+          type="text"
+        />
+        <div
+          *ngIf="
+            checkoutForm.get('address')?.touched &&
+            checkoutForm.get('address')?.invalid
+          "
+          @fadeInOut
+          class="error text-danger alert alert-danger"
+        >
+          Address is required.
+        </div>
+      </div>
+
+      <div class="payment-methods">
+        <label>Payment Method:</label>
+        <div class="payment-option">
+          <input
+            class="form-check"
+            type="radio"
+            id="card"
+            name="paymentMethod"
+            checked="true"
+            value="Card"
+          />
+          <label for="card">Card</label>
+        </div>
+        <div class="payment-option">
+          <input
+            class="form-check"
+            type="radio"
+            id="afterpay"
+            name="paymentMethod"
+            value="Afterpay"
+          />
+          <label for="afterpay">Afterpay</label>
+        </div>
+        <div class="payment-option">
+          <input
+            class="form-check"
+            type="radio"
+            id="klarna"
+            name="paymentMethod"
+            value="Klarna"
+          />
+          <label for="klarna">Klarna</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cardNumber">Card number:</label>
+        <input
+          class="form-control"
+          id="cardNumber"
+          formControlName="cardNumber"
+          type="text"
+          placeholder="1234 1234 1234 1234"
+        />
+        <div
+          *ngIf="checkoutForm.get('cardNumber')?.touched && checkoutForm.get('cardNumber')?.errors?.['required']"
+          @fadeInOut
+          class="error text-danger alert alert-danger"
+        >
+          Card number is required.
+        </div>
+        <div
+          *ngIf="checkoutForm.get('cardNumber')?.touched && checkoutForm.get('cardNumber')?.errors?.['pattern']"
+          @fadeInOut
+          class="error text-danger alert alert-danger"
+        >
+          Invalid card number format.
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="expirationDate">Expiration date:</label>
+          <input
+            class="form-control"
+            id="expirationDate"
+            formControlName="expirationDate"
+            type="text"
+            placeholder="MM / YY"
+          />
+          <div
+            *ngIf="checkoutForm.get('expirationDate')?.touched && checkoutForm.get('expirationDate')?.errors?.['required']"
+            @fadeInOut
+            class="error text-danger alert alert-danger"
+          >
+            Expiration date is required.
+          </div>
+          <div
+            *ngIf="checkoutForm.get('expirationDate')?.touched && checkoutForm.get('expirationDate')?.errors?.['invalidMonth']"
+            @fadeInOut
+            class="error text-danger alert alert-danger"
+          >
+            Invalid expiration date format. Month should be between 01 and 12.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cvv">Security code:</label>
+          <input
+            class="form-control"
+            id="cvv"
+            formControlName="cvv"
+            type="text"
+            placeholder="CVV"
+          />
+          <div
+            *ngIf="checkoutForm.get('cvv')?.touched && checkoutForm.get('cvv')?.errors?.['required']"
+            @fadeInOut
+            class="error text-danger alert alert-danger"
+          >
+            Security code is required.
+          </div>
+          <div
+            *ngIf="checkoutForm.get('cvv')?.touched && checkoutForm.get('cvv')?.errors?.['pattern']"
+            @fadeInOut
+            class="error text-danger alert alert-danger"
+          >
+            Invalid CVV format.
+          </div>
+        </div>
+      </div>
+
+      <button type="submit">Submit order</button>
+    </form>
+  </div>
+</div>

@@ -101,7 +101,7 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
     DoctorDetalisComponent,
     EditNurseDialogComponent,
   ],
-  imports: [SharedModule,],
+  imports: [SharedModule],
   exports: [],
 })
 export class FeaturesModule {}
