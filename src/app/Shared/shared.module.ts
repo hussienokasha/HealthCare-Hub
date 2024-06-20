@@ -21,7 +21,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ProfileAvatarComponent } from '../Features/Components/profile-avatar/profile-avatar.component';
 import { AppRoutingModule } from '../app-routing.module';
 import {MatRadioModule} from '@angular/material/radio';
-
+import { TimeagoModule } from 'ngx-timeago';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -51,9 +52,9 @@ import {MatRadioModule} from '@angular/material/radio';
     MatCardModule,
     AppRoutingModule,
     MatRadioModule,
+    TimeagoModule.forRoot(),
+    NgxPaginationModule,
     
-    
-
   ],
   exports: [
     
@@ -77,7 +78,9 @@ import {MatRadioModule} from '@angular/material/radio';
     AppRoutingModule,
     CommonModule,
     ProfileAvatarComponent,
-    MatRadioModule
+    MatRadioModule,
+    TimeagoModule,
+    NgxPaginationModule
   ],
 
 })

@@ -5,7 +5,12 @@
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
-
+.whatsapp-icon {
+  background-color: #25D366; /* WhatsApp's brand color */
+  border-radius: 20px;
+  padding: 5px;
+  cursor: pointer;
+}
 .chat-icon:hover {
   filter: brightness(50%);
   -webkit-filter: brightness(50%);

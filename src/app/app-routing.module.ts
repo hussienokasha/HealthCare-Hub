@@ -30,14 +30,21 @@ import { ManageLabsComponent } from './Features/Views/Dashboards/admin-dash/mana
 import { ManageMedicineComponent } from './Features/Views/Dashboards/admin-dash/manage-medicine/manage-medicine.component';
 import { MedicineDetailsComponent } from './Features/Views/pharmacies/medicine-details/medicine-details.component';
 import { DoctorDetalisComponent } from './Features/Views/doctors/doctor-detalis/doctor-detalis.component';
+import { ChatComponent } from './Features/Components/chat/chat.component';
+import { AboutUsComponent } from './Features/Components/about-us/about-us.component';
+import { ClinicsComponent } from './Features/Components/clinics/clinics.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'home', component: HomeComponent },
   { path: 'labs', component: LabsComponent },
+  { path: 'AboutUs', component: AboutUsComponent },
+  { path: 'clinics', component: ClinicsComponent },
+
   { path: 'tests', component: TestsComponent },
   { path: 'test/:id', component: TestDetailsComponent },
   { path: 'doctors', component: DoctorsComponent },
+  { path: 'doctor/:id/chat', component: ChatComponent },
   { path: 'doctor/:id', component: DoctorDetalisComponent },
   { path: 'pharmacy', component: PharmacyComponent },
   { path: 'medicine/:id', component: MedicineDetailsComponent },
