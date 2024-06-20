@@ -30,6 +30,8 @@ import { ManageLabsComponent } from './Features/Views/Dashboards/admin-dash/mana
 import { ManageMedicineComponent } from './Features/Views/Dashboards/admin-dash/manage-medicine/manage-medicine.component';
 import { MedicineDetailsComponent } from './Features/Views/pharmacies/medicine-details/medicine-details.component';
 import { DoctorDetalisComponent } from './Features/Views/doctors/doctor-detalis/doctor-detalis.component';
+import { authGuard } from './Core/Guard/auth.guard';
+import { dashGuard } from './Core/Guard/dash.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -42,11 +44,12 @@ const routes: Routes = [
   { path: 'pharmacy', component: PharmacyComponent },
   { path: 'medicine/:id', component: MedicineDetailsComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'dashboard/nurse', component: NurseDashComponent },
+  { path: 'dashboard/nurse', component: NurseDashComponent,canDeactivate:[dashGuard] },
   { path: 'dashboard/doctor', component: DoctorDashComponent },
   {
     path: 'dashboard/admin-lab',
     component: LabDashComponent,
+    canDeactivate:[dashGuard],
     children: [
       { path: 'appointment', component: AppointmentsComponent },
       { path: 'nurses', component: NursesComponent },
@@ -57,15 +60,16 @@ const routes: Routes = [
   {
     path: 'dashboard/admin',
     component: AdminDashComponent,
+    canDeactivate:[dashGuard],
     children: [
       { path: 'manage-doctors', component: ManageDoctorsComponent },
       { path: 'manage-labs', component: ManageLabsComponent },
       { path: 'manage-medicine', component: ManageMedicineComponent },
     ],
   },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent ,canActivate:[authGuard]},
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent ,},
   { path: 'signup', component: SignupComponent },
   { path: 'verify', component: VerifyEmailComponent },
   { path: 'ForgetPassword', component: ForgetPasswordComponent },

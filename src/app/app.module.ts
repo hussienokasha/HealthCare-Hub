@@ -6,6 +6,7 @@ import { LoaderComponent } from './Shared/Components/loader/loader.component';
 import { SharedModule } from './Shared/shared.module';
 import { FeaturesModule } from './Features/features.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { FeaturesModule } from './Features/features.module';
     SharedModule,
     CoreModule,
     FeaturesModule,
+  
   ],
   providers: [
 

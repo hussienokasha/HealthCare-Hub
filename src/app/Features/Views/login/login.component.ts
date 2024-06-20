@@ -25,7 +25,6 @@ export class LoginComponent {
     this.login.login(this.loginFormGroup.value).subscribe({
       next: (data: any) => {
         this.toast.success('Login Successfully');
-        this.router.navigate(['/home'])
       }, error: (err) => {
         if (err == 'User Account not activated') {
           this.router.navigate(['/verify'])
