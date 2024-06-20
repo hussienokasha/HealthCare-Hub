@@ -11,7 +11,7 @@ export class CartComponent {
   testCart: Test[] = [];
   medCart: Medicine[] = [];
 selectedOption: string = 'home';
-selectedMethod: string = 'visa';
+
   ngOnInit(): void {
     this.getTests();
     this.getMedicines();
