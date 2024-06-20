@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="container my-5">
+    <div class="mb-2">
+        <h1>Clinics</h1>
+        <p class="">Remote doctor consultation.</p>
+      </div>
+  <div class="row g-4"> <!-- g-4 adds spacing between columns -->
+    <div class=" col-md-3 col-6" *ngFor="let clinic of clinics">
+    <div class="clinic">
+        
+        <fa-icon [icon]="clinic.icon"></fa-icon>
+      <h4>{{clinic.name}}</h4>
+    </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

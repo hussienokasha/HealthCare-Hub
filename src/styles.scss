@@ -1,28 +1,38 @@
-html,
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
 body {
-  height: 100%;
-}
-body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  font-family: "Vazirmatn", sans-serif;
 }
 .logo {
-  width: 60px;
+  width: 66px;
 }
-ul {
+ul,li {
   list-style-type: none;
 }
 .profile {
   width: 60px;
 }
+h1,h2,h3,h4,h5,h6{
+  color: #1C9CEE;
+}
+/* Width and Height of the scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
 
-html,
-body {
-  height: 100%;
+/* Track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light grey */
 }
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+/* Handle (thumb) of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Grey */
+  border-radius: 4px;
 }
-.curser-pointer{
-  cursor: pointer;
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Dark grey */
 }

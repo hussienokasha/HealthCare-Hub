@@ -17,7 +17,6 @@ import { FeaturesModule } from './Features/features.module';
     SharedModule,
     CoreModule,
     FeaturesModule,
-  
   ],
   providers: [
 

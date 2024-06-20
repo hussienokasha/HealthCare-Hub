@@ -1,0 +1,30 @@
+.service-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+.container-works img{
+    border-radius: 10px;
+}  
+  .service-card  {
+    border: 5px solid #fff;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #1C9CEE !important;
+  }
+  
+
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

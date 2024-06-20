@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Doctor } from 'src/app/Core/Models/doctor';
+import { ChatService } from 'src/app/Core/Services/chat.service';
 import { DoctorService } from 'src/app/Core/Services/doctor.service';
 
 @Component({
@@ -8,15 +9,15 @@ import { DoctorService } from 'src/app/Core/Services/doctor.service';
   styleUrls: ['./doctors.component.scss'],
 })
 export class DoctorsComponent {
-chat(arg0: number) {
 
-}
-takeAppoint(arg0: number) {
+  constructor(private doctor: DoctorService,private _chatService:ChatService) {
 
-}
+    
+  }
+
+
   doctors: Doctor[] = [];
   searchTerm: string='';
-  constructor(private doctor: DoctorService) {}
   ngOnInit() {
     this.getDoctors();
   }
@@ -32,4 +33,10 @@ takeAppoint(arg0: number) {
       doctor.name.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
+
+  goChat(){
+    //this._chatService.createHubConnection(this.users,this.member.userName)
+
+  }
+
 }

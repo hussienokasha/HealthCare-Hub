@@ -1,9 +1,7 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { ClientRateComponent } from './Components/client-rate/client-rate.component';
-import { DownloadAppComponent } from './Components/download-app/download-app.component';
 import { LabsDemoComponent } from './Components/labs-demo/labs-demo.component';
 import { LandingComponent } from './Components/landing/landing.component';
-import { ServicesComponent } from './Components/services/services.component';
 import { WorkComponent } from './Components/work/work.component';
 import { CartComponent } from './Views/cart/cart.component';
 import { ChangePasswordComponent } from './Views/change-password/change-password.component';
@@ -47,16 +45,18 @@ import { EditTestDialogComponent } from './Views/Dashboards/lab-dash/lab-tests/e
 import { MedicineDetailsComponent } from './Views/pharmacies/medicine-details/medicine-details.component';
 import { DoctorDetalisComponent } from './Views/doctors/doctor-detalis/doctor-detalis.component';
 import { EditNurseDialogComponent } from './Views/Dashboards/lab-dash/nurses/edit-nurse-dialog/edit-nurse-dialog.component';
-
+import { ChatComponent } from './Components/chat/chat.component';
+import { register } from 'swiper/element/bundle';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
+import { ClinicsComponent } from './Components/clinics/clinics.component';
+register();
 @NgModule({
   declarations: [
     ForgetPasswordComponent,
     ResetPasswordComponent,
     ClientRateComponent,
-    DownloadAppComponent,
     LabsDemoComponent,
     LandingComponent,
-    ServicesComponent,
     WorkComponent,
     HomeComponent,
     LabsComponent,
@@ -97,8 +97,13 @@ import { EditNurseDialogComponent } from './Views/Dashboards/lab-dash/nurses/edi
     MedicineDetailsComponent,
     DoctorDetalisComponent,
     EditNurseDialogComponent,
+    ChatComponent,
+    AboutUsComponent,
+    ClinicsComponent,
+  
   ],
   imports: [SharedModule],
   exports: [],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class FeaturesModule {}
