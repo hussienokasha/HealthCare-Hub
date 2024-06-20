@@ -17,13 +17,16 @@ import { env } from 'src/assets/enviroment';
   providedIn: 'root'
 })
 export class AuthService {
+  
+  private currentUserSource= new BehaviorSubject<User |  null>(null);
+  currnetUser$=this.currentUserSource.asObservable();
   constructor(private http: HttpClient, private route: Router) { }
   apiUrl: string = env.api;
   user = new BehaviorSubject<User | null>(null);
   login(data: Login) {
     return this.http.post<LoginResonse>(`${this.apiUrl}/Account/Login`, data).pipe(
       catchError((err) => {
-        console.log(err);
+
         if (err.error === "User is registered but the account is not activated") {
           return throwError(() => new Error('User Account not activated'));
         } else if (err.error && err.error.message) {
@@ -126,4 +129,11 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('role');
   }
+
+  setCurrentUser(user: User){
+    localStorage.setItem('token',JSON.stringify(user));
+    this.currentUserSource.next(user);
+  }
+
+
 }

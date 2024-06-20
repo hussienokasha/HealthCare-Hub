@@ -1,47 +1,58 @@
 <app-navbar></app-navbar>
-<div class="contact py-5">
-  <div class="container m-auto py-5 ">
-    <h1 class="text-center fs-1 text-white">Contact Us</h1>
-    <div class="p-5 bg-white contact-form m-auto position-relative rounded-3">
-      <div class="info bg-dark rounded-3 text-white p-3 position-absolute top-50 translate-middle start-0 z">
-        <h1>Contact Informatiom</h1>
-        <p><i class="bi bi-mailbox text-danger fs-5"></i> info&#64;health-hub.eg</p>
-        <p><i class="bi bi-map-fill text-danger fs-5"></i> BFCAI</p>
-        <p><i class="bi bi-phone text-danger fs-5"></i> 01258497548</p>
-        <div class="social d-flex gap-2 align-items-center">
-          <i class="bi bi-facebook text-danger"></i>
-          <i class="bi bi-instagram text-danger"></i>
-          <i class="bi bi-twitter-x text-danger"></i>
-        </div>
-      </div>
-      <h2 class="py-3">Send a Message</h2>
-      <div class="ms-auto w-100 d-flex justify-content-end">
 
-        <form class="row w-75" [formGroup]="formGroup" (ngSubmit)="submitForm()">
-          <mat-form-field class="col-12 col-lg-6">
-            <mat-label>First Name</mat-label>
-            <input matInput placeholder="Ex. Ahmed" formControlName="fname">
-          </mat-form-field>
-          <mat-form-field class="col-12 col-lg-6">
-            <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Ex. Fahmy" formControlName="lname">
-          </mat-form-field>
-          <mat-form-field class="col-12 col-lg-6">
-            <mat-label>Subject</mat-label>
-            <input matInput placeholder="Enter Your Subject" formControlName="subject">
-          </mat-form-field>
-          <mat-form-field class="col-12 col-lg-6">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput placeholder="Ex. user@user.com" formControlName="email">
-          </mat-form-field>
-          <mat-form-field class="col-12">
-            <mat-label>Write Your Message Here</mat-label>
-            <textarea matInput placeholder="Message" formControlName="message"></textarea>
-          </mat-form-field>
-          <button mat-raised-button color="accent" class="col-3" type="submit">Send</button>
-        </form>
+<div class="container-fluid main-service p-0">
+  <div class="position-relative overlay-container">
+<div class="overlay"></div>
+      <div class="container-sm overlay-text">
+          <h1>
+             Contact us 
+          </h1>
+          <p>
+            Innovative services for medical solutions
+         
+          </p>
       </div>
+  </div>
+</div>
+
+
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Contact Us</h2>
+      <form>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" placeholder="First Name" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" placeholder="Last Name" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="email@mail.com" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="05xxxxxxxx" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" placeholder="Enter your message in detail" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-primary w-100">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-5 offset-1">
+      <img src="../../../../assets/images/LaboratoryServices_48.jpg" class="w-100 h-100" alt="lab service">
     </div>
   </div>
 </div>
+
+<div class="container-fluid px-0">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3438.6597094614035!2d31.202701359855553!3d30.474075198192292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7df5645a794dd%3A0xf23e10419a7decdf!2z2YPZhNmK2Kkg2KfZhNit2KfYs9io2KfYqiDZiNin2YTYsNmD2KfYoSDYp9mE2KfYtdi32YbYp9i52YogLSDYrNin2YXYudipINio2YbZh9in!5e0!3m2!1sar!2seg!4v1718919289412!5m2!1sar!2seg" class="w-100" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
 <app-footer></app-footer>

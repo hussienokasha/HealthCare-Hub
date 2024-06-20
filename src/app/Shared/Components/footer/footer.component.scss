@@ -1,0 +1,47 @@
+.footer{
+    background-color: #f8f8f8ad;
+}
+.logo {
+    width: 100px;
+}
+.important-links, .help-center, .get-in-touch, .social-media {
+    list-style-type: none;
+    padding: 0;
+}
+.important-links li, .help-center li, .get-in-touch li, .social-media li {
+    margin-bottom: 0.5rem;
+}
+.important-links li a, .help-center li a, .get-in-touch li a, .social-media li a {
+    color: #6c757d;
+    transition: color 0.3s ease;
+}
+.important-links li a:hover, .help-center li a:hover, .get-in-touch li a:hover, .social-media li a:hover {
+    color: var(--Primary-500, #167AD8);
+}
+.social i {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social i:hover {
+color: var(--Primary-500, #167AD8);
+
+}
+.container p {
+    color: #6c757d;
+}
+
+h5 {
+    font-size: calc(1rem + 0.5vw);
+}
+p, li a {
+    font-size: calc(0.875rem + 0.25vw);
+}
+@media (max-width: 576px) {
+    .container {
+        padding: 1rem;
+    }
+    .social {
+        gap: 1rem;
+    }
+}

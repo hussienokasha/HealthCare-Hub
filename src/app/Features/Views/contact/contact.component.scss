@@ -1,15 +1,64 @@
-.contact {
+.form-group {
+  margin-bottom: 15px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+h2{
+  color: var(--Primary-500, #167AD8);
+  font-size: 35px;
+}
+.form-control:focus {
+  border-color:var(--Primary-500, #167AD8);
+
+  box-shadow: none
+}
+.btn-outline-primary:hover{
+  background-color: var(--Primary-500, #167AD8);
+  border-color: var(--Primary-500, #167AD8);
+}
+.container img{
+  border-radius: 15px;
+}
+.main-service {
+  background-image: url("../../../../assets/images/LaboratoryServices_48.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+//
+.overlay-container {
   position: relative;
-  background-image: url("../../../../assets/contact-back.png"); /* Define multiple background images */
-  background-size: cover; /* Ensure both background images cover the entire element */
-  background-repeat: no-repeat; /* Prevent background images from repeating */
-  background-position: center, center; /* Center both background images */
-
+  color: white;
+  height: 60vh; /* 60% of the viewport height */
 }
 
-
-.contact-form {
-
-  max-width: 650px;
-
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #7ba1c5;
+  opacity: 0.7;
 }
+
+.overlay-text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+  .overlay-text h1 {
+      font-size:48px;
+      margin-bottom: 20px;
+  }
+
+  .overlay-text p {
+      font-size: 36px;
+  }
