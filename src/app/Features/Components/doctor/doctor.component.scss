@@ -1,0 +1,29 @@
+/* filter.component.css */
+.filter-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .filter-container h4 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .filter-container h5 {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .form-check-label {
+    margin-left: 8px;
+  }
+  
+  .list-group-item {
+    border: none;
+    padding: 10px 0;
+  }
+  

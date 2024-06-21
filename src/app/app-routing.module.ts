@@ -9,7 +9,6 @@ import { LabDashComponent } from './Features/Views/Dashboards/lab-dash/lab-dash.
 import { LabTestsComponent } from './Features/Views/Dashboards/lab-dash/lab-tests/tests.component';
 import { NursesComponent } from './Features/Views/Dashboards/lab-dash/nurses/nurses.component';
 import { NurseDashComponent } from './Features/Views/Dashboards/nurse-dash/nurse-dash.component';
-import { DoctorsComponent } from './Features/Views/doctors/doctors.component';
 import { ForgetPasswordComponent } from './Features/Views/forget-password/forget-password.component';
 import { HomeComponent } from './Features/Views/home/home.component';
 import { LabsComponent } from './Features/Views/labs/labs.component';
@@ -29,10 +28,10 @@ import { ManageDoctorsComponent } from './Features/Views/Dashboards/admin-dash/m
 import { ManageLabsComponent } from './Features/Views/Dashboards/admin-dash/manage-labs/manage-labs.component';
 import { ManageMedicineComponent } from './Features/Views/Dashboards/admin-dash/manage-medicine/manage-medicine.component';
 import { MedicineDetailsComponent } from './Features/Views/pharmacies/medicine-details/medicine-details.component';
-import { DoctorDetalisComponent } from './Features/Views/doctors/doctor-detalis/doctor-detalis.component';
 import { ChatComponent } from './Features/Components/chat/chat.component';
 import { AboutUsComponent } from './Features/Components/about-us/about-us.component';
 import { ClinicsComponent } from './Features/Components/clinics/clinics.component';
+import { DoctorComponent } from './Features/Components/doctor/doctor.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -43,9 +42,8 @@ const routes: Routes = [
 
   { path: 'tests', component: TestsComponent },
   { path: 'test/:id', component: TestDetailsComponent },
-  { path: 'doctors', component: DoctorsComponent },
   { path: 'doctor/:id/chat', component: ChatComponent },
-  { path: 'doctor/:id', component: DoctorDetalisComponent },
+  { path: 'doctor/:id', component: DoctorComponent },
   { path: 'pharmacy', component: PharmacyComponent },
   { path: 'medicine/:id', component: MedicineDetailsComponent },
   { path: 'contact', component: ContactComponent },
