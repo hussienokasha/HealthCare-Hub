@@ -20,7 +20,9 @@ h1,h2,h3,h4,h5,h6{
   width: 8px;
   height: 8px;
 }
-
+.curser-pointer{
+  cursor: pointer;
+}
 /* Track (background) of the scrollbar */
 ::-webkit-scrollbar-track {
   background: #f1f1f1; /* Light grey */

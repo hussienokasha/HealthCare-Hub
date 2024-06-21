@@ -1,35 +1,17 @@
-<swiper-container>
-    <swiper-slide class="m-2">
-        <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>
-                <img src="path/to/logo.png" alt="AI Arab Logo" class="logo">
-                <span>AI Arab</span>
-              </mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <div class="content">
-                <span class="test-count">82 Tests</span>
-                <div class="ratings">
-                  <mat-icon>star</mat-icon>
-                  <mat-icon>star</mat-icon>
-                  <mat-icon>star</mat-icon>
-                  <mat-icon>star</mat-icon>
-                  <mat-icon>star</mat-icon>
-                </div>
-              </div>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>Branch 1</button>
-              <button mat-icon-button>
-                <mat-icon>location_on</mat-icon>
-              </button>
-            </mat-card-actions>
-          </mat-card>
-          
+<div class="container">
+  <h1>Labs</h1>
+  <swiper-container grid-rows="1" mousewheel-force-to-axis="true" class="mb-5" [s] loop="true" [slidesPerView]="2">
+    <ng-container *ngFor="let lab of labs">
+      <swiper-slide class="m-2" >
+        <div class="border rounded-4 px-2 py-2 curser-pointer">
+          <span class="badge text-bg-primary rounded-pill d-inline-block">66 tests</span>
+          <img [src]="lab.pictureUrl" class="img-fluid object-fit-cover d-block rounded-4 mx-auto my-3" alt="" style="width: 100px; height: 100px;">
+          <div class="d-flex justify-content-between">
+            <h6 class="text-primary">{{lab.name}}</h6>
+            <p>{{lab.phone}}</p>
+          </div>
+        </div>
       </swiper-slide>
-    <ng-container *ngFor="let item of lab">
-  
     </ng-container>
   </swiper-container>
+</div>
