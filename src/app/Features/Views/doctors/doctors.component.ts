@@ -9,15 +9,13 @@ import { DoctorService } from 'src/app/Core/Services/doctor.service';
   styleUrls: ['./doctors.component.scss'],
 })
 export class DoctorsComponent {
-
-  constructor(private doctor: DoctorService,private _chatService:ChatService) {
-
-    
-  }
-
+  constructor(
+    private doctor: DoctorService,
+    private _chatService: ChatService
+  ) {}
 
   doctors: Doctor[] = [];
-  searchTerm: string='';
+  searchTerm: string = '';
   ngOnInit() {
     this.getDoctors();
   }
@@ -34,9 +32,7 @@ export class DoctorsComponent {
     );
   }
 
-  goChat(){
+  goChat() {
     //this._chatService.createHubConnection(this.users,this.member.userName)
-
   }
-
 }

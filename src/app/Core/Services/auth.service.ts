@@ -16,14 +16,10 @@ import { env } from 'src/assets/enviroment';
   providedIn: 'root',
 })
 export class AuthService {
-<<<<<<< HEAD
-  constructor(private http: HttpClient, private route: Router) {}
-=======
-  
+
   private currentUserSource= new BehaviorSubject<User |  null>(null);
   currnetUser$=this.currentUserSource.asObservable();
   constructor(private http: HttpClient, private route: Router) { }
->>>>>>> 309e1abc9bd8fd58284442f0932205ab6b9928df
   apiUrl: string = env.api;
   user = new BehaviorSubject<User | null>(null);
   login(data: Login) {
@@ -65,21 +61,11 @@ export class AuthService {
   signup(data: Register) {
     return this.http.post(`${this.apiUrl}/Account/Register`, data).pipe(
       catchError((err) => {
-<<<<<<< HEAD
         console.log(err);
         if (err.error[0].code) {
           return throwError(() => err.error[0].code);
         } else if (err.error.message) {
           return throwError(() => err.error.message);
-=======
-
-        if (err.error === "User is registered but the account is not activated") {
-          return throwError(() => new Error('User Account not activated'));
-        } else if (err.error && err.error.message) {
-          return throwError(() => new Error(err.error.message));
-        } else {
-          return throwError(() => new Error('Unknown Error has Occurred'));
->>>>>>> 309e1abc9bd8fd58284442f0932205ab6b9928df
         }
         return throwError(() => err.error.message);
       })

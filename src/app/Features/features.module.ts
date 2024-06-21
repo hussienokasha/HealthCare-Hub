@@ -47,7 +47,7 @@ import { DoctorDetalisComponent } from './Views/doctors/doctor-detalis/doctor-de
 import { EditNurseDialogComponent } from './Views/Dashboards/lab-dash/nurses/edit-nurse-dialog/edit-nurse-dialog.component';
 import { ChatComponent } from './Components/chat/chat.component';
 import { register } from 'swiper/element/bundle';
-import { AboutUsComponent } from './Components/about-us/about-us.component';
+import { AboutUsComponent } from './Views/about-us/about-us.component';
 import { ClinicsComponent } from './Components/clinics/clinics.component';
 register();
 @NgModule({
@@ -100,10 +100,9 @@ register();
     ChatComponent,
     AboutUsComponent,
     ClinicsComponent,
-  
   ],
   imports: [SharedModule],
   exports: [],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FeaturesModule {}
