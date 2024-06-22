@@ -1,5 +1,5 @@
 
 export const env = {
-  api: 'https://localhost:7133',
+  api: 'http://DawayahealthCare2.somee.com',
   production: false,
 }
