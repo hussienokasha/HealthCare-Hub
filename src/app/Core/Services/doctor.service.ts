@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { take, catchError, throwError, Subject, BehaviorSubject } from 'rxjs';
-import { Doctor } from '../Models/doctor';
 import { env } from 'src/assets/enviroment';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Doctor } from '../Models/doctor';
 
 @Injectable({
   providedIn: 'root',

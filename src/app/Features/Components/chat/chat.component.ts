@@ -2,9 +2,9 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Doctor } from 'src/app/Core/Models/doctor';
 import { ChatService } from 'src/app/Core/Services/chat.service';
 import { DoctorService } from 'src/app/Core/Services/doctor.service';
-import { Doctor } from 'src/app/Core/Models/doctor';
 
 @Component({
   selector: 'app-chat',

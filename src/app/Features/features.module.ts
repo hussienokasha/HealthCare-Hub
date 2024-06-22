@@ -16,7 +16,6 @@ import { LabTestsComponent } from './Views/Dashboards/lab-dash/lab-tests/tests.c
 import { NurseDialogComponent } from './Views/Dashboards/lab-dash/nurses/add-nurse-dialog/nurse-dialog.component';
 import { NursesComponent } from './Views/Dashboards/lab-dash/nurses/nurses.component';
 import { NurseDashComponent } from './Views/Dashboards/nurse-dash/nurse-dash.component';
-import { DoctorsComponent } from './Views/doctors/doctors.component';
 import { HomeComponent } from './Views/home/home.component';
 import { LabsComponent } from './Views/labs/labs.component';
 import { NotFoundComponent } from './Views/not-found/not-found.component';
@@ -43,10 +42,10 @@ import { AddMedicineDialogComponent } from './Views/Dashboards/admin-dash/manage
 import { EditMedicineDialogComponent } from './Views/Dashboards/admin-dash/manage-medicine/edit-medicine-dialog/edit-medicine-dialog.component';
 import { EditTestDialogComponent } from './Views/Dashboards/lab-dash/lab-tests/edit-test-dialog/edit-test-dialog.component';
 import { MedicineDetailsComponent } from './Views/pharmacies/medicine-details/medicine-details.component';
-import { DoctorDetalisComponent } from './Views/doctors/doctor-detalis/doctor-detalis.component';
 import { EditNurseDialogComponent } from './Views/Dashboards/lab-dash/nurses/edit-nurse-dialog/edit-nurse-dialog.component';
 import { ChatComponent } from './Components/chat/chat.component';
 import { register } from 'swiper/element/bundle';
+import { DoctorComponent } from './Components/doctor/doctor.component';
 import { AboutUsComponent } from './Views/about-us/about-us.component';
 import { ClinicsComponent } from './Components/clinics/clinics.component';
 register();
@@ -67,7 +66,6 @@ register();
     NurseDashComponent,
     DoctorDashComponent,
     LabDashComponent,
-    DoctorsComponent,
     TestsComponent,
     ChangePasswordComponent,
     ProfileSittingComponent,
@@ -95,11 +93,12 @@ register();
     EditMedicineDialogComponent,
     EditTestDialogComponent,
     MedicineDetailsComponent,
-    DoctorDetalisComponent,
     EditNurseDialogComponent,
     ChatComponent,
     AboutUsComponent,
     ClinicsComponent,
+    DoctorComponent,
+  
   ],
   imports: [SharedModule],
   exports: [],
