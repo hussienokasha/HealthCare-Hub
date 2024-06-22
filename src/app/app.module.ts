@@ -14,6 +14,7 @@ import { FeaturesModule } from './Features/features.module';
     LoaderComponent
   ],
   imports: [
+    
     SharedModule,
     CoreModule,
     FeaturesModule,

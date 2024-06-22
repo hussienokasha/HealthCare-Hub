@@ -17,6 +17,7 @@ export class ProfileAvatarComponent {
   }
   logout() {
     this.log.logout();
-   this.route.navigate(['/home'])
+    this.route.navigate(['/home'])
+    window.location.reload();
   }
 }

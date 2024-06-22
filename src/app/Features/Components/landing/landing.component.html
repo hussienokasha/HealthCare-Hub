@@ -1,6 +1,7 @@
 <div
-  class="d-flex justify-content-center align-items-center vh-100 position-relative"
+  class="d-flex flex-column justify-content-center align-items-center vh-100 position-relative"
 >
+
   <ngx-typed-js
     [strings]="[
       'Health Care-Hub',
@@ -8,13 +9,16 @@
       'Medicines',
       'Lab Tests at Home',
       'Chat with AI Bot',
-      'Chat with Dotocr',
+      'Chat with Dotocr'
     ]"
     [loop]="true"
     [typeSpeed]="100"
     [backSpeed]="1"
     [showCursor]="false"
+
   >
-    <h2 class="text-white typing lh-base px-3"></h2>
+  <h2 class="text-white typing lh-base px-3"></h2>
   </ngx-typed-js>
+
+  <button class="btn btn-outline-light btn-lg position-relative z-1" (click)="scroll()">Explore more</button>
 </div>

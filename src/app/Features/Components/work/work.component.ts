@@ -6,6 +6,9 @@ import { Component} from '@angular/core';
   styleUrls: ['./work.component.scss'],
 })
 export class WorkComponent {
+scroll() {
+window.scrollBy(0,1700);
+}
 
   constructor(  ) {}
 

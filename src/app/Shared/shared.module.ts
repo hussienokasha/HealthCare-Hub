@@ -23,6 +23,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import {MatRadioModule} from '@angular/material/radio';
 import { TimeagoModule } from 'ngx-timeago';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ProfileAvatarComponent
   ],
   imports: [
+    ScrollingModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserModule,
@@ -54,10 +57,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatRadioModule,
     TimeagoModule.forRoot(),
     NgxPaginationModule,
-    
+
   ],
   exports: [
-    
+
     FooterComponent,
     NavbarComponent,
     HttpClientModule,
@@ -80,7 +83,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ProfileAvatarComponent,
     MatRadioModule,
     TimeagoModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ScrollingModule
   ],
 
 })
