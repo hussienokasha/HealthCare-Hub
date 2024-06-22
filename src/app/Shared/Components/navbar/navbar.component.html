@@ -1,44 +1,83 @@
-<nav class="navbar navbar-expand-lg bg-opacity-75  p-0 z-2" [class.fixed-top]="isNavbarFixed">
+<nav
+  class="navbar navbar-expand-lg bg-opacity-75 p-0 z-2"
+  [class.fixed-top]="isNavbarFixed"
+>
   <div class="container">
     <a class="navbar-brand" routerLink="/home">
-      <img src="../../../assets/logo/logo.jpg" class="logo" alt="">
-
+      <img src="../../../assets/logo/logo.jpg" class="logo" alt="" />
     </a>
-    <button class="navbar-toggler order-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
-      aria-controls="navbarNav=" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler order-3"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvas"
+      aria-controls="navbarNav="
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="offcanvas offcanvas-start w-100 bg-dark" id="offcanvas"  data-bs-backdrop="static">
+    <div
+      class="offcanvas offcanvas-start w-100 bg-dark"
+      id="offcanvas"
+      data-bs-backdrop="static"
+    >
       <div class="offcanvas-header text-bg-info rounded-3">
-
         <div class="d-flex flex-row align-items-center gap-3">
-          <img src="../../../assets/logo/logo.jpg" alt="" class="logo d-block ms-3">
+          <img
+            src="../../../assets/logo/logo.jpg"
+            alt=""
+            class="logo d-block ms-3"
+          />
           <p class="fs-2 fw-bold m-0 text-wrap lh-base">Health-Care Hub</p>
         </div>
 
-
-        <button type="button" class="btn-close ms-3 bg-light p-3  ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-
+        <button
+          type="button"
+          class="btn-close ms-3 bg-light p-3 ms-auto"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
 
       <div class="offcanvas-body m-auto">
         <ul class="navbar-nav d-flex align-items-center g-3">
           <li class="nav-item">
-            <a class="nav-link px-3" routerLink='/home' routerLinkActive="  text-dark">Home</a>
+            <a
+              class="nav-link px-3"
+              routerLink="/home"
+              routerLinkActive="  text-dark"
+              >Home</a
+            >
           </li>
-       
+
           <li class="nav-item">
-            <a class="nav-link  px-3 text-nowrap" routerLink="/test" routerLinkActive=" text-dark text-nowrap">Services</a>
+            <a
+              class="nav-link px-3 text-nowrap"
+              routerLink="/test"
+              routerLinkActive=" text-dark text-nowrap"
+              >Services</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link px-3" routerLink='/AboutUs' routerLinkActive="  text-dark">About us</a>
+            <a
+              class="nav-link px-3"
+              routerLink="/AboutUs"
+              routerLinkActive="  text-dark"
+              >About us</a
+            >
           </li>
-       
+
           <li class="nav-item">
-            <a class="nav-link  px-3 text-nowrap" routerLink="/contact" routerLinkActive=" text-dark text-nowrap">Contact Us</a>
+            <a
+              class="nav-link px-3 text-nowrap"
+              routerLink="/contact"
+              routerLinkActive=" text-dark text-nowrap"
+              >Contact Us</a
+            >
           </li>
-          
+
           <!-- <div class="dropdown mx-4">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dashboard
@@ -50,18 +89,32 @@
               <li><a class="dropdown-item" routerLink="/dashboard/admin/manage-doctors">Admin Dashboard</a></li>
             </ul>
           </div> -->
-
         </ul>
       </div>
-
     </div>
-
-
-    <a class="nav-link ms-auto p-2" style="cursor: pointer;">
-      
+    <li class="nav-item position-relative">
+      <a
+        class="nav-link px-3 text-nowrap"
+        routerLink="/cart"
+        routerLinkActive=" text-dark text-nowrap"
+        ><i class="bi bi-cart fs-3"></i
+      ></a>
+      <span
+        *ngIf="geCartItemsLength() != 0"
+        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+      >
+        {{ geCartItemsLength() }}
+      </span>
+    </li>
+    <a class="nav-link ms-auto p-2" style="cursor: pointer">
       <app-profile-avatar *ngIf="isRegister"></app-profile-avatar>
     </a>
-    <a class="nav-link ms-auto p-2" routerLink="/login" routerLinkActive=" bg-white text-dark" *ngIf="!isRegister">
+    <a
+      class="nav-link ms-auto p-2"
+      routerLink="/login"
+      routerLinkActive=" bg-white text-dark"
+      *ngIf="!isRegister"
+    >
       Login
       <i class="bi bi-box-arrow-in-right text-success"></i>
     </a>
