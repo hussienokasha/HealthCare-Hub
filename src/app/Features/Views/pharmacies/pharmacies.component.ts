@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Medicine } from 'src/app/Core/Models/medicine';
 import { MedicineService } from 'src/app/Core/Services/medicine.service';
@@ -12,15 +13,19 @@ export class PharmacyComponent implements OnInit {
   medicines: Medicine[] = [];
   searchTerm: string = '';
 
-  constructor(private medicineService: MedicineService,private toast:ToastrService) {}
+  constructor(    private router: Router,private medicineService: MedicineService,private toast:ToastrService) {}
 
   ngOnInit() {
     this.getMedicine();
   }
 
+  navigateToMedicineDetails(id: number): void {
+    this.router.navigate(['/medicine', id]);
+  }
   getMedicine() {
     this.medicineService.getAllMedicines().subscribe({
       next: (res: Medicine[]) => {
+        console.log(res)
         this.medicines = res;
       },
     });

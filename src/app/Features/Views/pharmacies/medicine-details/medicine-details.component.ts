@@ -11,19 +11,21 @@ import { MedicineService } from 'src/app/Core/Services/medicine.service';
 export class MedicineDetailsComponent {
 
   medicineDetails!: Medicine;
+
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private medicine: MedicineService
-  ) {}
-  ngOnInit(){
-    let medicineId = this.activatedRoute.snapshot.params['id'];
-    this.getMedicineDetails(medicineId);
+    private route: ActivatedRoute,
+    private medicineService: MedicineService
+  ) { }
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.getMedicineDetails(+id);
+    }  
   }
-  getMedicineDetails(id:number){
-    this.medicine.getMedicineById(id).subscribe({
-      next:(m:Medicine)=>{
-        this.medicineDetails=m;
-      }
-    })
+
+  getMedicineDetails(id: number): void {
+    this.medicineService.getMedicineById(id)
+      .subscribe(medicine => this.medicineDetails = medicine);
   }
 }

@@ -1,0 +1,40 @@
+
+.main-service {
+    background-image: url("../../../../assets/images/LaboratoryServices_48.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  //
+  .overlay-container {
+    position: relative;
+    color: white;
+    height: 40vh; /* 60% of the viewport height */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #7ba1c5;
+    opacity: 0.7;
+  }
+  
+  .overlay-text {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+  }
+  
+    .overlay-text h1 {
+        font-size:48px;
+        margin-bottom: 20px;
+    }
+  
+    .overlay-text p {
+        font-size: 36px;
+    }

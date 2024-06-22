@@ -1,36 +1,39 @@
-<app-navbar></app-navbar>
-<div class="container-fluid">
-  <div class="row justify-content-center vh-100">
-    <div class="col-12 col-md-6 ps-0 img">
-    </div>
-    <div class="col-12 col-md-6 m-auto">
-      <form (ngSubmit)="onSubmitForm()" [formGroup]="loginFormGroup" class="mt-5 px-5">
-        <h1 class="text-center ">Welcome To HealthCare Hub</h1>
-        <mat-form-field class="w-100">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="john@mark.com" formControlName="email" autofocus>
-          <mat-error *ngIf="loginFormGroup.controls['email'].invalid">{{getErrorMessage()}}</mat-error>
-        </mat-form-field>
+<div class="m-auto my-5 container">
+  <form [formGroup]="login" class="mat-elevation-z2 p-3" (ngSubmit)="onLoginSubmit()">
+    <h1 class="text-center mb-4">Welcome in Health Care Hub</h1>
+    <mat-form-field class="w-100">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" id="email" formControlName="email" required>
+      <mat-error *ngIf="login.controls['email'].invalid && (login.controls['email'].dirty || login.controls['email'].touched)">
+        Email is required.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password" required minlength="8" maxlength="30">
+      <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="login.controls['password'].errors?.['required'] && (login.controls['password'].dirty || login.controls['password'].touched)">
+        <span>Password is required.</span>
+      </mat-error>
+    </mat-form-field>
 
-        <mat-form-field class="w-100 mt-3">
-          <mat-label>Enter your password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required >
-          <button mat-icon-button matSuffix (click)="hide = !hide" type="button">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-          <mat-error *ngIf="loginFormGroup.controls['password'].invalid">at least 8 character</mat-error>
-        </mat-form-field>
-        <p class="text-black-50">Did not have an account?<a routerLink="/signup">Register</a></p>
-        <p class="text-black-50">Forget Password?<a routerLink="/ForgetPassword">forget password</a></p>
-        <p class="text-black-50">Accout not active?<a routerLink="/verify">Verify</a></p>
-        <div class="d-flex justify-content-center align-items-center gap-4">
-
-          <button type="submit" class="btn btn-primary rounded-pill px-5 py-2" [disabled]="loginFormGroup.invalid">Login</button>
-          <button type="button" class="btn btn-outline-dark rounded-pill">
-            <img src="assets/icons8-google-48.png" alt="" style="width: 30px;">
-            Login with Google</button>
-        </div>
-      </form>
+    <div class="text-center text-white">
+      <div *ngIf="message" class="alert alert-danger mt-3">{{ message }}</div>
+      <div class="my-2">
+        <button mat-raised-button color="primary" [disabled]="loading || login.invalid">
+          <ng-container *ngIf="loading == false">Login</ng-container>
+          <ng-container *ngIf="loading == true"><mat-spinner diameter="20"></mat-spinner>
+          </ng-container>
+        </button>
+      </div>
+      <div>
+        <a routerLink="/signup">Don't have an account yet? Register now.</a>
+      </div>
+      <div>
+        <a routerLink="/ForgetPassword">Forget Password?</a>
+      </div>
     </div>
-  </div>
+  </form>
 </div>

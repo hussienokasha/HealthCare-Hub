@@ -1,8 +1,61 @@
-.container
-{
-  margin-top: 90px;
+.card {
+  background-color: white;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
 }
-input:focus{
-  border: #198754 1px solid;
-  outline: none;
-  }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time {
+  background-color: #e0f7fa;
+  color: #00796b;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.favorite img {
+  width: 20px;
+  height: 20px;
+}
+
+.logo {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+}
+
+.lab-name,.description {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+    color: #A5A5A5 !important;
+}
+
+.test-name {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 36px;
+}
+
+
+.labelPrice {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28.13px;
+}
+.card{
+  border: none;
+}

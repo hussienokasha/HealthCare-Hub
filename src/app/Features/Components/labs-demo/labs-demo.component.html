@@ -1,4 +1,4 @@
-<div class="container">
+<div id="#laboratory" class="container">
   <h1>Labs</h1>
   <swiper-container
     grid-rows="1"
@@ -11,29 +11,33 @@
     <ng-container *ngFor="let lab of labs">
       <swiper-slide class="m-2">
         <div
-          class="d-flex align-items-center gap-4 bg-success-subtle p-4 rounded-5 flex-wrap"
-        >
-          <img src="../../../assets/labs/burg.png" alt="" />
-          <div class="content">
-            <p class="name fs-4">{{ lab.name }}</p>
-            <div class="contact-info flex-wrap d-flex gap-3">
-              <p class="phone text-black-50 text-nowrap">
-                <i class="bi bi-telephone-fill text-danger"></i> {{ lab.phone }}
-              </p>
-              <a
-                href="mailto:{{ lab.email }}"
-                class="text-decoration-none text-black-50 text-nowrap"
-              >
-                <i class="bi bi-envelope-fill text-danger"></i
-                >{{ lab.email }}</a
-              >
-            </div>
-            <p class="location text-black-50">
-              <i class="bi bi-geo-alt-fill text-danger"></i>
-              {{ lab.location }}
+        class="d-flex align-items-center gap-4 bg-success-subtle p-4 rounded-5 flex-wrap"
+        (click)="navigateToTests()"
+        style="cursor: pointer;"
+      >
+        <img src="../../../assets/labs/burg.png" alt="" />
+        <div class="content">
+          <p class="name fs-4">{{ lab.name }}</p>
+          <div class="contact-info flex-wrap d-flex gap-3">
+            <p class="phone text-black-50 text-nowrap">
+              <i class="bi bi-telephone-fill text-danger"></i> {{ lab.phone }}
             </p>
+            <a
+              href="mailto:{{ lab.email }}"
+              class="text-decoration-none text-black-50 text-nowrap"
+              (click)="stopPropagation($event)"
+            >
+              <i class="bi bi-envelope-fill text-danger"></i
+              >{{ lab.email }}</a
+            >
           </div>
+          <p class="location text-black-50">
+            <i class="bi bi-geo-alt-fill text-danger"></i>
+            {{ lab.location }}
+          </p>
         </div>
+      </div>
+      
       </swiper-slide>
     </ng-container>
   </swiper-container>
