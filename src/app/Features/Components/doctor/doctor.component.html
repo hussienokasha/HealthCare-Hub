@@ -1,106 +1,162 @@
 <app-navbar></app-navbar>
-<div class="container mt-4">
-    <!-- Header -->
-    <div class="row">
-      <div class="col">
-        <h2>General Medicine Clinic</h2>
-        <p>Select the consultation date and the appropriate time for the appointment.</p>
-      </div>
-    </div>
+<div class="container my-5">
+   
   
 
   
     <!-- Filters -->
     <div class="row">
+      
        <!--  filter  -->
-      <div class="col-md-3">
+       <div class="col-md-3">
         <div class="list-group">
-          <h4>Search Filters</h4>
-          
-          <!-- Gender Filter -->
-          <div class="list-group-item">
-            <h5>Doctor's Gender</h5>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" id="genderMale">
-              <label class="form-check-label" for="genderMale">
-                Male
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" id="genderFemale">
-              <label class="form-check-label" for="genderFemale">
-                Female
-              </label>
-            </div>
+          <div class="filterHeader">
+            <h4 class="filterSearch">Search Filters</h4>
           </div>
           
-          <!-- Experience Filter -->
-          <div class="list-group-item">
-            <h5>Experience</h5>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="experience" id="expLess5">
-              <label class="form-check-label" for="expLess5">
-                Less than 5 years
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="experience" id="exp5to10">
-              <label class="form-check-label" for="exp5to10">
-                5 to 10 years
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="experience" id="expMore10">
-              <label class="form-check-label" for="expMore10">
-                More than 10 years
-              </label>
-            </div>
-          </div>
-  
-          <!-- Price Filter -->
-          <div class="list-group-item">
-            <h5>Consultation Price</h5>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="price" id="priceOneTime">
-              <label class="form-check-label" for="priceOneTime">
-                One-time
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="price" id="priceSubscription">
-              <label class="form-check-label" for="priceSubscription">
-                Subscription
-              </label>
-            </div>
-          </div>
+<!-- Accordion -->
+<div class="accordion" id="doctorAccordion">
+
+<!-- Gender Filter -->
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingGender">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGender" aria-expanded="true" aria-controls="collapseGender">
+      Doctor's Gender
+    </button>
+  </h2>
+  <div id="collapseGender" class="accordion-collapse collapse show" aria-labelledby="headingGender" data-bs-parent="#doctorAccordion">
+    <div class="accordion-body">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="genderMale">
+        <label class="form-check-label" for="genderMale">
+          Male
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="genderFemale">
+        <label class="form-check-label" for="genderFemale">
+          Female
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Experience Filter -->
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingExperience">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExperience" aria-expanded="true" aria-controls="collapseExperience" data-bs-parent="#doctorAccordion">
+      Experience
+    </button>
+  </h2>
+  <div id="collapseExperience" class="accordion-collapse collapse show" aria-labelledby="headingExperience">
+    <div class="accordion-body">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="experience" id="expLess5">
+        <label class="form-check-label" for="expLess5">
+          Less than 5 years
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="experience" id="exp5to10">
+        <label class="form-check-label" for="exp5to10">
+          5 to 10 years
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="experience" id="expMore10">
+        <label class="form-check-label" for="expMore10">
+          More than 10 years
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Price Filter -->
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingPrice">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="true" aria-controls="collapsePrice" data-bs-parent="#doctorAccordion">
+      Consultation Price
+    </button>
+  </h2>
+  <div id="collapsePrice" class="accordion-collapse collapse show" aria-labelledby="headingPrice">
+    <div class="accordion-body">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="price" id="priceOneTime">
+        <label class="form-check-label" for="priceOneTime">
+          One-time
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="price" id="priceSubscription">
+        <label class="form-check-label" for="priceSubscription">
+          Subscription
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
         </div>
       </div>
       
+      
       <!-- Doctor Information -->
       <div class="col-md-9">
-        <div class="row">
+         <!-- Header -->
+      <div class="col">
+        <h2 class="title-clinic">General Medicine Clinic</h2>
+        <p class="description-clinic">Select the consultation date and the appropriate time for the appointment.</p>
+      </div>
             <div class="col-md-3 my-3">
                 <label for="consultationDate">Consultation Date</label>
                 <input type="date" id="consultationDate" class="form-control">
 
             </div>
-        </div>
-        <div class="card" *ngFor="let doctor of doctors">
-          <div class="card-body">
-            <h5 class="card-title">{{ doctor.name }}</h5>
-            <p class="card-text">{{ doctor.specialty }}</p>
-            <p class="card-text">Experience: 5 years</p>
-            <div *ngFor="let shift of doctor.shift">
-              <p class="card-text">
-                <strong>Shift:</strong> {{ formatShift(shift.startTime, shift.endTime) }}
-              </p>
+            <div *ngFor="let doctor of doctors" class="card">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-center">
+                  <div class="docImg p-2 p-md-3">
+                    <img src="../../../../assets/logo/logo.jpg" class="DoctorsImage" alt="image of doctor">
+                  </div>
+                  <div class="pt-3 pt-md-4">
+                    <h3 class="h3-24-16-boldedOnSmall">{{ doctor.name }}</h3>
+                    <h6 class="mb-md-3 specialty">{{ doctor.specialty }}</h6>
+            
+                    <h6 class=""><span class="Experience">Experience:</span> {{ doctor.about }}</h6>
+                    <h6 class=""><span class="Duration">Medical Consultation Duration:</span> 20 minutes</h6>
+                  </div>
+                </div>
+            
+                <div class="p-md-4 py-3 pe-2 text-center">
+                  <span class="DoctorsPricingTitle mb-md-2">Medical Consultation Price</span>
+                  <span class="DoctorsPricing p-2">{{ doctor.fees }}</span>
+                </div>
+              </div>
+            
+              <hr class="hr m-2 m-md-3">
+            
+              <!-- Example of conditionally displaying message if no shifts are available -->
+              <div *ngIf="doctor.shift.length === 0" class="fs-5 text-gray-500 text-center">No available shifts</div>
+            
+              <!-- Example of iterating over shifts if available -->
+              <div *ngIf="doctor.shift.length > 0">
+                <div *ngFor="let shift of doctor.shift">
+                  <div class="fs-5 text-gray-500 text-center">
+                    {{ formatShift(shift.startTime, shift.endTime) }}
+                  </div>
+                </div>
+              </div>
             </div>
-            <p class="card-text"><strong>Price: {{ doctor.fees }} SAR</strong></p>
-            <p class="card-text text-danger" *ngIf="!doctor.shift.length">No available appointments</p>
-          </div>
+            
         </div>
       </div>
     </div>
-  </div>
+
   
   <app-footer></app-footer>

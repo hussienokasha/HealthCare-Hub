@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { env } from 'src/assets/enviroment';
 import { AddClinicDto, ReturnClinicDto } from '../Models/clinic';
 
@@ -9,6 +9,7 @@ import { AddClinicDto, ReturnClinicDto } from '../Models/clinic';
 })
 export class ClinicService {
   private apiUrl: string = env.api;
+
 
   constructor(private http: HttpClient) {}
   getAllClinics(): Observable<ReturnClinicDto[]> {
@@ -29,4 +30,5 @@ export class ClinicService {
   getDoctorsByClinicId(clinicId: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/Doctor/Get-Doctors-By-ClinicId?ClinicId=${clinicId}`);
   }
+  
 }

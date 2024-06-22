@@ -21,15 +21,16 @@ import { SignupComponent } from './Features/Views/signup/signup.component';
 import { TestsComponent } from './Features/Views/tests/tests.component';
 import { VerifyEmailComponent } from './Features/Views/verify-email/verify-email.component';
 import { AdminDashComponent } from './Features/Views/Dashboards/admin-dash/admin-dash.component';
-import { SharedModule } from './Shared/shared.module';
 import { CheckoutComponent } from './Features/Views/checkout/checkout.component';
 import { TestDetailsComponent } from './Features/Views/tests/test-details/test-details.component';
 import { ManageDoctorsComponent } from './Features/Views/Dashboards/admin-dash/manage-doctors/manage-doctors.component';
 import { ManageLabsComponent } from './Features/Views/Dashboards/admin-dash/manage-labs/manage-labs.component';
 import { ManageMedicineComponent } from './Features/Views/Dashboards/admin-dash/manage-medicine/manage-medicine.component';
 import { MedicineDetailsComponent } from './Features/Views/pharmacies/medicine-details/medicine-details.component';
+import { authGuard } from './Core/Guard/auth.guard';
+import { dashGuard } from './Core/Guard/dash.guard';
 import { ChatComponent } from './Features/Components/chat/chat.component';
-import { AboutUsComponent } from './Features/Components/about-us/about-us.component';
+import { AboutUsComponent } from './Features/Views/about-us/about-us.component';
 import { ClinicsComponent } from './Features/Components/clinics/clinics.component';
 import { DoctorComponent } from './Features/Components/doctor/doctor.component';
 
@@ -47,11 +48,16 @@ const routes: Routes = [
   { path: 'pharmacy', component: PharmacyComponent },
   { path: 'medicine/:id', component: MedicineDetailsComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'dashboard/nurse', component: NurseDashComponent },
+  {
+    path: 'dashboard/nurse',
+    component: NurseDashComponent,
+    canDeactivate: [dashGuard],
+  },
   { path: 'dashboard/doctor', component: DoctorDashComponent },
   {
     path: 'dashboard/admin-lab',
     component: LabDashComponent,
+    canDeactivate: [dashGuard],
     children: [
       { path: 'appointment', component: AppointmentsComponent },
       { path: 'nurses', component: NursesComponent },
@@ -62,13 +68,14 @@ const routes: Routes = [
   {
     path: 'dashboard/admin',
     component: AdminDashComponent,
+    canDeactivate: [dashGuard],
     children: [
       { path: 'manage-doctors', component: ManageDoctorsComponent },
       { path: 'manage-labs', component: ManageLabsComponent },
       { path: 'manage-medicine', component: ManageMedicineComponent },
     ],
   },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate: [authGuard] },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },

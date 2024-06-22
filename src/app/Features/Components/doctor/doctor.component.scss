@@ -26,4 +26,92 @@
     border: none;
     padding: 10px 0;
   }
+  .list-group-item h5{
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 19.2px;
+      letter-spacing: -0.02em;
+      color: #123143;
+  }
+.filterHeader{
+    background-color: rgba(0, 161, 176, 1);
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+}
+.filterSearch{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+} 
+.accordion-button:not(.collapsed) {
+  color: var(--bs-accordion-active-color);
+   background-color:#fff;
+  box-shadow: none;
+}.DoctorsPricingTitle {
+  font-family: Vazirmatn;
+  font-size: clamp(8px, 2vw, 12px);
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  color: #00828E;
+  display: block;
+}
+.DoctorsPricing {
+  font-family: Vazirmatn;
+  font-size: clamp(12px, 2vw, 16px);
+  font-weight: 700;
+  line-height: 19.2px;
+  letter-spacing: -0.02em;
+  background-color: #EDFCFF;
+  color: #00828E;
+  border-radius: 5px;
+  display: block;
+}
+.title-clinic{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+    color: #123143;
+}
+.description-clinic{
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+  color: #A5A5A5 !important;
+
+}
+.DoctorsImage {
+  width: 148px;
+  height: 148px;
+  border: 1px solid #E2E6E9 !important;
+  border-radius: 8px !important;
+}
+.specialty{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    color: #00A1B0;
+  }
+  .Duration,.Experience{
+      color: #A5A5A5 !important;
+  
+  }
+
+  .swiper-container {
+    margin-bottom: 20px; /* Adjust margin as needed */
+  }
+  
+  .swiper-slide {
+    padding: 10px; /* Adjust padding as needed */
+    background-color: #f0f0f0; /* Example background color */
+    border: 1px solid #ccc; /* Example border */
+    border-radius: 8px; /* Example border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
+  }
   

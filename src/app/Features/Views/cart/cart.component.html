@@ -128,7 +128,7 @@
       </div>
     </div>
   </div>
-  <div class="text-center m-3 mt-5 d-flex gap-3 align-items-center ">
+  <div class="text-center m-3 mt-5 d-flex gap-3 align-items-center">
     <div>
       <mat-radio-group [(ngModel)]="selectedOption">
         <mat-radio-button value="home" color="primary">Home</mat-radio-button>
@@ -136,9 +136,12 @@
       </mat-radio-group>
     </div>
     <div *ngIf="selectedOption === 'home'">
-    <label for="" class="fs-5 me-3">Your Location:</label>
-        <input type="text" class="p-2 border rounded-3 border-danger border-1" style="outline: none;"/>
-     
+      <label for="" class="fs-5 me-3">Your Location:</label>
+      <input
+        type="text"
+        class="p-2 border rounded-3 border-danger border-1"
+        style="outline: none"
+      />
     </div>
   </div>
   <hr />
@@ -146,12 +149,8 @@
     class="d-flex align-items-center justify-content-between m-3"
     *ngIf="getTotalPrice() > 0"
   >
-  <mat-radio-group [(ngModel)]="selectedMethod">
-    <mat-radio-button value="cash" color="primary">Cash</mat-radio-button>
-    <mat-radio-button value="visa" color="primary">Visa</mat-radio-button>
-  </mat-radio-group>
     <p class="fs-3 my-4 text-end">Total: {{ getTotalPrice() }} EGP</p>
-    <button class="btn btn-outline-primary" routerLink="/checkout" *ngIf="selectedMethod ==='visa'">
+    <button class="btn btn-outline-primary" routerLink="/checkout">
       Checkout <i class="bi bi-credit-card-2-front"></i>
     </button>
   </div>

@@ -2,22 +2,21 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Doctor } from 'src/app/Core/Models/doctor';
 import { ClinicService } from 'src/app/Core/Services/clinic.service';
-
 @Component({
   selector: 'app-doctor',
   templateUrl: './doctor.component.html',
   styleUrls: ['./doctor.component.scss']
 })
 export class DoctorComponent implements OnInit {
+  
   selectedGender!: string;
   selectedExperience!: string;
   selectedPrice!: string;
   clinicId: number | null = null;
   doctors: Doctor[] = [];
-
   constructor(
     private route: ActivatedRoute,
-    private clinicService: ClinicService
+    private clinicService: ClinicService,
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +28,9 @@ export class DoctorComponent implements OnInit {
         });
       }
     });
+
+
+    
   }
   formatShift(startTime: string, endTime: string): string {
     const start = this.formatTime(startTime);
@@ -42,4 +44,6 @@ export class DoctorComponent implements OnInit {
     const formattedHour = hour % 12 || 12;
     return `${formattedHour}:${minute.toString().padStart(2, '0')} ${period}`;
   }
+
+ 
 }

@@ -9,6 +9,7 @@ import { ClinicService } from 'src/app/Core/Services/clinic.service';
   styleUrls: ['./clinics.component.scss']
 })
 export class ClinicsComponent implements OnInit {
+  
   clinics: { id:number,name: string; icon: any; }[] = [];
 
   constructor(private clinicService: ClinicService) {}
