@@ -51,13 +51,13 @@ const routes: Routes = [
   {
     path: 'dashboard/nurse',
     component: NurseDashComponent,
-    canDeactivate: [dashGuard],
+    // canDeactivate: [dashGuard],
   },
   { path: 'dashboard/doctor', component: DoctorDashComponent },
   {
     path: 'dashboard/admin-lab',
     component: LabDashComponent,
-    canDeactivate: [dashGuard],
+    // canDeactivate: [dashGuard],
     children: [
       { path: 'appointment', component: AppointmentsComponent },
       { path: 'nurses', component: NursesComponent },
