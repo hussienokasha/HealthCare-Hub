@@ -107,7 +107,7 @@
       
       
       <!-- Doctor Information -->
-      <div class="col-md-9">
+      <div class="col-md-9 my-3">
          <!-- Header -->
       <div class="col">
         <h2 class="title-clinic">General Medicine Clinic</h2>
@@ -118,7 +118,7 @@
                 <input type="date" id="consultationDate" class="form-control">
 
             </div>
-            <div *ngFor="let doctor of doctors" class="card">
+            <div *ngFor="let doctor of doctors" class="card my-3">
               <div class="d-flex justify-content-between">
                 <div class="d-flex justify-content-center">
                   <div class="docImg p-2 p-md-3">
@@ -129,14 +129,16 @@
                     <h6 class="mb-md-3 specialty">{{ doctor.specialty }}</h6>
             
                     <h6 class=""><span class="Experience">Experience:</span> {{ doctor.about }}</h6>
-                    <h6 class=""><span class="Duration">Medical Consultation Duration:</span> 20 minutes</h6>
                   </div>
                 </div>
             
                 <div class="p-md-4 py-3 pe-2 text-center">
-                  <span class="DoctorsPricingTitle mb-md-2">Medical Consultation Price</span>
+                  <span class="DoctorsPricingTitle mb-md-2">Examination price</span>
                   <span class="DoctorsPricing p-2">{{ doctor.fees }}</span>
+                  <button class="btn btn-outline-primary"> Book Now </button>
+
                 </div>
+
               </div>
             
               <hr class="hr m-2 m-md-3">
@@ -145,10 +147,12 @@
               <div *ngIf="doctor.shift.length === 0" class="fs-5 text-gray-500 text-center">No available shifts</div>
             
               <!-- Example of iterating over shifts if available -->
-              <div *ngIf="doctor.shift.length > 0">
+              <div *ngIf="doctor.shift.length > 0" class="d-flex">
                 <div *ngFor="let shift of doctor.shift">
-                  <div class="fs-5 text-gray-500 text-center">
-                    {{ formatShift(shift.startTime, shift.endTime) }}
+                  <div class="fs-5 text-gray-500 text-center mx-2">
+                 
+                    {{ formatShift(shift.startTime, shift.endTime) }} 
+                            
                   </div>
                 </div>
               </div>

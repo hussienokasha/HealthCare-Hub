@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Lab } from 'src/app/Core/Models/lab';
 import { Test } from 'src/app/Core/Models/test';
@@ -12,10 +13,13 @@ import { TestService } from 'src/app/Core/Services/test.service';
 export class TestsComponent {
   searchTerm: string = '';
 
-  constructor(private test: TestService, private toast: ToastrService) {}
+  constructor(private router: Router,private test: TestService, private toast: ToastrService) {}
   tests: Test[] = [];
   ngOnInit() {
     this.getTests();
+  }
+  navigateToTest(testId: string): void {
+    this.router.navigate(['/test', testId]);
   }
   getTests() {
     this.test.getAllTests().subscribe({

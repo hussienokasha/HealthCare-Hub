@@ -33,6 +33,7 @@ import { ChatComponent } from './Features/Components/chat/chat.component';
 import { AboutUsComponent } from './Features/Views/about-us/about-us.component';
 import { ClinicsComponent } from './Features/Components/clinics/clinics.component';
 import { DoctorComponent } from './Features/Components/doctor/doctor.component';
+import { ChangePasswordComponent } from './Features/Views/change-password/change-password.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -82,7 +83,7 @@ const routes: Routes = [
   { path: 'verify', component: VerifyEmailComponent },
   { path: 'ForgetPassword', component: ForgetPasswordComponent },
   { path: 'ResetPassword', component: ResetPasswordComponent },
-  { path: 'ChangePassword', component: ResetPasswordComponent },
+  { path: 'ChangePassword', component: ChangePasswordComponent },
   { path: 'profile', component: ProfileSittingComponent },
   { path: '**', component: NotFoundComponent },
 ];

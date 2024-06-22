@@ -1,35 +1,25 @@
 <app-navbar></app-navbar>
-<div class="container">
-  <div class="display-3 text-center mb-4">Search in Health Care Doctors</div>
-  <div class="m-auto col-12 col-md-6 mb-4">
-    <div class="d-flex">
-      <input
-        type="text"
-        class="w-100 p-3 border-1 rounded-start-pill"
-        placeholder="Search for a tests..."
-        [(ngModel)]="searchTerm"
-      />
-      <button class="btn btn-success opacity-75 rounded-end-pill px-5">
-        Find
-      </button>
-    </div>
-  </div>
-  <div class="row justify-content-center g-3">
-    <div *ngFor="let test of filteredTests" class="col-12 col-md-4 col-lg-3">
-      <div class="d-flex align-items-center gap-4 bg-light p-4 rounded-3 flex-wrap shadow crd curser-pointer" [routerLink]="['/test',test.id]">
-        <img [src]="test.imageUrl" alt="" class="img-fluid rounded-3 object-fit-cover" style="height: 150px; width:100%">
-        <div class="content">
-          <p class="name fs-4">{{test.name}}</p>
-          <div class="contact-info flex-wrap d-flex gap-3">
-            <p class="phone text-black-50 text-nowrap"> <i class="bi bi-cash text-danger "></i> {{test.price}} EGP
-            </p>
-
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card" style="cursor: pointer;" (click)="navigateToTest('123')">
+        <div class="header">
+          <div class="time">24 hours</div>
+          <div class="favorite">
+            <i class="fa-brands fa-gratipay"></i>
           </div>
-          <p class="location text-black-50">
-            <i class="bi bi-geo-alt-fill text-danger"></i>
-            {{test.lab?.name}}
-          </p>
-          <button (click)="addToCart(test); $event.stopPropagation()" class="btn btn-outline-primary mt-3 me-auto d-block rounded-pill">Add to cart<i class="ms-2 bi bi-cart"></i></button>
+        </div>
+        <div class="logo">
+          <img src="../../../../assets/labs/burg.png" alt="Biomedical Laboratory Logo">
+        </div>
+        <span class="lab-name">elburg lab medical</span>
+        <div class="test-name">Total Iron Binding Capacity (TIBC)</div>
+        <div class="description">
+          This test measures the amount of transferrin in the blood, which is...
+        </div>
+        <div class="d-flex align-items-center justify-content-between">
+          <h4 class="labelPrice">119 SR</h4>
+          <i class="bi bi-cart-fill"></i>
         </div>
       </div>
     </div>

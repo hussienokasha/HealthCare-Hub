@@ -1,16 +1,19 @@
 <div class="position-relative">
-  <img src="../../../assets/client/Ellipse 37.png" alt="" style="width: 50px; height:50px" class="curser-pointer object-fit-contain" (click)="onClick()">
-  <div class="position-absolute bg-body rounded-3 p-1  list border border-1 text-black" *ngIf="show">
+  <img src="../../../assets/client/Ellipse 37.png" alt="" style="width: 50px; height: 50px;" class="cursor-pointer object-fit-contain" (click)="onClick()">
+  <div class="position-absolute bg-body rounded-3 p-1 list border border-1 text-black" *ngIf="show">
     <ul class="p-0 m-0 d-flex flex-column justify-content-between align-items-start gap-1">
-      <li class="d-flex justify-content-start align-items-center gap-2 curser-pointer rounded-pill p-2 w-100" routerLink="/profile">
-        <i class="bi bi-gear fs-3 bg-dark-subtle p-2 rounded-pill"></i>
-        <a class="text-nowrap text-decoration-none text-dark">Profile Sitting</a>
+      <li class="d-flex justify-content-start align-items-center gap-2 cursor-pointer rounded-pill p-2 w-100" routerLink="/profile">
+        <i class="bi bi-gear  bg-dark-subtle p-2 rounded-pill"></i>
+        <a class="text-nowrap text-decoration-none text-dark">Profile Settings</a>
       </li>
-      <li class="d-flex justify-content-start align-items-center gap-2 curser-pointer rounded-pill p-2 w-100" (click)="logout()">
-        <i class="bi bi-box-arrow-right fs-3 bg-dark-subtle p-2 rounded-pill"></i>
-        <a class="text-nowrap text-decoration-none text-dark" >Logout</a>
+      <li class="d-flex justify-content-start align-items-center gap-2 cursor-pointer rounded-pill p-2 w-100" routerLink="/ChangePassword">
+        <i class="bi bi-shield-lock bg-dark-subtle p-2 rounded-pill"></i>
+        <a class="text-nowrap text-decoration-none text-dark">Change Password</a>
       </li>
-
+      <li class="d-flex justify-content-start align-items-center gap-2 cursor-pointer rounded-pill p-2 w-100" (click)="logout()">
+        <i class="bi bi-box-arrow-right  bg-dark-subtle p-2 rounded-pill"></i>
+        <a class="text-nowrap text-decoration-none text-dark">Logout</a>
+      </li>
     </ul>
   </div>
 </div>

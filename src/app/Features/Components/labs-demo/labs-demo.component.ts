@@ -1,4 +1,5 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Lab } from 'src/app/Core/Models/lab';
 import { LabService } from 'src/app/Core/Services/lab.service';
 
@@ -9,11 +10,18 @@ import { LabService } from 'src/app/Core/Services/lab.service';
 })
 export class LabsDemoComponent implements OnInit {
   labs: Lab[] = [];
-  constructor(private _labService: LabService) {}
+  constructor(private router: Router,private _labService: LabService) {}
   ngOnInit(): void {
     this.getLabs();
   }
 
+  navigateToTests(): void {
+    this.router.navigate(['/tests']);
+  }
+
+  stopPropagation(event: MouseEvent): void {
+    event.stopPropagation();
+  }
   getLabs() {
     this._labService.getAllLabs().subscribe({
       next: (data) => {
@@ -37,7 +45,7 @@ export class LabsDemoComponent implements OnInit {
   getSlidesPerView() {
     const screenWidth = window.innerWidth;
     if (screenWidth < 576) {
-      return 2; // Adjust the number of slides per view for smaller screens
+      return 3; // Adjust the number of slides per view for smaller screens
     } else if (screenWidth < 992) {
       return 4; // Adjust for medium-sized screens
     } else {

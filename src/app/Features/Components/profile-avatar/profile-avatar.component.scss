@@ -1,14 +1,49 @@
-.list{
-  top :55px;
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+  top: 65px; /* Adjusted to align with image bottom */
   right: 0;
+  background-color: #fff; /* Adjust background color as needed */
+  border: 1px solid #ccc; /* Adjust border styles */
+  padding: 10px; /* Adjust padding */
+  border-radius: 8px; /* Adjust border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  z-index: 1000; /* Ensure dropdown is above other content */
 }
-ul li{
-  transition: 0.3s;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
-ul li:hover{
-  background-color: rgb(189, 189, 189);
+
+ul li {
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+ul li:hover {
+  background-color: rgb(189, 189, 189); /* Adjust hover background color */
+}
+
+ul li a {
+  color: #000; /* Adjust link color */
+  text-decoration: none;
+}
+
+ul li a:hover {
+  text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+/* Adjust icon styles */
+.bi {
+  color: #fff; /* Adjust icon color */
+}
+
+.bg-dark-subtle {
+  background-color: #555; /* Adjust icon background color */
+  border-radius: 50%; /* Ensure round shape for circle icons */
 }

@@ -1,7 +1,43 @@
-.container{
-  margin-top: 100px;
+img{
+  width:100%;
 }
-input:focus{
-border: #198754 1px solid;
-outline: none;
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.time {
+  background-color: #4caf50; /* Green color for availability */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.logo img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.lab-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.labelPrice {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #007bff; /* Blue color for price */
 }

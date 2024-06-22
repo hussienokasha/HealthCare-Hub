@@ -13,32 +13,40 @@ import { AuthService } from 'src/app/Core/Services/auth.service';
 })
 export class LoginComponent {
 
-
-  constructor(private login: AuthService, private toast: ToastrService, private router: Router) { }
-  hide: boolean = true;
-  loginFormGroup: FormGroup = new FormGroup<Login>({
-    email: new FormControl('', [Validators.email, Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
-    password: new FormControl('', [Validators.minLength(8), Validators.required])
+  constructor(private _AuthService:AuthService, private _Router:Router,    
+    private toastr: ToastrService,
+    ){}
+  ngOnInit(): void {
+    
+  }
+  hide:boolean = true;
+  message:string="";
+  loading:boolean =false;
+  login:FormGroup= new FormGroup({
+    email:new FormControl("",[Validators.required,Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(30)]),
   })
-
-  onSubmitForm() {
-    this.login.login(this.loginFormGroup.value).subscribe({
-      next: (data: any) => {
-        this.toast.success('Login Successfully');
-      }, error: (err) => {
-        if (err == 'User Account not activated') {
-          this.router.navigate(['/verify'])
-        }
-        this.toast.error(err);
-      }
-    })
-  }
-
-  getErrorMessage() {
-    if (this.loginFormGroup.controls['email'].value == '') {
-      return 'You must enter a value';
+  onLoginSubmit() {
+    this.loading = true;
+    if (this.login.valid) {
+      this._AuthService.login(this.login.value).subscribe({
+        next: (value) => {
+          localStorage.setItem('token', value.token);
+          this.toastr.success('Logged in successfully!', 'Success');
+          this._Router.navigate(['/home']);
+        },
+        error: (err) => {
+          this.toastr.error(err.error.message, 'Error');
+          this.loading = false;
+        },
+        complete: () => {
+          this.loading = false;
+        },
+      });
+    } else {
+      this.toastr.warning('Please fill in all required fields.', 'Warning');
     }
-
-    return this.loginFormGroup.controls['email'].invalid ? 'Not a valid email' : '';
   }
+
+
 }
