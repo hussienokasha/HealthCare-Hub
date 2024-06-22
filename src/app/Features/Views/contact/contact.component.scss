@@ -1,12 +1,5 @@
-.form-group {
-  margin-bottom: 15px;
-}
 
-.img-fluid {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
+
 h2{
   color: var(--Primary-500, #167AD8);
   font-size: 35px;
@@ -20,9 +13,7 @@ h2{
   background-color: var(--Primary-500, #167AD8);
   border-color: var(--Primary-500, #167AD8);
 }
-.container img{
-  border-radius: 15px;
-}
+
 .main-service {
   background-image: url("../../../../assets/images/LaboratoryServices_48.jpg");
   background-repeat: no-repeat;
@@ -33,7 +24,7 @@ h2{
 .overlay-container {
   position: relative;
   color: white;
-  height: 60vh; /* 60% of the viewport height */
+  height: 40vh; /* 60% of the viewport height */
 }
 
 .overlay {

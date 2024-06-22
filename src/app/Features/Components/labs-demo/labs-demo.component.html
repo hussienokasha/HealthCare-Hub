@@ -1,14 +1,37 @@
 <div class="container">
   <h1>Labs</h1>
-  <swiper-container grid-rows="1" mousewheel-force-to-axis="true" class="mb-5" [s] loop="true" [slidesPerView]="2">
+  <swiper-container
+    grid-rows="1"
+    mousewheel-force-to-axis="true"
+    class="mb-5"
+    [s]
+    loop="true"
+    [slidesPerView]="2"
+  >
     <ng-container *ngFor="let lab of labs">
-      <swiper-slide class="m-2" >
-        <div class="border rounded-4 px-2 py-2 curser-pointer">
-          <span class="badge text-bg-primary rounded-pill d-inline-block">66 tests</span>
-          <img [src]="lab.pictureUrl" class="img-fluid object-fit-cover d-block rounded-4 mx-auto my-3" alt="" style="width: 100px; height: 100px;">
-          <div class="d-flex justify-content-between">
-            <h6 class="text-primary">{{lab.name}}</h6>
-            <p>{{lab.phone}}</p>
+      <swiper-slide class="m-2">
+        <div
+          class="d-flex align-items-center gap-4 bg-success-subtle p-4 rounded-5 flex-wrap"
+        >
+          <img src="../../../assets/labs/burg.png" alt="" />
+          <div class="content">
+            <p class="name fs-4">{{ lab.name }}</p>
+            <div class="contact-info flex-wrap d-flex gap-3">
+              <p class="phone text-black-50 text-nowrap">
+                <i class="bi bi-telephone-fill text-danger"></i> {{ lab.phone }}
+              </p>
+              <a
+                href="mailto:{{ lab.email }}"
+                class="text-decoration-none text-black-50 text-nowrap"
+              >
+                <i class="bi bi-envelope-fill text-danger"></i
+                >{{ lab.email }}</a
+              >
+            </div>
+            <p class="location text-black-50">
+              <i class="bi bi-geo-alt-fill text-danger"></i>
+              {{ lab.location }}
+            </p>
           </div>
         </div>
       </swiper-slide>
