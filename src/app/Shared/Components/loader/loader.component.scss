@@ -1,0 +1,56 @@
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    z-index: 1000;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Fade-in/fade-out transition */
+  }
+  
+  .loading-overlay.loading {
+    opacity: 1; /* Show overlay when loading */
+  }
+  
+  .logo-container {
+    width: 200px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .logo {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: opacity 0.3s ease-in-out; /* Fade-in transition */
+  }
+  
+  .logo.loading {
+    opacity: 0; /* Hide the logo when loading */
+  }
+  
+  .logo.loading:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px; /* Adjust size of loader */
+    height: 50px; /* Adjust size of loader */
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Rotate animation */
+  }
+  
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  

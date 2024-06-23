@@ -1,8 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, take, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
-import { jwtDecode } from 'jwt-decode';
+import {jwtDecode} from 'jwt-decode';
 import { ChangePassword } from '../Models/ChangePassword';
 import { LoginResonse } from '../Models/loginRespone';
 import { VerEmail } from '../Models/EmailVerify';
@@ -16,48 +16,36 @@ import { env } from 'src/assets/enviroment';
   providedIn: 'root',
 })
 export class AuthService {
-
-  private currentUserSource= new BehaviorSubject<User |  null>(null);
-  currnetUser$=this.currentUserSource.asObservable();
-  constructor(private http: HttpClient, private route: Router) { }
+  private currentUserSource = new BehaviorSubject<User | null>(null);
+  currentUser$ = this.currentUserSource.asObservable();
   apiUrl: string = env.api;
   user = new BehaviorSubject<User | null>(null);
+
+  constructor(private http: HttpClient, private router: Router) {}
+
   login(data: Login) {
-    return this.http
-      .post<LoginResonse>(`${this.apiUrl}/Account/Login`, data)
-      .pipe(
-        catchError((err) => {
-          console.log(err);
-          if (
-            err.error === 'User is registered but the account is not activated'
-          ) {
-            return throwError(() => new Error('User Account not activated'));
-          } else if (err.error && err.error.message) {
-            return throwError(() => new Error(err.error.message));
-          } else {
-            return throwError(() => new Error('Unknown Error has Occurred'));
-          }
-        }),
-        tap((d: LoginResonse) => {
-          localStorage.setItem('token', d.token);
-          const role = this.getRole();
-          if (role) {
-            localStorage.setItem('role', role);
-            if (role == 'Nurse') {
-              this.route.navigate(['/dashboard/nurse']);
-            } else if (role == 'Doctor') {
-              this.route.navigate(['/dashboard/doctor']);
-            } else if (role == 'User') {
-              this.route.navigate(['/home']);
-            } else if (role == 'AdminLab') {
-              this.route.navigate(['/dashboard/admin-lab/appointment']);
-            } else if (role == 'Admin') {
-              this.route.navigate(['/dashboard/admin/manage-doctors']);
-            }
-          }
-        })
-      );
+    return this.http.post<LoginResonse>(`${this.apiUrl}/Account/Login`, data).pipe(
+      catchError((err) => {
+        console.log(err);
+        if (err.error === 'User is registered but the account is not activated') {
+          return throwError(() => new Error('User Account not activated'));
+        } else if (err.error && err.error.message) {
+          return throwError(() => new Error(err.error.message));
+        } else {
+          return throwError(() => new Error('Unknown Error has Occurred'));
+        }
+      }),
+      tap((d: LoginResonse) => {
+        localStorage.setItem('token', d.token);
+        const role = this.getRole();
+        if (role) {
+          localStorage.setItem('role', role);
+          this.navigateBasedOnRole(role);
+        }
+      })
+    );
   }
+
   signup(data: Register) {
     return this.http.post(`${this.apiUrl}/Account/Register`, data).pipe(
       catchError((err) => {
@@ -84,18 +72,18 @@ export class AuthService {
       })
     );
   }
+
   forgotPassword(data: string) {
-    return this.http
-      .post(`${this.apiUrl}/Account/ForgotPassword`, { email: data })
-      .pipe(
-        catchError((err) => {
-          if (!err || !err.message || !err.error.message) {
-            return throwError(() => 'Unknown Error has Occurred');
-          }
-          return throwError(() => err.error.message);
-        })
-      );
+    return this.http.post(`${this.apiUrl}/Account/ForgotPassword`, { email: data }).pipe(
+      catchError((err) => {
+        if (!err || !err.message || !err.error.message) {
+          return throwError(() => 'Unknown Error has Occurred');
+        }
+        return throwError(() => err.error.message);
+      })
+    );
   }
+
   changePassword(data: ChangePassword) {
     return this.http.post(`${this.apiUrl}/Account/ChangePassword`, data).pipe(
       catchError((err) => {
@@ -104,6 +92,7 @@ export class AuthService {
       })
     );
   }
+
   resetPassword(data: ResetPassword) {
     return this.http.post(`${this.apiUrl}/Account/ResetPassword`, data).pipe(
       catchError((err) => {
@@ -125,8 +114,8 @@ export class AuthService {
     }
     return null;
   }
+
   getUserData() {
-    // let head = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`)
     return this.http.get(`${this.apiUrl}/Account/GetCurrentuser`).pipe(
       take(1),
       catchError((err) => {
@@ -135,6 +124,7 @@ export class AuthService {
       })
     );
   }
+
   updateUserinfo(data: FormData) {
     return this.http.put(`${this.apiUrl}/Account/UpdateCurrentUser`, data).pipe(
       catchError((err) => {
@@ -143,14 +133,37 @@ export class AuthService {
       })
     );
   }
+
   logout() {
     localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
-  setCurrentUser(user: User){
-    localStorage.setItem('token',JSON.stringify(user));
+  setCurrentUser(user: User) {
+    localStorage.setItem('token', JSON.stringify(user));
     this.currentUserSource.next(user);
   }
 
-
+  navigateBasedOnRole(role: string) {
+    switch (role) {
+      case 'Nurse':
+        this.router.navigate(['/dashboard/nurse']);
+        break;
+      case 'Doctor':
+        this.router.navigate(['/dashboard/doctor']);
+        break;
+      case 'User':
+        this.router.navigate(['/home']);
+        break;
+      case 'AdminLab':
+        this.router.navigate(['/dashboard/admin-lab/appointment']);
+        break;
+      case 'Admin':
+        this.router.navigate(['/dashboard/admin/manage-doctors']);
+        break;
+      default:
+        this.router.navigate(['/home']);
+        break;
+    }
+  }
 }

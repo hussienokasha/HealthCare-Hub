@@ -38,3 +38,71 @@
     .overlay-text p {
         font-size: 36px;
     }
+    .card {
+        background: #FFFFFF;
+        box-shadow: 0px 1px 20px 0px #0000000D;
+        padding: 24px 40px 24px 40px;
+        border-radius: 8px;
+      border: none;
+    }
+    
+    .card-title {
+      color: #1963a0;
+      margin-top: 5px;
+    }
+    
+    .card-text {
+      color: #6c757d; /* Adjust text color as needed */
+    }
+    h3 {
+      font-family: Vazirmatn;
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 40px;
+      letter-spacing: -0.02em;
+      color: #123143;
+  }
+  .Vision,.Mission,.aboutUs{
+    font-family: Vazirmatn;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px !important;
+    letter-spacing: -0.02em !important;
+    color: #A5A5A5;
+}
+.header {
+  background: #EDFCFF;
+  border-radius: 8px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+} .title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+  color: #00828E;
+  margin-bottom: 1rem;
+}
+.description-info{
+    font-family: Vazirmatn;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.02em;
+    color: #123143;
+}
+.highlight {
+  background: linear-gradient(90deg, #78CCAD 0%, #00A1B0 22.45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.pillars,h3{
+    font-family: Vazirmatn;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: -0.02em;
+    color: #123143;
+}

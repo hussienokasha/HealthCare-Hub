@@ -48,6 +48,8 @@ import { register } from 'swiper/element/bundle';
 import { DoctorComponent } from './Components/doctor/doctor.component';
 import { AboutUsComponent } from './Views/about-us/about-us.component';
 import { ClinicsComponent } from './Components/clinics/clinics.component';
+import { ChecksComponent } from './Views/checks/checks.component';
+import { AskNowComponent } from './Views/ask-now/ask-now.component';
 register();
 @NgModule({
   declarations: [
@@ -98,6 +100,8 @@ register();
     AboutUsComponent,
     ClinicsComponent,
     DoctorComponent,
+    ChecksComponent,
+    AskNowComponent,
   
   ],
   imports: [SharedModule],

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ReturnClinicDto } from 'src/app/Core/Models/clinic';
 import { Doctor } from 'src/app/Core/Models/doctor';
 import { ClinicService } from 'src/app/Core/Services/clinic.service';
 @Component({
@@ -14,6 +15,8 @@ export class DoctorComponent implements OnInit {
   selectedPrice!: string;
   clinicId: number | null = null;
   doctors: Doctor[] = [];
+  clinicName: string = '';
+
   constructor(
     private route: ActivatedRoute,
     private clinicService: ClinicService,
@@ -23,15 +26,19 @@ export class DoctorComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.clinicId = +params['id']; // Get clinic ID from route parameter
       if (this.clinicId !== null) {
+        // Fetch doctors and clinic details by clinic ID
         this.clinicService.getDoctorsByClinicId(this.clinicId).subscribe((data: Doctor[]) => {
           this.doctors = data;
         });
+
+        // Fetch clinic details by clinic ID
+        this.clinicService.getClinicById(this.clinicId).subscribe((clinic: ReturnClinicDto) => {
+          this.clinicName = clinic.name; // Assign clinic name to display in HTML
+        });
       }
     });
-
-
-    
   }
+
   formatShift(startTime: string, endTime: string): string {
     const start = this.formatTime(startTime);
     const end = this.formatTime(endTime);
@@ -44,6 +51,4 @@ export class DoctorComponent implements OnInit {
     const formattedHour = hour % 12 || 12;
     return `${formattedHour}:${minute.toString().padStart(2, '0')} ${period}`;
   }
-
- 
 }
