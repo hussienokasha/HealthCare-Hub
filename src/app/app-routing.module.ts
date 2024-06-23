@@ -34,6 +34,7 @@ import { AboutUsComponent } from './Features/Views/about-us/about-us.component';
 import { ClinicsComponent } from './Features/Components/clinics/clinics.component';
 import { DoctorComponent } from './Features/Components/doctor/doctor.component';
 import { ChangePasswordComponent } from './Features/Views/change-password/change-password.component';
+import { ChecksComponent } from './Features/Views/checks/checks.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -41,7 +42,6 @@ const routes: Routes = [
   { path: 'labs', component: LabsComponent },
   { path: 'AboutUs', component: AboutUsComponent },
   { path: 'clinics', component: ClinicsComponent },
-
   { path: 'tests', component: TestsComponent },
   { path: 'test/:id', component: TestDetailsComponent },
   { path: 'doctor/:id/chat', component: ChatComponent },
@@ -49,6 +49,8 @@ const routes: Routes = [
   { path: 'pharmacy', component: PharmacyComponent },
   { path: 'medicine/:id', component: MedicineDetailsComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'services', component: ChecksComponent },
+
   {
     path: 'dashboard/nurse',
     component: NurseDashComponent,

@@ -24,8 +24,13 @@ export class NavbarComponent implements OnInit {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     // Add or remove 'navbar-fixed' class based on scroll position
+<<<<<<< HEAD
     this.isNavbarFixed = scrollPosition > 0;
   }
+=======
+    this.isNavbarFixed = scrollPosition > 0;
+  }
+>>>>>>> 704d1873c3c965fff42467cd6868486e10dd5e61
 
   geCartItemsLength() {
     const testCartItems = JSON.parse(localStorage.getItem('testCart') ?? '[]');

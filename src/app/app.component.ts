@@ -7,17 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private route: Router) {}
-  ngOnInit() {
-    let role = localStorage.getItem('role');
-    if (role == 'Nurse') {
-      this.route.navigate(['/dashboard/nurse']);
-    } else if (role == 'Doctor') {
-      this.route.navigate(['/dashboard/doctor']);
-    } else if (role == 'Admin') {
-      this.route.navigate(['/dashboard/admin/manage-doctors']);
-    } else if (role == 'AdminLab') {
-      this.route.navigate(['/dashboard/admin-lab/appointment']);
-    }
+  isLoading = true;
+
+  ngOnInit(): void {
+    // Simulate loading for 3 seconds (adjust as needed)
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
   }
 }

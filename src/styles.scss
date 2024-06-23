@@ -1,34 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+
+/* Select text selection style */
+::selection {
+  background: #1963a0;
+  color: #fff;
+}
+
+/* Apply styles to the entire body */
 body {
   margin: 0;
   font-family: "Vazirmatn", sans-serif;
 }
+
+/* Adjust the width of the logo */
 .logo {
   width: 66px;
 }
-ul,li {
+
+/* Remove default list styling for ul and li */
+ul, li {
   list-style-type: none;
 }
-input{
-  box-shadow:none ;
+
+/* Remove box shadow and border for input */
+input {
+  box-shadow: none;
   border: none;
 }
+
+/* Adjust width of profile image */
 .profile {
   width: 60px;
 }
-a{
+
+/* Remove underline from links */
+a {
   text-decoration: none;
 }
 
-
+/* Style scrollbar width and height */
 /* Width and Height of the scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-.curser-pointer{
-  cursor: pointer;
-}
+
 /* Track (background) of the scrollbar */
 ::-webkit-scrollbar-track {
   background: #f1f1f1; /* Light grey */
@@ -43,4 +59,9 @@ a{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Dark grey */
+}
+
+/* Cursor pointer style */
+.curser-pointer {
+  cursor: pointer;
 }
