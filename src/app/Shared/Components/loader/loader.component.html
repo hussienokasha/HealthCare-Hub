@@ -1,6 +1,5 @@
-
-  <div class="position-absolute start-50 top-50 translate-middle" *ngIf="isLoading | async">
-    <div class="spinner-border" role="status" style="width: 4rem; height: 4rem;">
-      <span class="visually-hidden">Loading...</span>
-    </div>
+<div class="loading-overlay" [ngClass]="{'loading': isLoading}">
+  <div class="logo-container">
+    <img src="../../../assets/logo/logo.jpg" class="logo" alt="" (load)="imageLoaded()" />
   </div>
+</div>

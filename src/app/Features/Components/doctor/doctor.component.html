@@ -110,7 +110,7 @@
       <div class="col-md-9 my-3">
          <!-- Header -->
       <div class="col">
-        <h2 class="title-clinic">General Medicine Clinic</h2>
+        <h2 class="title-clinic">{{ clinicName }}</h2>
         <p class="description-clinic">Select the consultation date and the appropriate time for the appointment.</p>
       </div>
             <div class="col-md-3 my-3">
@@ -135,7 +135,10 @@
                 <div class="p-md-4 py-3 pe-2 text-center">
                   <span class="DoctorsPricingTitle mb-md-2">Examination price</span>
                   <span class="DoctorsPricing p-2">{{ doctor.fees }}</span>
-                  <button class="btn btn-outline-primary"> Book Now </button>
+                <div class="mt-3">
+
+                  <button class="btn btn-primary2-outlined"> Book Now </button>
+                </div>
 
                 </div>
 

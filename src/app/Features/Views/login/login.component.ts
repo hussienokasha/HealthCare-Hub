@@ -13,19 +13,23 @@ import { AuthService } from 'src/app/Core/Services/auth.service';
 })
 export class LoginComponent {
 
-  constructor(private _AuthService:AuthService, private _Router:Router,    
-    private toastr: ToastrService,
-    ){}
-  ngOnInit(): void {
-    
-  }
-  hide:boolean = true;
-  message:string="";
-  loading:boolean =false;
-  login:FormGroup= new FormGroup({
-    email:new FormControl("",[Validators.required,Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(8),Validators.maxLength(30)]),
-  })
+  constructor(
+    private _AuthService: AuthService,
+    private _Router: Router,
+    private toastr: ToastrService
+  ) {}
+
+  ngOnInit(): void {}
+
+  hide: boolean = true;
+  message: string = "";
+  loading: boolean = false;
+
+  login: FormGroup = new FormGroup({
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(30)]),
+  });
+
   onLoginSubmit() {
     this.loading = true;
     if (this.login.valid) {
@@ -33,7 +37,14 @@ export class LoginComponent {
         next: (value) => {
           localStorage.setItem('token', value.token);
           this.toastr.success('Logged in successfully!', 'Success');
-          this._Router.navigate(['/home']);
+          
+          // Check for role and navigate accordingly
+          const role = this._AuthService.getRole();
+          if (role) {
+            this._AuthService.navigateBasedOnRole(role);
+          } else {
+            this._Router.navigate(['/home']);
+          }
         },
         error: (err) => {
           this.toastr.error(err.error.message, 'Error');
@@ -45,8 +56,7 @@ export class LoginComponent {
       });
     } else {
       this.toastr.warning('Please fill in all required fields.', 'Warning');
+      this.loading = false;
     }
   }
-
-
 }

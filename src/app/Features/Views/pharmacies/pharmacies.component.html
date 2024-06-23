@@ -1,6 +1,16 @@
 <!-- medicine-list.component.html -->
 <app-navbar></app-navbar>
 
+<div class="container-fluid main-service p-0">
+  <div class="position-relative overlay-container">
+    <div class="overlay"></div>
+    <div class="container-sm overlay-text">
+      <h1>Pharmacy</h1>
+      <p>Search For Medicine in our pharmacy</p>
+    </div>
+  </div>
+</div>
+
 <div class="container my-3">
   <div class="row">
     <div class="col-md-4" *ngFor="let medicine of medicines">
@@ -9,7 +19,7 @@
           <div class="time">Available</div> <!-- Customize as needed -->
         </div>
         <div class="logo">
-          <img [src]="medicine.picturUrl" alt="Medicine Logo">
+          <img src="../../../../../assets/images/pharmacy.jpg" alt="Medicine Image" class="test-image">
         </div>
         <div class="lab-name">{{ medicine.name }}</div>
         <div class="lab-name">{{ medicine.description }}</div>

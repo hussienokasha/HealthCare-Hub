@@ -1,82 +1,83 @@
 .card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    box-sizing: border-box;
-    position: relative;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .time {
-    background-color: #e0f7fa;
-    color: #00796b;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  .lab-name {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .test-name {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #00796b;
-    margin-bottom: 10px;
-  }
-  
-  .test-image {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .description {
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  img{
-    width: 40%;
-  }
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .price {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #00796b;
-  }
-  
-  .actions {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .book-button,
-  .add-to-cart-button {
-    background-color: #00796b;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .add-to-cart-button {
-    background-color: #009688;
-  }
-  
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.time {
+  background-color: #e0f7fa;
+  color: #00796b;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.lab-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.test-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #00796b;
+  margin-bottom: 10px;
+}
+
+.test-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 40%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.price {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #00796b;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.book-button,
+.add-to-cart-button {
+  background-color: #00796b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-to-cart-button {
+  background-color: #009688;
+}

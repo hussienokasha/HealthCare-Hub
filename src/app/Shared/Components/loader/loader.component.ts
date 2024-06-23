@@ -8,9 +8,11 @@ import { LoadingService } from 'src/app/Core/Services/loading.service';
   styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent {
-  isLoading = this.loadingService.loading;
+  isLoading = true;
 
-  constructor(private loadingService: LoadingService) {
-
+  imageLoaded() {
+    setTimeout(() => {
+      this.isLoading = false; // Hide the loading spinner
+    }, 1000); // You can adjust the delay as needed
   }
 }
