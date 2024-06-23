@@ -12,26 +12,44 @@
 </div>
 
 <div class="container my-3">
+  <div class="d-flex justify-content-center p-3">
+    <input
+      type="text"
+      class="border border-2 rounded-pill px-3 py-2"
+      placeholder="Search for a medicine"
+      style="outline: none"
+      [(ngModel)]="searchTerm"
+    />
+  </div>
   <div class="row">
-    <div class="col-md-4" *ngFor="let medicine of medicines">
-      <div class="card" style="cursor: pointer;" (click)="navigateToMedicineDetails(medicine.id)">
-        <div class="header">
-          <div class="time">Available</div> <!-- Customize as needed -->
-        </div>
-        <div class="logo">
-          <img src="../../../../../assets/images/pharmacy.jpg" alt="Medicine Image" class="test-image">
-        </div>
-        <div class="lab-name">{{ medicine.name }}</div>
-        <div class="lab-name">{{ medicine.description }}</div>
+    <div class="col-12 col-md-4" *ngFor="let medicine of filteredMedicines">
+      <div
+        class="card p-3"
+        style="cursor: pointer"
+        (click)="navigateToMedicineDetails(medicine.id)"
+      >
+        <span class="badge text-bg-primary rounded-pill ms-auto" style="width: fit-content;">Available</span>
+
+        <img
+          src="{{ medicine.picturUrl }}"
+          alt="Medicine Image"
+          class="object-fit-cover w-50"
+          style=" height: 150px;"
+        />
+
+        <div class="fs-4 fw-medium text-primary">{{ medicine.name }}</div>
+        <div class="text-black-50 overflow-hidden text-nowrap">{{ medicine.description }}</div>
 
         <div class="d-flex align-items-center justify-content-between">
-          <h4 class="labelPrice">{{ medicine.price }} SR</h4>
-          <i class="bi bi-cart-fill"></i> <!-- Adjust as per your shopping cart icon -->
+          <p class="fs-5">{{ medicine.price }} EGP</p>
+          <i
+            class="bi bi-cart fs-4 text-primary"
+            (click)="addToCart(medicine);$event.stopPropagation()"
+          ></i>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 <app-footer></app-footer>

@@ -7,7 +7,7 @@ import { Component} from '@angular/core';
 })
 export class WorkComponent {
 scroll() {
-window.scrollBy(0,1700);
+window.scrollTo(0,1100);
 }
 
   constructor(  ) {}

@@ -77,19 +77,19 @@
               >Contact Us</a
             >
           </li>
-          </ul>
+        </ul>
       </div>
     </div>
-    <li class="nav-item position-relative">
+    <li class="nav-item position-relative me-4">
       <a
-        class="nav-link px-3 text-nowrap"
+        class="nav-link text-nowrap"
         routerLink="/cart"
         routerLinkActive=" text-dark text-nowrap"
         ><i class="bi bi-cart fs-3"></i
       ></a>
       <span
         *ngIf="geCartItemsLength() != 0"
-        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+        class="position-absolute top-0 start-100 badge rounded-pill bg-danger"
       >
         {{ geCartItemsLength() }}
       </span>
