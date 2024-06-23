@@ -20,18 +20,13 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ProfileAvatarComponent } from '../Features/Components/profile-avatar/profile-avatar.component';
 import { AppRoutingModule } from '../app-routing.module';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 import { TimeagoModule } from 'ngx-timeago';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
-
 @NgModule({
-  declarations: [
-    FooterComponent,
-    NavbarComponent,
-    ProfileAvatarComponent
-  ],
+  declarations: [FooterComponent, NavbarComponent, ProfileAvatarComponent],
   imports: [
     ScrollingModule,
     ReactiveFormsModule,
@@ -60,7 +55,6 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 
   ],
   exports: [
-
     FooterComponent,
     NavbarComponent,
     HttpClientModule,
@@ -84,8 +78,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatRadioModule,
     TimeagoModule,
     NgxPaginationModule,
-    ScrollingModule
-  ],
+    ScrollingModule,
 
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

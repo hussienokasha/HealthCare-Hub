@@ -147,10 +147,10 @@ export class AuthService {
   navigateBasedOnRole(role: string) {
     switch (role) {
       case 'Nurse':
-        this.router.navigate(['/dashboard/nurse']);
+        this.router.navigate(['/dashboard/nurse/appointment']);
         break;
       case 'Doctor':
-        this.router.navigate(['/dashboard/doctor']);
+        this.router.navigate(['/dashboard/doctor/appointment']);
         break;
       case 'User':
         this.router.navigate(['/home']);

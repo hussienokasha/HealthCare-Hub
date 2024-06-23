@@ -47,4 +47,11 @@ export class NurseService {
         })
       );
   }
+  getAllAppointments() {
+    return this.http.get(`${this.apiUrl}/Nurse/Get-Appointment`).pipe(
+      catchError((e) => {
+        return throwError(() => e);
+      })
+    );
+  }
 }

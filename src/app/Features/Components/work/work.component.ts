@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-work',
@@ -6,10 +6,9 @@ import { Component} from '@angular/core';
   styleUrls: ['./work.component.scss'],
 })
 export class WorkComponent {
-scroll() {
-window.scrollTo(0,1100);
-}
+  scroll() {
+    window.scrollTo(0, 1000);
+  }
 
-  constructor(  ) {}
-
+  constructor() {}
 }

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Medicine } from 'src/app/Core/Models/medicine';
 import { Test } from 'src/app/Core/Models/test';
+import { PaymentService } from 'src/app/Core/Services/payment.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,11 +9,13 @@ import { Test } from 'src/app/Core/Models/test';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
+  handler: any = null;
+
   testCart: Test[] = [];
   medCart: Medicine[] = [];
-selectedOption: string = 'home';
-
+  constructor() {}
   ngOnInit(): void {
+    this.loadStripe();
     this.getTests();
     this.getMedicines();
   }
@@ -58,5 +61,45 @@ selectedOption: string = 'home';
       medTotal += item.price;
     });
     return testTotal + medTotal;
+  }
+  pay(amount: any) {
+    var handler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_51PUvLmRwM399IrYtbn0HNF7fYcwiRJMZJvVNo1XioIWkpKxlFanyWy8CdkB2va2tcvHIpd8yl337xW76Ya0LpHAW00OZwZclLA',
+      locale: 'auto',
+      token: function (token: any) {
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+        console.log(token);
+        alert('Token Created!!');
+      },
+    });
+
+    handler.open({
+      name: 'Healthcare payment',
+      description: 'add your info',
+      amount: amount * 100,
+    });
+  }
+  loadStripe() {
+    if (!window.document.getElementById('stripe-script')) {
+      var s = window.document.createElement('script');
+      s.id = 'stripe-script';
+      s.type = 'text/javascript';
+      s.src = 'https://checkout.stripe.com/checkout.js';
+      s.onload = () => {
+        this.handler = (<any>window).StripeCheckout.configure({
+          key: 'pk_test_51PUvLmRwM399IrYtbn0HNF7fYcwiRJMZJvVNo1XioIWkpKxlFanyWy8CdkB2va2tcvHIpd8yl337xW76Ya0LpHAW00OZwZclLA',
+          locale: 'auto',
+          token: function (token: any) {
+            // You can access the token ID with `token.id`.
+            // Get the token ID to your server-side code for use.
+            console.log(token);
+            alert('Payment Success!!');
+          },
+        });
+      };
+
+      window.document.body.appendChild(s);
+    }
   }
 }

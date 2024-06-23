@@ -35,6 +35,7 @@ import { ClinicsComponent } from './Features/Components/clinics/clinics.componen
 import { DoctorComponent } from './Features/Components/doctor/doctor.component';
 import { ChangePasswordComponent } from './Features/Views/change-password/change-password.component';
 import { ChecksComponent } from './Features/Views/checks/checks.component';
+import { NurseAppointmentComponent } from './Features/Views/Dashboards/nurse-dash/nurse-appointment/nurse-appointment.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -55,6 +56,11 @@ const routes: Routes = [
     path: 'dashboard/nurse',
     component: NurseDashComponent,
     // canDeactivate: [dashGuard],
+    children: [
+      { path: 'appointments', component: NurseAppointmentComponent },
+      { path: 'feedback', component: FeedbackComponent },
+
+    ],
   },
   { path: 'dashboard/doctor', component: DoctorDashComponent },
   {

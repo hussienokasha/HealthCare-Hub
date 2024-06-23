@@ -50,6 +50,7 @@ import { AboutUsComponent } from './Views/about-us/about-us.component';
 import { ClinicsComponent } from './Components/clinics/clinics.component';
 import { ChecksComponent } from './Views/checks/checks.component';
 import { AskNowComponent } from './Views/ask-now/ask-now.component';
+import { NurseAppointmentComponent } from './Views/Dashboards/nurse-dash/nurse-appointment/nurse-appointment.component';
 register();
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ register();
     DoctorComponent,
     ChecksComponent,
     AskNowComponent,
+    NurseAppointmentComponent,
   
   ],
   imports: [SharedModule],
