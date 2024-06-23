@@ -36,6 +36,8 @@ import { DoctorComponent } from './Features/Components/doctor/doctor.component';
 import { ChangePasswordComponent } from './Features/Views/change-password/change-password.component';
 import { ChecksComponent } from './Features/Views/checks/checks.component';
 import { NurseAppointmentComponent } from './Features/Views/Dashboards/nurse-dash/nurse-appointment/nurse-appointment.component';
+import { DoctorAppointmentComponent } from './Features/Views/Dashboards/doctor-dash/doctor-appointment/doctor-appointment.component';
+import { MessagesComponent } from './Features/Views/Dashboards/doctor-dash/messages/messages.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -62,7 +64,11 @@ const routes: Routes = [
 
     ],
   },
-  { path: 'dashboard/doctor', component: DoctorDashComponent },
+  { path: 'dashboard/doctor', component: DoctorDashComponent ,children:[
+    { path: 'appointments', component: DoctorAppointmentComponent },
+    { path: 'messages', component: MessagesComponent },
+
+  ]},
   {
     path: 'dashboard/admin-lab',
     component: LabDashComponent,

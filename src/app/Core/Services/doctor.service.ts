@@ -55,4 +55,11 @@ export class DoctorService {
       })
     );
   }
+  getAllAppointments(id:number){
+    return this.http.get(`${this.apiUrl}/Doctor/Get-Appointment-Doctor/${id}`).pipe(
+      catchError((e) => {
+        return throwError(() => e);
+      })
+    );
+  }
 }

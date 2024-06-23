@@ -1,0 +1,20 @@
+<div class="bg-white mt-3 rounded-3 overflow-hidden shadow-sm">
+  <p class="p-3 fs-3 fw-semibold text-dark">Appointments</p>
+  <div class="d-flex flex-column gap-3 p-3">
+    <div
+      class="appointment-card bg-light rounded-3 p-3 d-flex flex-wrap gap-3 align-items-center justify-content-between shadow-sm"
+      *ngFor="let appointment of appointments"
+    >
+      <div class="appointment-info">
+        <p class="m-0 fs-5 fw-medium text-primary">{{ appointment.userName }}</p>
+        <p class="m-0 text-muted">{{ appointment.bookingDate | date }}</p>
+      </div>
+      <div class="appointment-details d-flex flex-column flex-md-row align-items-md-center gap-2">
+        <p class="badge rounded-pill bg-info text-dark m-0">{{ appointment.status }}</p>
+        <p class="m-0 text-muted">{{ appointment.location }}</p>
+        <p class="m-0 fw-semibold text-dark">{{ appointment.testName }}</p>
+      </div>
+      <button class="btn btn-sm btn-outline-success rounded-pill">Accept</button>
+    </div>
+  </div>
+</div>

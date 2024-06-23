@@ -51,6 +51,8 @@ import { ClinicsComponent } from './Components/clinics/clinics.component';
 import { ChecksComponent } from './Views/checks/checks.component';
 import { AskNowComponent } from './Views/ask-now/ask-now.component';
 import { NurseAppointmentComponent } from './Views/Dashboards/nurse-dash/nurse-appointment/nurse-appointment.component';
+import { DoctorAppointmentComponent } from './Views/Dashboards/doctor-dash/doctor-appointment/doctor-appointment.component';
+import { MessagesComponent } from './Views/Dashboards/doctor-dash/messages/messages.component';
 register();
 @NgModule({
   declarations: [
@@ -104,6 +106,8 @@ register();
     ChecksComponent,
     AskNowComponent,
     NurseAppointmentComponent,
+    DoctorAppointmentComponent,
+    MessagesComponent,
   
   ],
   imports: [SharedModule],

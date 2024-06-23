@@ -12,15 +12,9 @@ export class NurseAppointmentComponent {
   ngOnInit() {
     this.getAllAppointments()
   }
-  dataSource: any[] = this.appointments
 
-  displayedColumns: string[] = [
-    'userName',
-    '',
-    'status',
-    'location',
-    'testName',
-  ];
+
+
   getAllAppointments() {
     this.appointment.getAllAppointments().subscribe({
       next: (data: any) => {
